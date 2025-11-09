@@ -12,18 +12,28 @@
 
 Este proyecto implementa un **sistema completo de MLOps desplegado en Kubernetes** que automatiza todo el ciclo de vida del Machine Learning: desde la recolección y procesamiento de datos hasta el entrenamiento de modelos, despliegue en producción y monitoreo continuo.
 
+
 ### Objetivos Principales
 
- **Orquestación con Apache Airflow**: DAGs para recolección, procesamiento y almacenamiento de datos  
- **Registro de experimentos con MLflow**: Tracking de modelos y artefactos con backend PostgreSQL y bucket S3  
- **API de Inferencia con FastAPI**: Consumo automático del modelo en producción desde MLflow  
- **Interfaz de usuario con Streamlit**: UI interactiva para realizar predicciones  
- **Observabilidad con Prometheus y Grafana**: Monitoreo de métricas y dashboards  
- **Pruebas de carga con Locust**: Determinación de capacidad máxima de usuarios concurrentes  
- **Infraestructura AWS**: API de datos en EC2 con encendido/apagado automático  
- **Despliegue en Kubernetes**: Todos los servicios orquestados en contenedores  
+✅ **Orquestación con Apache Airflow**: Creación de DAGs para la recolección, procesamiento y almacenamiento de datos de manera automatizada.  
 
----
+✅ **Registro de experimentos con MLflow**: Seguimiento de modelos y artefactos con un backend SQL (MySQL) para metadatos y almacenamiento de artefactos en un bucket S3.  
+
+✅ **API de Inferencia con FastAPI**: Creación de una API para consumir el modelo de mejor desempeño desde MLflow y exponerla para inferencias.  
+
+✅ **Interfaz de usuario con Streamlit**: Desarrollo de una interfaz gráfica interactiva para permitir a los usuarios realizar predicciones de forma sencilla e intuitiva.  
+
+✅ **Observabilidad con Prometheus y Grafana**: Monitoreo de métricas del sistema y creación de dashboards visuales para observar el rendimiento y uso de la infraestructura.  
+
+✅ **Pruebas de carga con Locust**: Evaluación de la capacidad máxima de usuarios concurrentes para asegurar que la infraestructura soporte una alta carga de trabajo.  
+
+✅ **Infraestructura AWS**: Despliegue de la API de datos en EC2, con encendido y apagado automático para optimizar el uso de recursos en función de la demanda.  
+
+✅ **Despliegue en Kubernetes**: Orquestación de los servicios principales (FastAPI, Streamlit, Prometheus, Grafana) en contenedores dentro de un clúster de Kubernetes, mientras que Airflow y MLflow corren fuera de Kubernetes pero se integran con el resto de los servicios.
+
+
+
+
 
 ##  Dataset: Diabetes 130-US Hospitals (1999-2008)
 
