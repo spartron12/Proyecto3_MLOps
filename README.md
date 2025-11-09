@@ -8,20 +8,20 @@
 
 ---
 
-## 📋 Descripción del Proyecto
+##  Descripción del Proyecto
 
 Este proyecto implementa un **sistema completo de MLOps desplegado en Kubernetes** que automatiza todo el ciclo de vida del Machine Learning: desde la recolección y procesamiento de datos hasta el entrenamiento de modelos, despliegue en producción y monitoreo continuo.
 
 ### Objetivos Principales
 
-✅ **Orquestación con Apache Airflow**: DAGs para recolección, procesamiento y almacenamiento de datos  
-✅ **Registro de experimentos con MLflow**: Tracking de modelos y artefactos con backend PostgreSQL y bucket S3  
-✅ **API de Inferencia con FastAPI**: Consumo automático del modelo en producción desde MLflow  
-✅ **Interfaz de usuario con Streamlit**: UI interactiva para realizar predicciones  
-✅ **Observabilidad con Prometheus y Grafana**: Monitoreo de métricas y dashboards  
-✅ **Pruebas de carga con Locust**: Determinación de capacidad máxima de usuarios concurrentes  
-✅ **Infraestructura AWS**: API de datos en EC2 con encendido/apagado automático  
-✅ **Despliegue en Kubernetes**: Todos los servicios orquestados en contenedores  
+ **Orquestación con Apache Airflow**: DAGs para recolección, procesamiento y almacenamiento de datos  
+ **Registro de experimentos con MLflow**: Tracking de modelos y artefactos con backend PostgreSQL y bucket S3  
+ **API de Inferencia con FastAPI**: Consumo automático del modelo en producción desde MLflow  
+ **Interfaz de usuario con Streamlit**: UI interactiva para realizar predicciones  
+ **Observabilidad con Prometheus y Grafana**: Monitoreo de métricas y dashboards  
+ **Pruebas de carga con Locust**: Determinación de capacidad máxima de usuarios concurrentes  
+ **Infraestructura AWS**: API de datos en EC2 con encendido/apagado automático  
+ **Despliegue en Kubernetes**: Todos los servicios orquestados en contenedores  
 
 ---
 
