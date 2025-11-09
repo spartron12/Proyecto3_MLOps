@@ -15,7 +15,7 @@ Este proyecto implementa un **sistema completo de MLOps desplegado en Kubernetes
 ### Objetivos Principales
 
 ✅ **Orquestación con Apache Airflow**: DAGs para recolección, procesamiento y almacenamiento de datos  
-✅ **Registro de experimentos con MLflow**: Tracking de modelos y artefactos con backend SQL y bucket S3  
+✅ **Registro de experimentos con MLflow**: Tracking de modelos y artefactos con backend PostgreSQL y bucket S3  
 ✅ **API de Inferencia con FastAPI**: Consumo automático del modelo en producción desde MLflow  
 ✅ **Interfaz de usuario con Streamlit**: UI interactiva para realizar predicciones  
 ✅ **Observabilidad con Prometheus y Grafana**: Monitoreo de métricas y dashboards  
@@ -54,7 +54,7 @@ El conjunto de datos representa **10 años de atención clínica en 130 hospital
 
 ## 🏗️ Arquitectura del Sistema
 
-![Arquitectura MLOps](images/arquitectura_mlops.png)
+![Arquitectura MLOps](images/arquitectura.png)
 
 ### Diagrama de Flujo Completo
 
