@@ -1,0 +1,85 @@
+[2025-11-08T01:59:55.137+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.prueba_modelo scheduled__2025-11-08T01:40:00+00:00 [queued]>
+[2025-11-08T01:59:55.147+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.prueba_modelo scheduled__2025-11-08T01:40:00+00:00 [queued]>
+[2025-11-08T01:59:55.147+0000] {taskinstance.py:1331} INFO - Starting attempt 2 of 2
+[2025-11-08T01:59:55.161+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): prueba_modelo> on 2025-11-08 01:40:00+00:00
+[2025-11-08T01:59:55.169+0000] {standard_task_runner.py:57} INFO - Started process 70 to run task
+[2025-11-08T01:59:55.174+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'prueba_modelo', 'scheduled__2025-11-08T01:40:00+00:00', '--job-id', '581', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmpa3f_29z6']
+[2025-11-08T01:59:55.177+0000] {standard_task_runner.py:85} INFO - Job 581: Subtask prueba_modelo
+[2025-11-08T01:59:55.243+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.prueba_modelo scheduled__2025-11-08T01:40:00+00:00 [running]> on host ca20c17085b3
+[2025-11-08T01:59:55.334+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='prueba_modelo' AIRFLOW_CTX_EXECUTION_DATE='2025-11-08T01:40:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-11-08T01:40:00+00:00'
+[2025-11-08T01:59:55.335+0000] {logging_mixin.py:149} INFO - 📘 Cargando datos de penguins...
+[2025-11-08T01:59:55.368+0000] {logging_mixin.py:149} INFO - 🔗 Conectando a MLflow en http://10.43.100.98:8084
+[2025-11-08T01:59:56.287+0000] {logging_mixin.py:149} INFO - ⚙️ Entrenando modelo...
+[2025-11-08T01:59:56.542+0000] {logging_mixin.py:149} INFO - 🧾 Registrando modelo en MLflow...
+[2025-11-08T01:59:56.653+0000] {logging_mixin.py:149} WARNING - 2025/11/08 01:59:56 WARNING mlflow.utils.git_utils: Failed to import Git (the Git executable is probably not on your PATH), so Git SHA is not available. Error: Failed to initialize: Bad git executable.
+The git executable must be specified in one of the following ways:
+    - be included in your $PATH
+    - be set via $GIT_PYTHON_GIT_EXECUTABLE
+    - explicitly set via git.refresh(<full-path-to-git-executable>)
+
+All git commands will error until this is rectified.
+
+This initial message can be silenced or aggravated in the future by setting the
+$GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+    - quiet|q|silence|s|silent|none|n|0: for no message or exception
+    - warn|w|warning|log|l|1: for a warning message (logging level CRITICAL, displayed by default)
+    - error|e|exception|raise|r|2: for a raised exception
+
+Example:
+    export GIT_PYTHON_REFRESH=quiet
+[2025-11-08T02:00:01.852+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.9/site-packages/_distutils_hack/__init__.py:33: UserWarning: Setuptools is replacing distutils.
+  warnings.warn("Setuptools is replacing distutils.")
+
+[2025-11-08T02:00:02.120+0000] {credentials.py:1123} INFO - Found credentials in environment variables.
+[2025-11-08T02:00:02.339+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/boto3/s3/transfer.py", line 292, in upload_file
+    future.result()
+  File "/home/airflow/.local/lib/python3.9/site-packages/s3transfer/futures.py", line 103, in result
+    return self._coordinator.result()
+  File "/home/airflow/.local/lib/python3.9/site-packages/s3transfer/futures.py", line 266, in result
+    raise self._exception
+  File "/home/airflow/.local/lib/python3.9/site-packages/s3transfer/tasks.py", line 139, in __call__
+    return self._execute_main(kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/s3transfer/tasks.py", line 162, in _execute_main
+    return_value = self._main(**kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/s3transfer/upload.py", line 758, in _main
+    client.put_object(Bucket=bucket, Key=key, Body=body, **extra_args)
+  File "/home/airflow/.local/lib/python3.9/site-packages/botocore/client.py", line 530, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/botocore/client.py", line 964, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.NoSuchBucket: An error occurred (NoSuchBucket) when calling the PutObject operation: The specified bucket does not exist
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/orquestador.py", line 75, in prueba_modelo
+    mlflow.sklearn.log_model(
+  File "/home/airflow/.local/lib/python3.9/site-packages/mlflow/sklearn/__init__.py", line 424, in log_model
+    return Model.log(
+  File "/home/airflow/.local/lib/python3.9/site-packages/mlflow/models/model.py", line 548, in log
+    mlflow.tracking.fluent.log_artifacts(local_path, mlflow_model.artifact_path)
+  File "/home/airflow/.local/lib/python3.9/site-packages/mlflow/tracking/fluent.py", line 817, in log_artifacts
+    MlflowClient().log_artifacts(run_id, local_dir, artifact_path)
+  File "/home/airflow/.local/lib/python3.9/site-packages/mlflow/tracking/client.py", line 1074, in log_artifacts
+    self._tracking_client.log_artifacts(run_id, local_dir, artifact_path)
+  File "/home/airflow/.local/lib/python3.9/site-packages/mlflow/tracking/_tracking_service/client.py", line 448, in log_artifacts
+    self._get_artifact_repo(run_id).log_artifacts(local_dir, artifact_path)
+  File "/home/airflow/.local/lib/python3.9/site-packages/mlflow/store/artifact/s3_artifact_repo.py", line 171, in log_artifacts
+    self._upload_file(
+  File "/home/airflow/.local/lib/python3.9/site-packages/mlflow/store/artifact/s3_artifact_repo.py", line 147, in _upload_file
+    s3_client.upload_file(Filename=local_file, Bucket=bucket, Key=key, ExtraArgs=extra_args)
+  File "/home/airflow/.local/lib/python3.9/site-packages/boto3/s3/inject.py", line 143, in upload_file
+    return transfer.upload_file(
+  File "/home/airflow/.local/lib/python3.9/site-packages/boto3/s3/transfer.py", line 298, in upload_file
+    raise S3UploadFailedError(
+boto3.exceptions.S3UploadFailedError: Failed to upload /tmp/tmp5t1_v_87/model/input_example.json to mlflows3/1/f447945caaa547a09c06a725202df922/artifacts/model/input_example.json: An error occurred (NoSuchBucket) when calling the PutObject operation: The specified bucket does not exist
+[2025-11-08T02:00:02.389+0000] {taskinstance.py:1368} INFO - Marking task as FAILED. dag_id=orquestador, task_id=prueba_modelo, execution_date=20251108T014000, start_date=20251108T015955, end_date=20251108T020002
+[2025-11-08T02:00:02.415+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 581 for task prueba_modelo (Failed to upload /tmp/tmp5t1_v_87/model/input_example.json to mlflows3/1/f447945caaa547a09c06a725202df922/artifacts/model/input_example.json: An error occurred (NoSuchBucket) when calling the PutObject operation: The specified bucket does not exist; 70)
+[2025-11-08T02:00:02.465+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2025-11-08T02:00:02.499+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check

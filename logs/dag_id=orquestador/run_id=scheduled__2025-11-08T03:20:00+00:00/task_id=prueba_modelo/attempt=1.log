@@ -1,0 +1,43 @@
+[2025-11-08T03:32:15.725+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.prueba_modelo scheduled__2025-11-08T03:20:00+00:00 [queued]>
+[2025-11-08T03:32:15.745+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.prueba_modelo scheduled__2025-11-08T03:20:00+00:00 [queued]>
+[2025-11-08T03:32:15.746+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-08T03:32:15.764+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): prueba_modelo> on 2025-11-08 03:20:00+00:00
+[2025-11-08T03:32:15.779+0000] {standard_task_runner.py:57} INFO - Started process 211 to run task
+[2025-11-08T03:32:15.793+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'prueba_modelo', 'scheduled__2025-11-08T03:20:00+00:00', '--job-id', '612', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmpqlnzx6w5']
+[2025-11-08T03:32:15.797+0000] {standard_task_runner.py:85} INFO - Job 612: Subtask prueba_modelo
+[2025-11-08T03:32:15.887+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.prueba_modelo scheduled__2025-11-08T03:20:00+00:00 [running]> on host 07d7237ee251
+[2025-11-08T03:32:16.010+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='prueba_modelo' AIRFLOW_CTX_EXECUTION_DATE='2025-11-08T03:20:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-11-08T03:20:00+00:00'
+[2025-11-08T03:32:16.013+0000] {logging_mixin.py:149} INFO - 📘 Cargando datos de penguins...
+[2025-11-08T03:32:16.033+0000] {logging_mixin.py:149} INFO - 🔗 Conectando a MLflow en http://10.43.100.98:8084
+[2025-11-08T03:32:16.081+0000] {logging_mixin.py:149} INFO - ⚙️ Entrenando modelo...
+[2025-11-08T03:32:16.606+0000] {logging_mixin.py:149} INFO - 🧾 Registrando modelo en MLflow...
+[2025-11-08T03:32:16.668+0000] {logging_mixin.py:149} WARNING - 2025/11/08 03:32:16 WARNING mlflow.utils.git_utils: Failed to import Git (the Git executable is probably not on your PATH), so Git SHA is not available. Error: Failed to initialize: Bad git executable.
+The git executable must be specified in one of the following ways:
+    - be included in your $PATH
+    - be set via $GIT_PYTHON_GIT_EXECUTABLE
+    - explicitly set via git.refresh(<full-path-to-git-executable>)
+
+All git commands will error until this is rectified.
+
+This initial message can be silenced or aggravated in the future by setting the
+$GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+    - quiet|q|silence|s|silent|none|n|0: for no message or exception
+    - warn|w|warning|log|l|1: for a warning message (logging level CRITICAL, displayed by default)
+    - error|e|exception|raise|r|2: for a raised exception
+
+Example:
+    export GIT_PYTHON_REFRESH=quiet
+[2025-11-08T03:32:20.704+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.9/site-packages/_distutils_hack/__init__.py:33: UserWarning: Setuptools is replacing distutils.
+  warnings.warn("Setuptools is replacing distutils.")
+
+[2025-11-08T03:32:20.818+0000] {credentials.py:1123} INFO - Found credentials in environment variables.
+[2025-11-08T03:32:20.996+0000] {logging_mixin.py:149} INFO - ✅ Modelo logueado con accuracy = 1.0000
+[2025-11-08T03:32:21.054+0000] {logging_mixin.py:149} WARNING - Registered model 'logistic_regression' already exists. Creating a new version of this model...
+[2025-11-08T03:32:21.087+0000] {logging_mixin.py:149} WARNING - 2025/11/08 03:32:21 INFO mlflow.tracking._model_registry.client: Waiting up to 300 seconds for model version to finish creation. Model name: logistic_regression, version 2
+[2025-11-08T03:32:21.087+0000] {logging_mixin.py:149} WARNING - Created version '2' of model 'logistic_regression'.
+[2025-11-08T03:32:21.105+0000] {logging_mixin.py:149} INFO - 🚀 Modelo logistic_regression v1 promovido a 'Production'
+[2025-11-08T03:32:21.106+0000] {logging_mixin.py:149} INFO - 🎉 ¡Proceso completado exitosamente!
+[2025-11-08T03:32:21.107+0000] {python.py:183} INFO - Done. Returned value was: None
+[2025-11-08T03:32:21.119+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=prueba_modelo, execution_date=20251108T032000, start_date=20251108T033215, end_date=20251108T033221
+[2025-11-08T03:32:21.198+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-11-08T03:32:21.226+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check

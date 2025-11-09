@@ -1,0 +1,28 @@
+[2025-11-08T20:24:17.041+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.wait_for_model_file scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T20:24:17.052+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.wait_for_model_file scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T20:24:17.052+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-08T20:24:17.069+0000] {taskinstance.py:1350} INFO - Executing <Task(FileSensor): wait_for_model_file> on 2023-01-01 00:00:00+00:00
+[2025-11-08T20:24:17.080+0000] {standard_task_runner.py:57} INFO - Started process 14060 to run task
+[2025-11-08T20:24:17.091+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'wait_for_model_file', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '761', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmpk1u99bad']
+[2025-11-08T20:24:17.096+0000] {standard_task_runner.py:85} INFO - Job 761: Subtask wait_for_model_file
+[2025-11-08T20:24:17.414+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.wait_for_model_file scheduled__2023-01-01T00:00:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T20:24:17.508+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='wait_for_model_file' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-08T20:24:17.532+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/sensors/base.py", line 225, in execute
+    raise e
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/sensors/base.py", line 212, in execute
+    poke_return = self.poke(context)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/sensors/filesystem.py", line 61, in poke
+    hook = FSHook(self.fs_conn_id)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/hooks/filesystem.py", line 38, in __init__
+    conn = self.get_connection(conn_id)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/hooks/base.py", line 72, in get_connection
+    conn = Connection.get_connection_from_secrets(conn_id)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/connection.py", line 434, in get_connection_from_secrets
+    raise AirflowNotFoundException(f"The conn_id `{conn_id}` isn't defined")
+airflow.exceptions.AirflowNotFoundException: The conn_id `fs_default` isn't defined
+[2025-11-08T20:24:17.537+0000] {taskinstance.py:1368} INFO - Marking task as UP_FOR_RETRY. dag_id=orquestador, task_id=wait_for_model_file, execution_date=20230101T000000, start_date=20251108T202417, end_date=20251108T202417
+[2025-11-08T20:24:17.550+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 761 for task wait_for_model_file (The conn_id `fs_default` isn't defined; 14060)
+[2025-11-08T20:24:17.577+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2025-11-08T20:24:17.782+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check

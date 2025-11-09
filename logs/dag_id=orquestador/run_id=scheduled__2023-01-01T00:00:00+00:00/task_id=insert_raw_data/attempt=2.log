@@ -1,0 +1,255 @@
+[2025-11-08T04:02:04.664+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T04:02:04.680+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T04:02:04.680+0000] {taskinstance.py:1331} INFO - Starting attempt 2 of 2
+[2025-11-08T04:02:04.691+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): insert_raw_data> on 2023-01-01 00:00:00+00:00
+[2025-11-08T04:02:04.704+0000] {standard_task_runner.py:57} INFO - Started process 204 to run task
+[2025-11-08T04:02:04.710+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'insert_raw_data', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '629', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmpf_yciew1']
+[2025-11-08T04:02:04.715+0000] {standard_task_runner.py:85} INFO - Job 629: Subtask insert_raw_data
+[2025-11-08T04:02:05.071+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T04:02:05.139+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='insert_raw_data' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-08T04:02:06.876+0000] {logging_mixin.py:149} INFO - Error al conectar con la API: Expecting value: line 1 column 15 (char 14)
+[2025-11-08T04:02:06.878+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 165, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5745, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5753, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'A1Cresult'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/scripts/funciones.py", line 122, in insert_data
+    df['A1Cresult'] = df['A1Cresult'].fillna('0')
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 3804, in get_loc
+    raise KeyError(key) from err
+KeyError: 'A1Cresult'
+[2025-11-08T04:02:06.893+0000] {taskinstance.py:1368} INFO - Marking task as FAILED. dag_id=orquestador, task_id=insert_raw_data, execution_date=20230101T000000, start_date=20251108T040204, end_date=20251108T040206
+[2025-11-08T04:02:06.906+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 629 for task insert_raw_data ('A1Cresult'; 204)
+[2025-11-08T04:02:06.950+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2025-11-08T04:02:07.192+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-08T04:17:54.127+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T04:17:54.140+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T04:17:54.140+0000] {taskinstance.py:1331} INFO - Starting attempt 2 of 2
+[2025-11-08T04:17:54.153+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): insert_raw_data> on 2023-01-01 00:00:00+00:00
+[2025-11-08T04:17:54.163+0000] {standard_task_runner.py:57} INFO - Started process 497 to run task
+[2025-11-08T04:17:54.168+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'insert_raw_data', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '643', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmpg707wrjh']
+[2025-11-08T04:17:54.171+0000] {standard_task_runner.py:85} INFO - Job 643: Subtask insert_raw_data
+[2025-11-08T04:17:54.480+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T04:17:54.556+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='insert_raw_data' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-08T04:17:56.296+0000] {logging_mixin.py:149} INFO - Error al conectar con la API: Expecting value: line 1 column 15 (char 14)
+[2025-11-08T04:17:56.300+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 165, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5745, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5753, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'A1Cresult'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/scripts/funciones.py", line 122, in insert_data
+    df['A1Cresult'] = df['A1Cresult'].fillna('0')
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 3804, in get_loc
+    raise KeyError(key) from err
+KeyError: 'A1Cresult'
+[2025-11-08T04:17:56.316+0000] {taskinstance.py:1368} INFO - Marking task as FAILED. dag_id=orquestador, task_id=insert_raw_data, execution_date=20230101T000000, start_date=20251108T041754, end_date=20251108T041756
+[2025-11-08T04:17:56.339+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 643 for task insert_raw_data ('A1Cresult'; 497)
+[2025-11-08T04:17:56.389+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2025-11-08T04:17:56.634+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-08T04:33:01.792+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T04:33:01.805+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T04:33:01.805+0000] {taskinstance.py:1331} INFO - Starting attempt 2 of 2
+[2025-11-08T04:33:01.820+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): insert_raw_data> on 2023-01-01 00:00:00+00:00
+[2025-11-08T04:33:01.829+0000] {standard_task_runner.py:57} INFO - Started process 784 to run task
+[2025-11-08T04:33:01.834+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'insert_raw_data', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '657', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmp1v3gd3cy']
+[2025-11-08T04:33:01.838+0000] {standard_task_runner.py:85} INFO - Job 657: Subtask insert_raw_data
+[2025-11-08T04:33:02.135+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T04:33:02.218+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='insert_raw_data' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-08T04:33:04.024+0000] {logging_mixin.py:149} INFO - Error al conectar con la API: Expecting value: line 1 column 15 (char 14)
+[2025-11-08T04:33:04.027+0000] {logging_mixin.py:149} INFO - 📋 Columnas antes de fillna: []
+[2025-11-08T04:33:04.028+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 165, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5745, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5753, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'A1Cresult'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/scripts/funciones.py", line 123, in insert_data
+    df['A1Cresult'] = df['A1Cresult'].fillna('0')
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 3804, in get_loc
+    raise KeyError(key) from err
+KeyError: 'A1Cresult'
+[2025-11-08T04:33:04.046+0000] {taskinstance.py:1368} INFO - Marking task as FAILED. dag_id=orquestador, task_id=insert_raw_data, execution_date=20230101T000000, start_date=20251108T043301, end_date=20251108T043304
+[2025-11-08T04:33:04.059+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 657 for task insert_raw_data ('A1Cresult'; 784)
+[2025-11-08T04:33:04.103+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2025-11-08T04:33:04.430+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-08T04:45:00.464+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T04:45:00.487+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T04:45:00.487+0000] {taskinstance.py:1331} INFO - Starting attempt 2 of 2
+[2025-11-08T04:45:00.500+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): insert_raw_data> on 2023-01-01 00:00:00+00:00
+[2025-11-08T04:45:00.508+0000] {standard_task_runner.py:57} INFO - Started process 1101 to run task
+[2025-11-08T04:45:00.513+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'insert_raw_data', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '683', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmpewq57s_i']
+[2025-11-08T04:45:00.516+0000] {standard_task_runner.py:85} INFO - Job 683: Subtask insert_raw_data
+[2025-11-08T04:45:00.815+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T04:45:00.929+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='insert_raw_data' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-08T04:45:02.604+0000] {logging_mixin.py:149} INFO - Error al conectar con la API: Expecting value: line 1 column 15 (char 14)
+[2025-11-08T04:45:02.606+0000] {logging_mixin.py:149} INFO - (0, 0)
+[2025-11-08T04:45:02.607+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 165, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5745, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5753, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'A1Cresult'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/scripts/funciones.py", line 124, in insert_data
+    df['A1Cresult'] = df['A1Cresult'].fillna('0')
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 3804, in get_loc
+    raise KeyError(key) from err
+KeyError: 'A1Cresult'
+[2025-11-08T04:45:02.618+0000] {taskinstance.py:1368} INFO - Marking task as FAILED. dag_id=orquestador, task_id=insert_raw_data, execution_date=20230101T000000, start_date=20251108T044500, end_date=20251108T044502
+[2025-11-08T04:45:02.633+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 683 for task insert_raw_data ('A1Cresult'; 1101)
+[2025-11-08T04:45:02.694+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2025-11-08T04:45:02.917+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-08T17:16:15.295+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T17:16:15.308+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T17:16:15.308+0000] {taskinstance.py:1331} INFO - Starting attempt 2 of 2
+[2025-11-08T17:16:15.320+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): insert_raw_data> on 2023-01-01 00:00:00+00:00
+[2025-11-08T17:16:15.329+0000] {standard_task_runner.py:57} INFO - Started process 11141 to run task
+[2025-11-08T17:16:15.337+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'insert_raw_data', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '697', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmpa3vzhzym']
+[2025-11-08T17:16:15.340+0000] {standard_task_runner.py:85} INFO - Job 697: Subtask insert_raw_data
+[2025-11-08T17:16:15.645+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T17:16:15.729+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='insert_raw_data' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-08T17:16:17.849+0000] {logging_mixin.py:149} INFO - Error al conectar con la API: Expecting value: line 1 column 15 (char 14)
+[2025-11-08T17:16:17.853+0000] {logging_mixin.py:149} INFO - (0, 0)
+[2025-11-08T17:16:17.854+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 165, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5745, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5753, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'A1Cresult'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/scripts/funciones.py", line 124, in insert_data
+    df['A1Cresult'] = df['A1Cresult'].fillna('0')
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 3804, in get_loc
+    raise KeyError(key) from err
+KeyError: 'A1Cresult'
+[2025-11-08T17:16:17.875+0000] {taskinstance.py:1368} INFO - Marking task as FAILED. dag_id=orquestador, task_id=insert_raw_data, execution_date=20230101T000000, start_date=20251108T171615, end_date=20251108T171617
+[2025-11-08T17:16:17.889+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 697 for task insert_raw_data ('A1Cresult'; 11141)
+[2025-11-08T17:16:17.916+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2025-11-08T17:16:18.172+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-08T17:45:44.214+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T17:45:44.228+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T17:45:44.228+0000] {taskinstance.py:1331} INFO - Starting attempt 2 of 2
+[2025-11-08T17:45:44.250+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): insert_raw_data> on 2023-01-01 00:00:00+00:00
+[2025-11-08T17:45:44.258+0000] {standard_task_runner.py:57} INFO - Started process 11764 to run task
+[2025-11-08T17:45:44.264+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'insert_raw_data', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '731', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmp913wbu7t']
+[2025-11-08T17:45:44.267+0000] {standard_task_runner.py:85} INFO - Job 731: Subtask insert_raw_data
+[2025-11-08T17:45:44.616+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T17:45:44.689+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='insert_raw_data' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-08T17:45:47.237+0000] {logging_mixin.py:149} INFO - Cargado chunk con 15000 filas.
+[2025-11-08T17:45:47.246+0000] {logging_mixin.py:149} INFO - (15000, 50)
+[2025-11-08T17:45:47.277+0000] {logging_mixin.py:149} INFO - DataFrame cargado con 15000 filas para insertar.
+[2025-11-08T17:45:47.345+0000] {logging_mixin.py:149} INFO - Insertando datos en la tabla diabetes_raw...
+[2025-11-08T17:45:47.398+0000] {logging_mixin.py:149} INFO -   A1Cresult acarbose acetohexamide  ...  tolbutamide  troglitazone weight
+0         0       No            No  ...           No            No      ?
+1         0       No            No  ...           No            No      ?
+2        >8       No            No  ...           No            No      ?
+3         0       No            No  ...           No            No      ?
+4         0       No            No  ...           No            No      ?
+
+[5 rows x 50 columns]
+[2025-11-08T17:45:47.398+0000] {logging_mixin.py:149} INFO - columnas
+[2025-11-08T17:45:47.399+0000] {logging_mixin.py:149} INFO - Index(['A1Cresult', 'acarbose', 'acetohexamide', 'admission_source_id',
+       'admission_type_id', 'age', 'cambio', 'chlorpropamide', 'citoglipton',
+       'diabetesMed', 'diag_1', 'diag_2', 'diag_3', 'discharge_disposition_id',
+       'encounter_id', 'examide', 'gender', 'glimepiride',
+       'glimepiride_pioglitazone', 'glipizide', 'glipizide_metformin',
+       'glyburide', 'glyburide_metformin', 'insulin', 'max_glu_serum',
+       'medical_specialty', 'metformin', 'metformin_pioglitazone',
+       'metformin_rosiglitazone', 'miglitol', 'nateglinide',
+       'num_lab_procedures', 'num_medications', 'num_procedures',
+       'number_diagnoses', 'number_emergency', 'number_inpatient',
+       'number_outpatient', 'patient_nbr', 'payer_code', 'pioglitazone',
+       'race', 'readmitted', 'repaglinide', 'rosiglitazone',
+       'time_in_hospital', 'tolazamide', 'tolbutamide', 'troglitazone',
+       'weight'],
+      dtype='object')
+[2025-11-08T17:45:50.334+0000] {crypto.py:83} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-11-08T17:45:50.335+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-08T17:45:50.368+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/scripts/funciones.py", line 220, in insert_data
+    cursor.executemany(insert_sql, values)
+  File "/home/airflow/.local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 230, in executemany
+    return self._do_execute_many(
+  File "/home/airflow/.local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 261, in _do_execute_many
+    rows += self.execute(sql + postfix)
+  File "/home/airflow/.local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/home/airflow/.local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/home/airflow/.local/lib/python3.9/site-packages/MySQLdb/connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+MySQLdb.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-pioglitazone, glipizide, glipizide-metformin,\n        glyburide, glyburide-metf' at line 6")
+[2025-11-08T17:45:50.382+0000] {taskinstance.py:1368} INFO - Marking task as FAILED. dag_id=orquestador, task_id=insert_raw_data, execution_date=20230101T000000, start_date=20251108T174544, end_date=20251108T174550
+[2025-11-08T17:45:50.394+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 731 for task insert_raw_data ((1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-pioglitazone, glipizide, glipizide-metformin,\n        glyburide, glyburide-metf' at line 6"); 11764)
+[2025-11-08T17:45:50.444+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2025-11-08T17:45:50.663+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check

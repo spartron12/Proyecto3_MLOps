@@ -1,0 +1,200 @@
+[2025-11-08T20:23:35.757+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.inserta_en_todas_las_tablas scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T20:23:35.771+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.inserta_en_todas_las_tablas scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T20:23:35.771+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-08T20:23:35.787+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): inserta_en_todas_las_tablas> on 2023-01-01 00:00:00+00:00
+[2025-11-08T20:23:35.797+0000] {standard_task_runner.py:57} INFO - Started process 14015 to run task
+[2025-11-08T20:23:35.802+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'inserta_en_todas_las_tablas', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '758', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmppr9sxyol']
+[2025-11-08T20:23:35.806+0000] {standard_task_runner.py:85} INFO - Job 758: Subtask inserta_en_todas_las_tablas
+[2025-11-08T20:23:36.115+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.inserta_en_todas_las_tablas scheduled__2023-01-01T00:00:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T20:23:36.201+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='inserta_en_todas_las_tablas' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-08T20:23:36.203+0000] {crypto.py:83} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-11-08T20:23:36.205+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-08T20:23:36.221+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.9/site-packages/***/providers/common/sql/hooks/sql.py:201: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+  return psql.read_sql(sql, con=conn, params=parameters, **kwargs)
+
+[2025-11-08T20:23:39.598+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-08T20:23:41.579+0000] {logging_mixin.py:149} INFO - 10742 registros insertados en diabetes_clean_train
+[2025-11-08T20:23:42.891+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-08T20:23:43.705+0000] {logging_mixin.py:149} INFO - 4262 registros insertados en diabetes_clean_val
+[2025-11-08T20:23:44.306+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-08T20:23:44.693+0000] {logging_mixin.py:149} INFO - 2204 registros insertados en diabetes_clean_test
+[2025-11-08T20:23:44.694+0000] {logging_mixin.py:149} INFO - Datos de entrenamiento y prueba insertados correctamente.
+[2025-11-08T20:23:44.697+0000] {python.py:183} INFO - Done. Returned value was: None
+[2025-11-08T20:23:44.714+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=inserta_en_todas_las_tablas, execution_date=20230101T000000, start_date=20251108T202335, end_date=20251108T202344
+[2025-11-08T20:23:44.764+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-11-08T20:23:44.984+0000] {taskinstance.py:2674} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-08T20:51:46.940+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.inserta_en_todas_las_tablas scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T20:51:46.952+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.inserta_en_todas_las_tablas scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T20:51:46.952+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-08T20:51:46.965+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): inserta_en_todas_las_tablas> on 2023-01-01 00:00:00+00:00
+[2025-11-08T20:51:46.982+0000] {standard_task_runner.py:57} INFO - Started process 14569 to run task
+[2025-11-08T20:51:46.986+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'inserta_en_todas_las_tablas', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '780', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmpdaukumas']
+[2025-11-08T20:51:46.990+0000] {standard_task_runner.py:85} INFO - Job 780: Subtask inserta_en_todas_las_tablas
+[2025-11-08T20:51:47.304+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.inserta_en_todas_las_tablas scheduled__2023-01-01T00:00:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T20:51:47.394+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='inserta_en_todas_las_tablas' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-08T20:51:47.395+0000] {crypto.py:83} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-11-08T20:51:47.396+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-08T20:51:47.414+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.9/site-packages/***/providers/common/sql/hooks/sql.py:201: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+  return psql.read_sql(sql, con=conn, params=parameters, **kwargs)
+
+[2025-11-08T20:51:51.675+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-08T20:51:54.030+0000] {logging_mixin.py:149} INFO - 13685 registros insertados en diabetes_clean_train
+[2025-11-08T20:51:55.590+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-08T20:51:56.662+0000] {logging_mixin.py:149} INFO - 5431 registros insertados en diabetes_clean_val
+[2025-11-08T20:51:57.474+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-08T20:51:58.025+0000] {logging_mixin.py:149} INFO - 2831 registros insertados en diabetes_clean_test
+[2025-11-08T20:51:58.027+0000] {logging_mixin.py:149} INFO - Datos de entrenamiento y prueba insertados correctamente.
+[2025-11-08T20:51:58.032+0000] {python.py:183} INFO - Done. Returned value was: None
+[2025-11-08T20:51:58.046+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=inserta_en_todas_las_tablas, execution_date=20230101T000000, start_date=20251108T205146, end_date=20251108T205158
+[2025-11-08T20:51:58.074+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-11-08T20:51:58.303+0000] {taskinstance.py:2674} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-08T23:04:17.398+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.inserta_en_todas_las_tablas scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T23:04:17.411+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.inserta_en_todas_las_tablas scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T23:04:17.411+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-08T23:04:17.422+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): inserta_en_todas_las_tablas> on 2023-01-01 00:00:00+00:00
+[2025-11-08T23:04:17.431+0000] {standard_task_runner.py:57} INFO - Started process 16714 to run task
+[2025-11-08T23:04:17.437+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'inserta_en_todas_las_tablas', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '825', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmpqlr5sf3t']
+[2025-11-08T23:04:17.440+0000] {standard_task_runner.py:85} INFO - Job 825: Subtask inserta_en_todas_las_tablas
+[2025-11-08T23:04:17.749+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.inserta_en_todas_las_tablas scheduled__2023-01-01T00:00:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T23:04:17.846+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='inserta_en_todas_las_tablas' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-08T23:04:17.847+0000] {crypto.py:83} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-11-08T23:04:17.848+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-08T23:04:17.863+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.9/site-packages/***/providers/common/sql/hooks/sql.py:201: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+  return psql.read_sql(sql, con=conn, params=parameters, **kwargs)
+
+[2025-11-08T23:04:22.052+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-08T23:04:24.497+0000] {logging_mixin.py:149} INFO - 13685 registros insertados en diabetes_clean_train
+[2025-11-08T23:04:26.071+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-08T23:04:27.074+0000] {logging_mixin.py:149} INFO - 5415 registros insertados en diabetes_clean_val
+[2025-11-08T23:04:27.893+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-08T23:04:28.394+0000] {logging_mixin.py:149} INFO - 2838 registros insertados en diabetes_clean_test
+[2025-11-08T23:04:28.395+0000] {logging_mixin.py:149} INFO - Datos de entrenamiento y prueba insertados correctamente.
+[2025-11-08T23:04:28.399+0000] {python.py:183} INFO - Done. Returned value was: None
+[2025-11-08T23:04:28.409+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=inserta_en_todas_las_tablas, execution_date=20230101T000000, start_date=20251108T230417, end_date=20251108T230428
+[2025-11-08T23:04:28.474+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-11-08T23:04:28.701+0000] {taskinstance.py:2674} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-08T23:19:51.826+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.inserta_en_todas_las_tablas scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T23:19:51.842+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.inserta_en_todas_las_tablas scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T23:19:51.842+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-08T23:19:51.854+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): inserta_en_todas_las_tablas> on 2023-01-01 00:00:00+00:00
+[2025-11-08T23:19:51.863+0000] {standard_task_runner.py:57} INFO - Started process 17131 to run task
+[2025-11-08T23:19:51.875+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'inserta_en_todas_las_tablas', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '852', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmpwdqeno9e']
+[2025-11-08T23:19:51.879+0000] {standard_task_runner.py:85} INFO - Job 852: Subtask inserta_en_todas_las_tablas
+[2025-11-08T23:19:52.205+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.inserta_en_todas_las_tablas scheduled__2023-01-01T00:00:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T23:19:52.301+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='inserta_en_todas_las_tablas' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-08T23:19:52.304+0000] {crypto.py:83} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-11-08T23:19:52.305+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-08T23:19:52.319+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.9/site-packages/***/providers/common/sql/hooks/sql.py:201: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+  return psql.read_sql(sql, con=conn, params=parameters, **kwargs)
+
+[2025-11-08T23:19:56.633+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-08T23:19:58.959+0000] {logging_mixin.py:149} INFO - 13685 registros insertados en diabetes_clean_train
+[2025-11-08T23:20:00.519+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-08T23:20:01.471+0000] {logging_mixin.py:149} INFO - 5415 registros insertados en diabetes_clean_val
+[2025-11-08T23:20:02.362+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-08T23:20:02.892+0000] {logging_mixin.py:149} INFO - 2838 registros insertados en diabetes_clean_test
+[2025-11-08T23:20:02.893+0000] {logging_mixin.py:149} INFO - Datos de entrenamiento y prueba insertados correctamente.
+[2025-11-08T23:20:02.895+0000] {python.py:183} INFO - Done. Returned value was: None
+[2025-11-08T23:20:02.907+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=inserta_en_todas_las_tablas, execution_date=20230101T000000, start_date=20251108T231951, end_date=20251108T232002
+[2025-11-08T23:20:02.996+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-11-08T23:20:03.281+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-08T23:28:09.179+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.inserta_en_todas_las_tablas scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T23:28:09.206+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.inserta_en_todas_las_tablas scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T23:28:09.207+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-08T23:28:09.227+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): inserta_en_todas_las_tablas> on 2023-01-01 00:00:00+00:00
+[2025-11-08T23:28:09.243+0000] {standard_task_runner.py:57} INFO - Started process 17388 to run task
+[2025-11-08T23:28:09.249+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'inserta_en_todas_las_tablas', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '873', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmpoys9hcci']
+[2025-11-08T23:28:09.253+0000] {standard_task_runner.py:85} INFO - Job 873: Subtask inserta_en_todas_las_tablas
+[2025-11-08T23:28:09.721+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.inserta_en_todas_las_tablas scheduled__2023-01-01T00:00:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T23:28:09.842+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='inserta_en_todas_las_tablas' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-08T23:28:09.843+0000] {crypto.py:83} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-11-08T23:28:09.844+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-08T23:28:09.873+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.9/site-packages/***/providers/common/sql/hooks/sql.py:201: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+  return psql.read_sql(sql, con=conn, params=parameters, **kwargs)
+
+[2025-11-08T23:28:13.388+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-08T23:28:15.478+0000] {logging_mixin.py:149} INFO - 10742 registros insertados en diabetes_clean_train
+[2025-11-08T23:28:16.733+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-08T23:28:17.630+0000] {logging_mixin.py:149} INFO - 4262 registros insertados en diabetes_clean_val
+[2025-11-08T23:28:18.290+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-08T23:28:18.729+0000] {logging_mixin.py:149} INFO - 2204 registros insertados en diabetes_clean_test
+[2025-11-08T23:28:18.731+0000] {logging_mixin.py:149} INFO - Datos de entrenamiento y prueba insertados correctamente.
+[2025-11-08T23:28:18.737+0000] {python.py:183} INFO - Done. Returned value was: None
+[2025-11-08T23:28:18.751+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=inserta_en_todas_las_tablas, execution_date=20230101T000000, start_date=20251108T232809, end_date=20251108T232818
+[2025-11-08T23:28:18.871+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-11-08T23:28:18.929+0000] {taskinstance.py:2674} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-08T23:34:07.839+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.inserta_en_todas_las_tablas scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T23:34:07.851+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.inserta_en_todas_las_tablas scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T23:34:07.851+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-08T23:34:07.866+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): inserta_en_todas_las_tablas> on 2023-01-01 00:00:00+00:00
+[2025-11-08T23:34:07.880+0000] {standard_task_runner.py:57} INFO - Started process 17591 to run task
+[2025-11-08T23:34:07.885+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'inserta_en_todas_las_tablas', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '890', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmpklp6_f8r']
+[2025-11-08T23:34:07.888+0000] {standard_task_runner.py:85} INFO - Job 890: Subtask inserta_en_todas_las_tablas
+[2025-11-08T23:34:08.197+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.inserta_en_todas_las_tablas scheduled__2023-01-01T00:00:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T23:34:08.299+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='inserta_en_todas_las_tablas' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-08T23:34:08.300+0000] {crypto.py:83} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-11-08T23:34:08.301+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-08T23:34:08.314+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.9/site-packages/***/providers/common/sql/hooks/sql.py:201: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+  return psql.read_sql(sql, con=conn, params=parameters, **kwargs)
+
+[2025-11-08T23:34:12.594+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-08T23:34:14.896+0000] {logging_mixin.py:149} INFO - 13655 registros insertados en diabetes_clean_train
+[2025-11-08T23:34:16.478+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-08T23:34:17.501+0000] {logging_mixin.py:149} INFO - 5454 registros insertados en diabetes_clean_val
+[2025-11-08T23:34:18.318+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-08T23:34:18.880+0000] {logging_mixin.py:149} INFO - 2827 registros insertados en diabetes_clean_test
+[2025-11-08T23:34:18.881+0000] {logging_mixin.py:149} INFO - Datos de entrenamiento y prueba insertados correctamente.
+[2025-11-08T23:34:18.883+0000] {python.py:183} INFO - Done. Returned value was: None
+[2025-11-08T23:34:18.895+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=inserta_en_todas_las_tablas, execution_date=20230101T000000, start_date=20251108T233407, end_date=20251108T233418
+[2025-11-08T23:34:18.928+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-11-08T23:34:18.963+0000] {taskinstance.py:2674} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-09T00:02:02.047+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.inserta_en_todas_las_tablas scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-09T00:02:02.062+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.inserta_en_todas_las_tablas scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-09T00:02:02.063+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-09T00:02:02.076+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): inserta_en_todas_las_tablas> on 2023-01-01 00:00:00+00:00
+[2025-11-09T00:02:02.087+0000] {standard_task_runner.py:57} INFO - Started process 223 to run task
+[2025-11-09T00:02:02.091+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'inserta_en_todas_las_tablas', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '16', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmp4diagznv']
+[2025-11-09T00:02:02.094+0000] {standard_task_runner.py:85} INFO - Job 16: Subtask inserta_en_todas_las_tablas
+[2025-11-09T00:02:02.401+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.inserta_en_todas_las_tablas scheduled__2023-01-01T00:00:00+00:00 [running]> on host abefff83dc87
+[2025-11-09T00:02:02.489+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='inserta_en_todas_las_tablas' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-09T00:02:02.490+0000] {crypto.py:83} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-11-09T00:02:02.490+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-09T00:02:02.504+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.9/site-packages/***/providers/common/sql/hooks/sql.py:201: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+  return psql.read_sql(sql, con=conn, params=parameters, **kwargs)
+
+[2025-11-09T00:02:06.680+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-09T00:02:08.980+0000] {logging_mixin.py:149} INFO - 13659 registros insertados en diabetes_clean_train
+[2025-11-09T00:02:10.563+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-09T00:02:11.485+0000] {logging_mixin.py:149} INFO - 5434 registros insertados en diabetes_clean_val
+[2025-11-09T00:02:12.300+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-09T00:02:12.775+0000] {logging_mixin.py:149} INFO - 2835 registros insertados en diabetes_clean_test
+[2025-11-09T00:02:12.776+0000] {logging_mixin.py:149} INFO - Datos de entrenamiento y prueba insertados correctamente.
+[2025-11-09T00:02:12.780+0000] {python.py:183} INFO - Done. Returned value was: None
+[2025-11-09T00:02:12.803+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=inserta_en_todas_las_tablas, execution_date=20230101T000000, start_date=20251109T000202, end_date=20251109T000212
+[2025-11-09T00:02:12.848+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-11-09T00:02:13.063+0000] {taskinstance.py:2674} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-09T00:18:39.554+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.inserta_en_todas_las_tablas scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-09T00:18:39.572+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.inserta_en_todas_las_tablas scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-09T00:18:39.572+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-09T00:18:39.587+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): inserta_en_todas_las_tablas> on 2023-01-01 00:00:00+00:00
+[2025-11-09T00:18:39.596+0000] {standard_task_runner.py:57} INFO - Started process 676 to run task
+[2025-11-09T00:18:39.600+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'inserta_en_todas_las_tablas', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '46', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmplwz7l8mr']
+[2025-11-09T00:18:39.603+0000] {standard_task_runner.py:85} INFO - Job 46: Subtask inserta_en_todas_las_tablas
+[2025-11-09T00:18:39.902+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.inserta_en_todas_las_tablas scheduled__2023-01-01T00:00:00+00:00 [running]> on host abefff83dc87
+[2025-11-09T00:18:39.987+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='inserta_en_todas_las_tablas' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-09T00:18:39.988+0000] {crypto.py:83} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-11-09T00:18:39.989+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-09T00:18:40.004+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.9/site-packages/***/providers/common/sql/hooks/sql.py:201: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+  return psql.read_sql(sql, con=conn, params=parameters, **kwargs)
+
+[2025-11-09T00:18:44.272+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-09T00:18:46.565+0000] {logging_mixin.py:149} INFO - 13655 registros insertados en diabetes_clean_train
+[2025-11-09T00:18:48.050+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-09T00:18:49.010+0000] {logging_mixin.py:149} INFO - 5454 registros insertados en diabetes_clean_val
+[2025-11-09T00:18:49.820+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-09T00:18:50.325+0000] {logging_mixin.py:149} INFO - 2827 registros insertados en diabetes_clean_test
+[2025-11-09T00:18:50.327+0000] {logging_mixin.py:149} INFO - Datos de entrenamiento y prueba insertados correctamente.
+[2025-11-09T00:18:50.329+0000] {python.py:183} INFO - Done. Returned value was: None
+[2025-11-09T00:18:50.349+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=inserta_en_todas_las_tablas, execution_date=20230101T000000, start_date=20251109T001839, end_date=20251109T001850
+[2025-11-09T00:18:50.404+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-11-09T00:18:50.624+0000] {taskinstance.py:2674} INFO - 1 downstream tasks scheduled from follow-on schedule check

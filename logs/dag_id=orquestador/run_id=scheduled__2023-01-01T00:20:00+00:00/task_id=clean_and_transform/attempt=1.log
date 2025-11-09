@@ -1,0 +1,82 @@
+[2025-11-08T21:22:09.538+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.clean_and_transform scheduled__2023-01-01T00:20:00+00:00 [queued]>
+[2025-11-08T21:22:09.551+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.clean_and_transform scheduled__2023-01-01T00:20:00+00:00 [queued]>
+[2025-11-08T21:22:09.551+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-08T21:22:09.568+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): clean_and_transform> on 2023-01-01 00:20:00+00:00
+[2025-11-08T21:22:09.582+0000] {standard_task_runner.py:57} INFO - Started process 15227 to run task
+[2025-11-08T21:22:09.594+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'clean_and_transform', 'scheduled__2023-01-01T00:20:00+00:00', '--job-id', '807', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmp5ejpxqgd']
+[2025-11-08T21:22:09.603+0000] {standard_task_runner.py:85} INFO - Job 807: Subtask clean_and_transform
+[2025-11-08T21:22:09.911+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.clean_and_transform scheduled__2023-01-01T00:20:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T21:22:09.997+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='clean_and_transform' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:20:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:20:00+00:00'
+[2025-11-08T21:22:09.998+0000] {logging_mixin.py:149} INFO - Leyendo datos desde diabetes_raw...
+[2025-11-08T21:22:10.000+0000] {crypto.py:83} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-11-08T21:22:10.000+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-08T21:22:10.014+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.9/site-packages/***/providers/common/sql/hooks/sql.py:201: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+  return psql.read_sql(sql, con=conn, params=parameters, **kwargs)
+
+[2025-11-08T21:22:11.069+0000] {logging_mixin.py:149} INFO - 75000 registros leídos
+[2025-11-08T21:22:11.070+0000] {logging_mixin.py:149} INFO - Limpiando datos y creando variables dummy...
+[2025-11-08T21:22:12.901+0000] {logging_mixin.py:149} INFO - base exportada exitosamente
+[2025-11-08T21:22:12.901+0000] {logging_mixin.py:149} INFO - DataFrame limpio: (75000, 61)
+[2025-11-08T21:22:12.901+0000] {logging_mixin.py:149} INFO - Columnas generadas: 61
+[2025-11-08T21:22:34.771+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-08T21:22:47.381+0000] {logging_mixin.py:149} INFO - 75000 registros insertados en diabetes_clean
+[2025-11-08T21:22:47.409+0000] {logging_mixin.py:149} INFO - 
+Proceso completo: Limpieza e inserción terminada
+[2025-11-08T21:22:47.483+0000] {python.py:183} INFO - Done. Returned value was:        discharge_disposition_id  ...  diag_3_Respiratory
+0                            25  ...                   0
+1                             1  ...                   0
+2                             1  ...                   0
+3                             1  ...                   0
+4                             1  ...                   0
+...                         ...  ...                 ...
+74995                         3  ...                   0
+74996                         1  ...                   0
+74997                         3  ...                   1
+74998                         1  ...                   0
+74999                         6  ...                   0
+
+[75000 rows x 61 columns]
+[2025-11-08T21:22:47.908+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=clean_and_transform, execution_date=20230101T002000, start_date=20251108T212209, end_date=20251108T212247
+[2025-11-08T21:22:47.949+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-11-08T21:22:48.002+0000] {taskinstance.py:2674} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-09T00:48:47.048+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.clean_and_transform scheduled__2023-01-01T00:20:00+00:00 [queued]>
+[2025-11-09T00:48:47.064+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.clean_and_transform scheduled__2023-01-01T00:20:00+00:00 [queued]>
+[2025-11-09T00:48:47.064+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-09T00:48:47.077+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): clean_and_transform> on 2023-01-01 00:20:00+00:00
+[2025-11-09T00:48:47.089+0000] {standard_task_runner.py:57} INFO - Started process 1330 to run task
+[2025-11-09T00:48:47.093+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'clean_and_transform', 'scheduled__2023-01-01T00:20:00+00:00', '--job-id', '73', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmpv8it_ux6']
+[2025-11-09T00:48:47.097+0000] {standard_task_runner.py:85} INFO - Job 73: Subtask clean_and_transform
+[2025-11-09T00:48:47.424+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.clean_and_transform scheduled__2023-01-01T00:20:00+00:00 [running]> on host abefff83dc87
+[2025-11-09T00:48:47.521+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='clean_and_transform' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:20:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:20:00+00:00'
+[2025-11-09T00:48:47.522+0000] {logging_mixin.py:149} INFO - Leyendo datos desde diabetes_raw...
+[2025-11-09T00:48:47.523+0000] {crypto.py:83} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-11-09T00:48:47.523+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-09T00:48:47.542+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.9/site-packages/***/providers/common/sql/hooks/sql.py:201: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+  return psql.read_sql(sql, con=conn, params=parameters, **kwargs)
+
+[2025-11-09T00:48:48.577+0000] {logging_mixin.py:149} INFO - 71766 registros leídos
+[2025-11-09T00:48:48.578+0000] {logging_mixin.py:149} INFO - Limpiando datos y creando variables dummy...
+[2025-11-09T00:48:51.043+0000] {logging_mixin.py:149} INFO - base exportada exitosamente
+[2025-11-09T00:48:51.043+0000] {logging_mixin.py:149} INFO - DataFrame limpio: (71766, 61)
+[2025-11-09T00:48:51.043+0000] {logging_mixin.py:149} INFO - Columnas generadas: 61
+[2025-11-09T00:49:11.592+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-09T00:49:22.823+0000] {logging_mixin.py:149} INFO - 71766 registros insertados en diabetes_clean
+[2025-11-09T00:49:22.845+0000] {logging_mixin.py:149} INFO - 
+Proceso completo: Limpieza e inserción terminada
+[2025-11-09T00:49:22.919+0000] {python.py:183} INFO - Done. Returned value was:        discharge_disposition_id  ...  diag_3_Respiratory
+0                            18  ...                   1
+1                            18  ...                   0
+2                             1  ...                   0
+3                             6  ...                   0
+4                             1  ...                   0
+...                         ...  ...                 ...
+71761                         1  ...                   0
+71762                         1  ...                   0
+71763                         1  ...                   0
+71764                         1  ...                   0
+71765                         1  ...                   0
+
+[71766 rows x 61 columns]
+[2025-11-09T00:49:23.341+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=clean_and_transform, execution_date=20230101T002000, start_date=20251109T004847, end_date=20251109T004923
+[2025-11-09T00:49:23.440+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-11-09T00:49:23.481+0000] {taskinstance.py:2674} INFO - 1 downstream tasks scheduled from follow-on schedule check

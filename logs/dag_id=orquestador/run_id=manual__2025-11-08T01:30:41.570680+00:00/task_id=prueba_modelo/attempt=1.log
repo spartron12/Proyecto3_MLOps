@@ -1,0 +1,158 @@
+[2025-11-08T01:36:20.455+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.prueba_modelo manual__2025-11-08T01:30:41.570680+00:00 [queued]>
+[2025-11-08T01:36:20.465+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.prueba_modelo manual__2025-11-08T01:30:41.570680+00:00 [queued]>
+[2025-11-08T01:36:20.465+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-08T01:36:20.479+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): prueba_modelo> on 2025-11-08 01:30:41.570680+00:00
+[2025-11-08T01:36:20.489+0000] {standard_task_runner.py:57} INFO - Started process 439 to run task
+[2025-11-08T01:36:20.495+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'prueba_modelo', 'manual__2025-11-08T01:30:41.570680+00:00', '--job-id', '572', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmp7bwh51pu']
+[2025-11-08T01:36:20.498+0000] {standard_task_runner.py:85} INFO - Job 572: Subtask prueba_modelo
+[2025-11-08T01:36:20.562+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.prueba_modelo manual__2025-11-08T01:30:41.570680+00:00 [running]> on host a6ae05c10208
+[2025-11-08T01:36:20.679+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='prueba_modelo' AIRFLOW_CTX_EXECUTION_DATE='2025-11-08T01:30:41.570680+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-11-08T01:30:41.570680+00:00'
+[2025-11-08T01:36:20.682+0000] {logging_mixin.py:149} INFO - 📘 Cargando datos de penguins...
+[2025-11-08T01:36:20.698+0000] {logging_mixin.py:149} INFO - 🔗 Conectando a MLflow en http://10.43.100.98:8084
+[2025-11-08T01:36:20.741+0000] {logging_mixin.py:149} INFO - ⚙️ Entrenando modelo...
+[2025-11-08T01:36:21.180+0000] {logging_mixin.py:149} INFO - 🧾 Registrando modelo en MLflow...
+[2025-11-08T01:36:21.268+0000] {logging_mixin.py:149} WARNING - 2025/11/08 01:36:21 WARNING mlflow.utils.git_utils: Failed to import Git (the Git executable is probably not on your PATH), so Git SHA is not available. Error: Failed to initialize: Bad git executable.
+The git executable must be specified in one of the following ways:
+    - be included in your $PATH
+    - be set via $GIT_PYTHON_GIT_EXECUTABLE
+    - explicitly set via git.refresh(<full-path-to-git-executable>)
+
+All git commands will error until this is rectified.
+
+This initial message can be silenced or aggravated in the future by setting the
+$GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+    - quiet|q|silence|s|silent|none|n|0: for no message or exception
+    - warn|w|warning|log|l|1: for a warning message (logging level CRITICAL, displayed by default)
+    - error|e|exception|raise|r|2: for a raised exception
+
+Example:
+    export GIT_PYTHON_REFRESH=quiet
+[2025-11-08T01:36:26.014+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.9/site-packages/_distutils_hack/__init__.py:33: UserWarning: Setuptools is replacing distutils.
+  warnings.warn("Setuptools is replacing distutils.")
+
+[2025-11-08T01:36:26.115+0000] {credentials.py:1123} INFO - Found credentials in environment variables.
+[2025-11-08T01:36:32.148+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "/home/airflow/.local/lib/python3.9/site-packages/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/home/airflow/.local/lib/python3.9/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/botocore/httpsession.py", line 465, in send
+    urllib_response = conn.urlopen(
+  File "/home/airflow/.local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/home/airflow/.local/lib/python3.9/site-packages/urllib3/util/retry.py", line 525, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/home/airflow/.local/lib/python3.9/site-packages/urllib3/packages/six.py", line 770, in reraise
+    raise value
+  File "/home/airflow/.local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/home/airflow/.local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/home/airflow/.local/lib/python3.9/site-packages/urllib3/connection.py", line 244, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/usr/local/lib/python3.9/http/client.py", line 1285, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/home/airflow/.local/lib/python3.9/site-packages/botocore/awsrequest.py", line 94, in _send_request
+    rval = super()._send_request(
+  File "/usr/local/lib/python3.9/http/client.py", line 1331, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.9/http/client.py", line 1280, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/airflow/.local/lib/python3.9/site-packages/botocore/awsrequest.py", line 123, in _send_output
+    self.send(msg)
+  File "/home/airflow/.local/lib/python3.9/site-packages/botocore/awsrequest.py", line 218, in send
+    return super().send(str)
+  File "/usr/local/lib/python3.9/http/client.py", line 980, in send
+    self.connect()
+  File "/home/airflow/.local/lib/python3.9/site-packages/urllib3/connection.py", line 205, in connect
+    conn = self._new_conn()
+  File "/home/airflow/.local/lib/python3.9/site-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <botocore.awsrequest.AWSHTTPConnection object at 0x7f8028893880>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/orquestador.py", line 75, in prueba_modelo
+    mlflow.sklearn.log_model(
+  File "/home/airflow/.local/lib/python3.9/site-packages/mlflow/sklearn/__init__.py", line 424, in log_model
+    return Model.log(
+  File "/home/airflow/.local/lib/python3.9/site-packages/mlflow/models/model.py", line 548, in log
+    mlflow.tracking.fluent.log_artifacts(local_path, mlflow_model.artifact_path)
+  File "/home/airflow/.local/lib/python3.9/site-packages/mlflow/tracking/fluent.py", line 817, in log_artifacts
+    MlflowClient().log_artifacts(run_id, local_dir, artifact_path)
+  File "/home/airflow/.local/lib/python3.9/site-packages/mlflow/tracking/client.py", line 1074, in log_artifacts
+    self._tracking_client.log_artifacts(run_id, local_dir, artifact_path)
+  File "/home/airflow/.local/lib/python3.9/site-packages/mlflow/tracking/_tracking_service/client.py", line 448, in log_artifacts
+    self._get_artifact_repo(run_id).log_artifacts(local_dir, artifact_path)
+  File "/home/airflow/.local/lib/python3.9/site-packages/mlflow/store/artifact/s3_artifact_repo.py", line 171, in log_artifacts
+    self._upload_file(
+  File "/home/airflow/.local/lib/python3.9/site-packages/mlflow/store/artifact/s3_artifact_repo.py", line 147, in _upload_file
+    s3_client.upload_file(Filename=local_file, Bucket=bucket, Key=key, ExtraArgs=extra_args)
+  File "/home/airflow/.local/lib/python3.9/site-packages/boto3/s3/inject.py", line 143, in upload_file
+    return transfer.upload_file(
+  File "/home/airflow/.local/lib/python3.9/site-packages/boto3/s3/transfer.py", line 292, in upload_file
+    future.result()
+  File "/home/airflow/.local/lib/python3.9/site-packages/s3transfer/futures.py", line 103, in result
+    return self._coordinator.result()
+  File "/home/airflow/.local/lib/python3.9/site-packages/s3transfer/futures.py", line 266, in result
+    raise self._exception
+  File "/home/airflow/.local/lib/python3.9/site-packages/s3transfer/tasks.py", line 139, in __call__
+    return self._execute_main(kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/s3transfer/tasks.py", line 162, in _execute_main
+    return_value = self._main(**kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/s3transfer/upload.py", line 758, in _main
+    client.put_object(Bucket=bucket, Key=key, Body=body, **extra_args)
+  File "/home/airflow/.local/lib/python3.9/site-packages/botocore/client.py", line 530, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/botocore/client.py", line 947, in _make_api_call
+    http, parsed_response = self._make_request(
+  File "/home/airflow/.local/lib/python3.9/site-packages/botocore/client.py", line 970, in _make_request
+    return self._endpoint.make_request(operation_model, request_dict)
+  File "/home/airflow/.local/lib/python3.9/site-packages/botocore/endpoint.py", line 119, in make_request
+    return self._send_request(request_dict, operation_model)
+  File "/home/airflow/.local/lib/python3.9/site-packages/botocore/endpoint.py", line 202, in _send_request
+    while self._needs_retry(
+  File "/home/airflow/.local/lib/python3.9/site-packages/botocore/endpoint.py", line 354, in _needs_retry
+    responses = self._event_emitter.emit(
+  File "/home/airflow/.local/lib/python3.9/site-packages/botocore/hooks.py", line 412, in emit
+    return self._emitter.emit(aliased_event_name, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/botocore/hooks.py", line 256, in emit
+    return self._emit(event_name, kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/botocore/hooks.py", line 239, in _emit
+    response = handler(**kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/botocore/retryhandler.py", line 207, in __call__
+    if self._checker(**checker_kwargs):
+  File "/home/airflow/.local/lib/python3.9/site-packages/botocore/retryhandler.py", line 284, in __call__
+    should_retry = self._should_retry(
+  File "/home/airflow/.local/lib/python3.9/site-packages/botocore/retryhandler.py", line 320, in _should_retry
+    return self._checker(attempt_number, response, caught_exception)
+  File "/home/airflow/.local/lib/python3.9/site-packages/botocore/retryhandler.py", line 363, in __call__
+    checker_response = checker(
+  File "/home/airflow/.local/lib/python3.9/site-packages/botocore/retryhandler.py", line 247, in __call__
+    return self._check_caught_exception(
+  File "/home/airflow/.local/lib/python3.9/site-packages/botocore/retryhandler.py", line 416, in _check_caught_exception
+    raise caught_exception
+  File "/home/airflow/.local/lib/python3.9/site-packages/botocore/endpoint.py", line 281, in _do_get_response
+    http_response = self._send(request)
+  File "/home/airflow/.local/lib/python3.9/site-packages/botocore/endpoint.py", line 377, in _send
+    return self.http_session.send(request)
+  File "/home/airflow/.local/lib/python3.9/site-packages/botocore/httpsession.py", line 494, in send
+    raise EndpointConnectionError(endpoint_url=request.url, error=e)
+botocore.exceptions.EndpointConnectionError: Could not connect to the endpoint URL: "http://10.43.100.98:31000/mlflows3/1/724e31a879374685a3a384b41cbf5915/artifacts/model/input_example.json"
+[2025-11-08T01:36:32.168+0000] {taskinstance.py:1368} INFO - Marking task as UP_FOR_RETRY. dag_id=orquestador, task_id=prueba_modelo, execution_date=20251108T013041, start_date=20251108T013620, end_date=20251108T013632
+[2025-11-08T01:36:32.188+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 572 for task prueba_modelo (Could not connect to the endpoint URL: "http://10.43.100.98:31000/mlflows3/1/724e31a879374685a3a384b41cbf5915/artifacts/model/input_example.json"; 439)
+[2025-11-08T01:36:32.264+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2025-11-08T01:36:32.297+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check

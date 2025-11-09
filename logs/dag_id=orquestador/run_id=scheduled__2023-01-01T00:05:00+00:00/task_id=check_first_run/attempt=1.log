@@ -1,0 +1,266 @@
+[2025-11-08T04:02:41.201+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [queued]>
+[2025-11-08T04:02:41.214+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [queued]>
+[2025-11-08T04:02:41.214+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-08T04:02:41.229+0000] {taskinstance.py:1350} INFO - Executing <Task(BranchPythonOperator): check_first_run> on 2023-01-01 00:05:00+00:00
+[2025-11-08T04:02:41.245+0000] {standard_task_runner.py:57} INFO - Started process 224 to run task
+[2025-11-08T04:02:41.252+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'check_first_run', 'scheduled__2023-01-01T00:05:00+00:00', '--job-id', '630', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmp2uhwt605']
+[2025-11-08T04:02:41.257+0000] {standard_task_runner.py:85} INFO - Job 630: Subtask check_first_run
+[2025-11-08T04:02:41.583+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T04:02:41.671+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='check_first_run' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:05:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:05:00+00:00'
+[2025-11-08T04:02:41.672+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.9/site-packages/***/utils/context.py:313: AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+  warnings.warn(_create_deprecation_warning(k, replacements))
+
+[2025-11-08T04:02:41.673+0000] {python.py:183} INFO - Done. Returned value was: skip_table_creation
+[2025-11-08T04:02:41.673+0000] {python.py:216} INFO - Branch callable return skip_table_creation
+[2025-11-08T04:02:41.673+0000] {skipmixin.py:161} INFO - Following branch skip_table_creation
+[2025-11-08T04:02:41.673+0000] {skipmixin.py:221} INFO - Skipping tasks ['delete_table_val', 'delete_table_raw', 'delete_table_clean', 'delete_table_train', 'delete_table_test']
+[2025-11-08T04:02:41.733+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=check_first_run, execution_date=20230101T000500, start_date=20251108T040241, end_date=20251108T040241
+[2025-11-08T04:02:41.787+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-11-08T04:02:42.078+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-08T04:18:17.941+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [queued]>
+[2025-11-08T04:18:17.961+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [queued]>
+[2025-11-08T04:18:17.962+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-08T04:18:17.977+0000] {taskinstance.py:1350} INFO - Executing <Task(BranchPythonOperator): check_first_run> on 2023-01-01 00:05:00+00:00
+[2025-11-08T04:18:17.986+0000] {standard_task_runner.py:57} INFO - Started process 510 to run task
+[2025-11-08T04:18:17.994+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'check_first_run', 'scheduled__2023-01-01T00:05:00+00:00', '--job-id', '644', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmpop0t82pb']
+[2025-11-08T04:18:18.000+0000] {standard_task_runner.py:85} INFO - Job 644: Subtask check_first_run
+[2025-11-08T04:18:18.280+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T04:18:18.372+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='check_first_run' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:05:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:05:00+00:00'
+[2025-11-08T04:18:18.373+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.9/site-packages/***/utils/context.py:313: AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+  warnings.warn(_create_deprecation_warning(k, replacements))
+
+[2025-11-08T04:18:18.374+0000] {python.py:183} INFO - Done. Returned value was: skip_table_creation
+[2025-11-08T04:18:18.374+0000] {python.py:216} INFO - Branch callable return skip_table_creation
+[2025-11-08T04:18:18.374+0000] {skipmixin.py:161} INFO - Following branch skip_table_creation
+[2025-11-08T04:18:18.374+0000] {skipmixin.py:221} INFO - Skipping tasks ['delete_table_val', 'delete_table_raw', 'delete_table_clean', 'delete_table_train', 'delete_table_test']
+[2025-11-08T04:18:18.451+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=check_first_run, execution_date=20230101T000500, start_date=20251108T041817, end_date=20251108T041818
+[2025-11-08T04:18:18.484+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-11-08T04:18:18.740+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-08T04:33:18.804+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [queued]>
+[2025-11-08T04:33:18.816+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [queued]>
+[2025-11-08T04:33:18.816+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-08T04:33:18.829+0000] {taskinstance.py:1350} INFO - Executing <Task(BranchPythonOperator): check_first_run> on 2023-01-01 00:05:00+00:00
+[2025-11-08T04:33:18.845+0000] {standard_task_runner.py:57} INFO - Started process 797 to run task
+[2025-11-08T04:33:18.854+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'check_first_run', 'scheduled__2023-01-01T00:05:00+00:00', '--job-id', '658', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmplg79mkk1']
+[2025-11-08T04:33:18.859+0000] {standard_task_runner.py:85} INFO - Job 658: Subtask check_first_run
+[2025-11-08T04:33:19.165+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T04:33:19.247+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='check_first_run' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:05:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:05:00+00:00'
+[2025-11-08T04:33:19.248+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.9/site-packages/***/utils/context.py:313: AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+  warnings.warn(_create_deprecation_warning(k, replacements))
+
+[2025-11-08T04:33:19.249+0000] {python.py:183} INFO - Done. Returned value was: skip_table_creation
+[2025-11-08T04:33:19.249+0000] {python.py:216} INFO - Branch callable return skip_table_creation
+[2025-11-08T04:33:19.249+0000] {skipmixin.py:161} INFO - Following branch skip_table_creation
+[2025-11-08T04:33:19.249+0000] {skipmixin.py:221} INFO - Skipping tasks ['delete_table_val', 'delete_table_raw', 'delete_table_clean', 'delete_table_train', 'delete_table_test']
+[2025-11-08T04:33:19.310+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=check_first_run, execution_date=20230101T000500, start_date=20251108T043318, end_date=20251108T043319
+[2025-11-08T04:33:19.345+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-11-08T04:33:19.668+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-08T04:45:37.591+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [queued]>
+[2025-11-08T04:45:37.604+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [queued]>
+[2025-11-08T04:45:37.604+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-08T04:45:37.623+0000] {taskinstance.py:1350} INFO - Executing <Task(BranchPythonOperator): check_first_run> on 2023-01-01 00:05:00+00:00
+[2025-11-08T04:45:37.632+0000] {standard_task_runner.py:57} INFO - Started process 1113 to run task
+[2025-11-08T04:45:37.637+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'check_first_run', 'scheduled__2023-01-01T00:05:00+00:00', '--job-id', '684', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmpsc134ahj']
+[2025-11-08T04:45:37.641+0000] {standard_task_runner.py:85} INFO - Job 684: Subtask check_first_run
+[2025-11-08T04:45:37.947+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T04:45:38.047+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='check_first_run' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:05:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:05:00+00:00'
+[2025-11-08T04:45:38.048+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.9/site-packages/***/utils/context.py:313: AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+  warnings.warn(_create_deprecation_warning(k, replacements))
+
+[2025-11-08T04:45:38.048+0000] {python.py:183} INFO - Done. Returned value was: skip_table_creation
+[2025-11-08T04:45:38.048+0000] {python.py:216} INFO - Branch callable return skip_table_creation
+[2025-11-08T04:45:38.048+0000] {skipmixin.py:161} INFO - Following branch skip_table_creation
+[2025-11-08T04:45:38.048+0000] {skipmixin.py:221} INFO - Skipping tasks ['delete_table_val', 'delete_table_raw', 'delete_table_clean', 'delete_table_train', 'delete_table_test']
+[2025-11-08T04:45:38.101+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=check_first_run, execution_date=20230101T000500, start_date=20251108T044537, end_date=20251108T044538
+[2025-11-08T04:45:38.135+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-11-08T04:45:38.434+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-08T17:16:30.223+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [queued]>
+[2025-11-08T17:16:30.235+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [queued]>
+[2025-11-08T17:16:30.236+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-08T17:16:30.248+0000] {taskinstance.py:1350} INFO - Executing <Task(BranchPythonOperator): check_first_run> on 2023-01-01 00:05:00+00:00
+[2025-11-08T17:16:30.260+0000] {standard_task_runner.py:57} INFO - Started process 11147 to run task
+[2025-11-08T17:16:30.270+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'check_first_run', 'scheduled__2023-01-01T00:05:00+00:00', '--job-id', '698', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmpf9a4_it6']
+[2025-11-08T17:16:30.273+0000] {standard_task_runner.py:85} INFO - Job 698: Subtask check_first_run
+[2025-11-08T17:16:30.592+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T17:16:30.686+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='check_first_run' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:05:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:05:00+00:00'
+[2025-11-08T17:16:30.688+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.9/site-packages/***/utils/context.py:313: AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+  warnings.warn(_create_deprecation_warning(k, replacements))
+
+[2025-11-08T17:16:30.688+0000] {python.py:183} INFO - Done. Returned value was: skip_table_creation
+[2025-11-08T17:16:30.689+0000] {python.py:216} INFO - Branch callable return skip_table_creation
+[2025-11-08T17:16:30.689+0000] {skipmixin.py:161} INFO - Following branch skip_table_creation
+[2025-11-08T17:16:30.690+0000] {skipmixin.py:221} INFO - Skipping tasks ['delete_table_val', 'delete_table_raw', 'delete_table_clean', 'delete_table_train', 'delete_table_test']
+[2025-11-08T17:16:30.740+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=check_first_run, execution_date=20230101T000500, start_date=20251108T171630, end_date=20251108T171630
+[2025-11-08T17:16:30.776+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-11-08T17:16:31.028+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-08T17:28:42.153+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [queued]>
+[2025-11-08T17:28:42.165+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [queued]>
+[2025-11-08T17:28:42.166+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-08T17:28:42.181+0000] {taskinstance.py:1350} INFO - Executing <Task(BranchPythonOperator): check_first_run> on 2023-01-01 00:05:00+00:00
+[2025-11-08T17:28:42.190+0000] {standard_task_runner.py:57} INFO - Started process 11362 to run task
+[2025-11-08T17:28:42.195+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'check_first_run', 'scheduled__2023-01-01T00:05:00+00:00', '--job-id', '702', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmp2yd0hovi']
+[2025-11-08T17:28:42.200+0000] {standard_task_runner.py:85} INFO - Job 702: Subtask check_first_run
+[2025-11-08T17:28:42.505+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T17:28:42.626+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='check_first_run' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:05:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:05:00+00:00'
+[2025-11-08T17:28:42.627+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.9/site-packages/***/utils/context.py:313: AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+  warnings.warn(_create_deprecation_warning(k, replacements))
+
+[2025-11-08T17:28:42.627+0000] {python.py:183} INFO - Done. Returned value was: skip_table_creation
+[2025-11-08T17:28:42.627+0000] {python.py:216} INFO - Branch callable return skip_table_creation
+[2025-11-08T17:28:42.628+0000] {skipmixin.py:161} INFO - Following branch skip_table_creation
+[2025-11-08T17:28:42.628+0000] {skipmixin.py:221} INFO - Skipping tasks ['delete_table_val', 'delete_table_raw', 'delete_table_clean', 'delete_table_train', 'delete_table_test']
+[2025-11-08T17:28:42.679+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=check_first_run, execution_date=20230101T000500, start_date=20251108T172842, end_date=20251108T172842
+[2025-11-08T17:28:42.736+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-11-08T17:28:43.038+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-08T17:46:20.364+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [queued]>
+[2025-11-08T17:46:20.381+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [queued]>
+[2025-11-08T17:46:20.381+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-08T17:46:20.395+0000] {taskinstance.py:1350} INFO - Executing <Task(BranchPythonOperator): check_first_run> on 2023-01-01 00:05:00+00:00
+[2025-11-08T17:46:20.410+0000] {standard_task_runner.py:57} INFO - Started process 11777 to run task
+[2025-11-08T17:46:20.414+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'check_first_run', 'scheduled__2023-01-01T00:05:00+00:00', '--job-id', '732', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmpzal6ptfx']
+[2025-11-08T17:46:20.417+0000] {standard_task_runner.py:85} INFO - Job 732: Subtask check_first_run
+[2025-11-08T17:46:20.715+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T17:46:20.794+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='check_first_run' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:05:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:05:00+00:00'
+[2025-11-08T17:46:20.797+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.9/site-packages/***/utils/context.py:313: AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+  warnings.warn(_create_deprecation_warning(k, replacements))
+
+[2025-11-08T17:46:20.798+0000] {python.py:183} INFO - Done. Returned value was: skip_table_creation
+[2025-11-08T17:46:20.798+0000] {python.py:216} INFO - Branch callable return skip_table_creation
+[2025-11-08T17:46:20.798+0000] {skipmixin.py:161} INFO - Following branch skip_table_creation
+[2025-11-08T17:46:20.798+0000] {skipmixin.py:221} INFO - Skipping tasks ['delete_table_val', 'delete_table_raw', 'delete_table_clean', 'delete_table_train', 'delete_table_test']
+[2025-11-08T17:46:20.858+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=check_first_run, execution_date=20230101T000500, start_date=20251108T174620, end_date=20251108T174620
+[2025-11-08T17:46:20.910+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-11-08T17:46:21.189+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-08T20:35:42.198+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [queued]>
+[2025-11-08T20:35:42.213+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [queued]>
+[2025-11-08T20:35:42.213+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-08T20:35:42.228+0000] {taskinstance.py:1350} INFO - Executing <Task(BranchPythonOperator): check_first_run> on 2023-01-01 00:05:00+00:00
+[2025-11-08T20:35:42.237+0000] {standard_task_runner.py:57} INFO - Started process 14224 to run task
+[2025-11-08T20:35:42.241+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'check_first_run', 'scheduled__2023-01-01T00:05:00+00:00', '--job-id', '762', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmpghv_7h7m']
+[2025-11-08T20:35:42.244+0000] {standard_task_runner.py:85} INFO - Job 762: Subtask check_first_run
+[2025-11-08T20:35:42.555+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T20:35:42.653+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='check_first_run' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:05:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:05:00+00:00'
+[2025-11-08T20:35:42.653+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.9/site-packages/***/utils/context.py:313: AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+  warnings.warn(_create_deprecation_warning(k, replacements))
+
+[2025-11-08T20:35:42.654+0000] {python.py:183} INFO - Done. Returned value was: skip_table_creation
+[2025-11-08T20:35:42.654+0000] {python.py:216} INFO - Branch callable return skip_table_creation
+[2025-11-08T20:35:42.654+0000] {skipmixin.py:161} INFO - Following branch skip_table_creation
+[2025-11-08T20:35:42.654+0000] {skipmixin.py:221} INFO - Skipping tasks ['delete_table_val', 'delete_table_raw', 'delete_table_clean', 'delete_table_train', 'delete_table_test']
+[2025-11-08T20:35:42.705+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=check_first_run, execution_date=20230101T000500, start_date=20251108T203542, end_date=20251108T203542
+[2025-11-08T20:35:42.739+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-11-08T20:35:43.047+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-08T20:57:36.149+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [queued]>
+[2025-11-08T20:57:36.163+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [queued]>
+[2025-11-08T20:57:36.163+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-08T20:57:36.181+0000] {taskinstance.py:1350} INFO - Executing <Task(BranchPythonOperator): check_first_run> on 2023-01-01 00:05:00+00:00
+[2025-11-08T20:57:36.192+0000] {standard_task_runner.py:57} INFO - Started process 14690 to run task
+[2025-11-08T20:57:36.197+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'check_first_run', 'scheduled__2023-01-01T00:05:00+00:00', '--job-id', '784', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmp7s709sb6']
+[2025-11-08T20:57:36.213+0000] {standard_task_runner.py:85} INFO - Job 784: Subtask check_first_run
+[2025-11-08T20:57:36.540+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T20:57:36.625+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='check_first_run' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:05:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:05:00+00:00'
+[2025-11-08T20:57:36.628+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.9/site-packages/***/utils/context.py:313: AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+  warnings.warn(_create_deprecation_warning(k, replacements))
+
+[2025-11-08T20:57:36.628+0000] {python.py:183} INFO - Done. Returned value was: skip_table_creation
+[2025-11-08T20:57:36.628+0000] {python.py:216} INFO - Branch callable return skip_table_creation
+[2025-11-08T20:57:36.628+0000] {skipmixin.py:161} INFO - Following branch skip_table_creation
+[2025-11-08T20:57:36.629+0000] {skipmixin.py:221} INFO - Skipping tasks ['delete_table_val', 'delete_table_raw', 'delete_table_clean', 'delete_table_train', 'delete_table_test']
+[2025-11-08T20:57:36.686+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=check_first_run, execution_date=20230101T000500, start_date=20251108T205736, end_date=20251108T205736
+[2025-11-08T20:57:36.716+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-11-08T20:57:37.001+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-08T23:09:53.821+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [queued]>
+[2025-11-08T23:09:53.839+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [queued]>
+[2025-11-08T23:09:53.839+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-08T23:09:53.857+0000] {taskinstance.py:1350} INFO - Executing <Task(BranchPythonOperator): check_first_run> on 2023-01-01 00:05:00+00:00
+[2025-11-08T23:09:53.874+0000] {standard_task_runner.py:57} INFO - Started process 16830 to run task
+[2025-11-08T23:09:53.881+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'check_first_run', 'scheduled__2023-01-01T00:05:00+00:00', '--job-id', '829', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmp68vr9cm3']
+[2025-11-08T23:09:53.886+0000] {standard_task_runner.py:85} INFO - Job 829: Subtask check_first_run
+[2025-11-08T23:09:54.309+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T23:09:54.446+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='check_first_run' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:05:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:05:00+00:00'
+[2025-11-08T23:09:54.447+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.9/site-packages/***/utils/context.py:313: AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+  warnings.warn(_create_deprecation_warning(k, replacements))
+
+[2025-11-08T23:09:54.447+0000] {python.py:183} INFO - Done. Returned value was: skip_table_creation
+[2025-11-08T23:09:54.447+0000] {python.py:216} INFO - Branch callable return skip_table_creation
+[2025-11-08T23:09:54.447+0000] {skipmixin.py:161} INFO - Following branch skip_table_creation
+[2025-11-08T23:09:54.448+0000] {skipmixin.py:221} INFO - Skipping tasks ['delete_table_val', 'delete_table_raw', 'delete_table_clean', 'delete_table_train', 'delete_table_test']
+[2025-11-08T23:09:54.512+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=check_first_run, execution_date=20230101T000500, start_date=20251108T230953, end_date=20251108T230954
+[2025-11-08T23:09:54.575+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-11-08T23:09:54.884+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-08T23:25:26.957+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [queued]>
+[2025-11-08T23:25:26.971+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [queued]>
+[2025-11-08T23:25:26.971+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-08T23:25:26.987+0000] {taskinstance.py:1350} INFO - Executing <Task(BranchPythonOperator): check_first_run> on 2023-01-01 00:05:00+00:00
+[2025-11-08T23:25:27.005+0000] {standard_task_runner.py:57} INFO - Started process 17245 to run task
+[2025-11-08T23:25:27.012+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'check_first_run', 'scheduled__2023-01-01T00:05:00+00:00', '--job-id', '856', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmpjmu9pjoj']
+[2025-11-08T23:25:27.015+0000] {standard_task_runner.py:85} INFO - Job 856: Subtask check_first_run
+[2025-11-08T23:25:27.337+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T23:25:27.433+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='check_first_run' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:05:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:05:00+00:00'
+[2025-11-08T23:25:27.434+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.9/site-packages/***/utils/context.py:313: AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+  warnings.warn(_create_deprecation_warning(k, replacements))
+
+[2025-11-08T23:25:27.434+0000] {python.py:183} INFO - Done. Returned value was: skip_table_creation
+[2025-11-08T23:25:27.434+0000] {python.py:216} INFO - Branch callable return skip_table_creation
+[2025-11-08T23:25:27.434+0000] {skipmixin.py:161} INFO - Following branch skip_table_creation
+[2025-11-08T23:25:27.435+0000] {skipmixin.py:221} INFO - Skipping tasks ['delete_table_val', 'delete_table_raw', 'delete_table_clean', 'delete_table_train', 'delete_table_test']
+[2025-11-08T23:25:27.497+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=check_first_run, execution_date=20230101T000500, start_date=20251108T232526, end_date=20251108T232527
+[2025-11-08T23:25:27.544+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-11-08T23:25:27.847+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-08T23:45:33.054+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [queued]>
+[2025-11-08T23:45:33.068+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [queued]>
+[2025-11-08T23:45:33.068+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-08T23:45:33.106+0000] {taskinstance.py:1350} INFO - Executing <Task(BranchPythonOperator): check_first_run> on 2023-01-01 00:05:00+00:00
+[2025-11-08T23:45:33.120+0000] {standard_task_runner.py:57} INFO - Started process 71 to run task
+[2025-11-08T23:45:33.125+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'check_first_run', 'scheduled__2023-01-01T00:05:00+00:00', '--job-id', '896', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmpzl00vdak']
+[2025-11-08T23:45:33.130+0000] {standard_task_runner.py:85} INFO - Job 896: Subtask check_first_run
+[2025-11-08T23:45:33.201+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [running]> on host 47714183b084
+[2025-11-08T23:45:33.332+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='check_first_run' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:05:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:05:00+00:00'
+[2025-11-08T23:45:33.334+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.9/site-packages/***/utils/context.py:313: AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+  warnings.warn(_create_deprecation_warning(k, replacements))
+
+[2025-11-08T23:45:33.334+0000] {python.py:183} INFO - Done. Returned value was: skip_table_creation
+[2025-11-08T23:45:33.334+0000] {python.py:216} INFO - Branch callable return skip_table_creation
+[2025-11-08T23:45:33.334+0000] {skipmixin.py:161} INFO - Following branch skip_table_creation
+[2025-11-08T23:45:33.335+0000] {skipmixin.py:221} INFO - Skipping tasks ['delete_table_val', 'delete_table_test', 'delete_table_clean', 'delete_table_raw', 'delete_table_train']
+[2025-11-08T23:45:33.405+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=check_first_run, execution_date=20230101T000500, start_date=20251108T234533, end_date=20251108T234533
+[2025-11-08T23:45:33.461+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-11-08T23:45:33.569+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-09T00:08:13.263+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [queued]>
+[2025-11-09T00:08:13.282+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [queued]>
+[2025-11-09T00:08:13.283+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-09T00:08:13.302+0000] {taskinstance.py:1350} INFO - Executing <Task(BranchPythonOperator): check_first_run> on 2023-01-01 00:05:00+00:00
+[2025-11-09T00:08:13.310+0000] {standard_task_runner.py:57} INFO - Started process 355 to run task
+[2025-11-09T00:08:13.319+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'check_first_run', 'scheduled__2023-01-01T00:05:00+00:00', '--job-id', '20', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmph5ec4bhw']
+[2025-11-09T00:08:13.324+0000] {standard_task_runner.py:85} INFO - Job 20: Subtask check_first_run
+[2025-11-09T00:08:13.621+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [running]> on host abefff83dc87
+[2025-11-09T00:08:13.725+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='check_first_run' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:05:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:05:00+00:00'
+[2025-11-09T00:08:13.726+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.9/site-packages/***/utils/context.py:313: AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+  warnings.warn(_create_deprecation_warning(k, replacements))
+
+[2025-11-09T00:08:13.726+0000] {python.py:183} INFO - Done. Returned value was: skip_table_creation
+[2025-11-09T00:08:13.726+0000] {python.py:216} INFO - Branch callable return skip_table_creation
+[2025-11-09T00:08:13.726+0000] {skipmixin.py:161} INFO - Following branch skip_table_creation
+[2025-11-09T00:08:13.726+0000] {skipmixin.py:221} INFO - Skipping tasks ['delete_table_train', 'delete_table_val', 'delete_table_test', 'delete_table_raw', 'delete_table_clean']
+[2025-11-09T00:08:13.777+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=check_first_run, execution_date=20230101T000500, start_date=20251109T000813, end_date=20251109T000813
+[2025-11-09T00:08:13.807+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-11-09T00:08:14.085+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-09T00:24:22.521+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [queued]>
+[2025-11-09T00:24:22.534+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [queued]>
+[2025-11-09T00:24:22.534+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-09T00:24:22.551+0000] {taskinstance.py:1350} INFO - Executing <Task(BranchPythonOperator): check_first_run> on 2023-01-01 00:05:00+00:00
+[2025-11-09T00:24:22.562+0000] {standard_task_runner.py:57} INFO - Started process 800 to run task
+[2025-11-09T00:24:22.567+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'check_first_run', 'scheduled__2023-01-01T00:05:00+00:00', '--job-id', '50', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmpugwa4vkt']
+[2025-11-09T00:24:22.570+0000] {standard_task_runner.py:85} INFO - Job 50: Subtask check_first_run
+[2025-11-09T00:24:22.865+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.check_first_run scheduled__2023-01-01T00:05:00+00:00 [running]> on host abefff83dc87
+[2025-11-09T00:24:22.978+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='check_first_run' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:05:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:05:00+00:00'
+[2025-11-09T00:24:22.979+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.9/site-packages/***/utils/context.py:313: AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+  warnings.warn(_create_deprecation_warning(k, replacements))
+
+[2025-11-09T00:24:22.979+0000] {python.py:183} INFO - Done. Returned value was: skip_table_creation
+[2025-11-09T00:24:22.979+0000] {python.py:216} INFO - Branch callable return skip_table_creation
+[2025-11-09T00:24:22.979+0000] {skipmixin.py:161} INFO - Following branch skip_table_creation
+[2025-11-09T00:24:22.980+0000] {skipmixin.py:221} INFO - Skipping tasks ['delete_table_train', 'delete_table_val', 'delete_table_test', 'delete_table_raw', 'delete_table_clean']
+[2025-11-09T00:24:23.041+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=check_first_run, execution_date=20230101T000500, start_date=20251109T002422, end_date=20251109T002423
+[2025-11-09T00:24:23.100+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-11-09T00:24:23.545+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check

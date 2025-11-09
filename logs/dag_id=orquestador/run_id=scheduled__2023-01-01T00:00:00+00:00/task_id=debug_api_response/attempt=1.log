@@ -1,0 +1,50 @@
+[2025-11-08T17:27:51.979+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.debug_api_response scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T17:27:51.999+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.debug_api_response scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T17:27:52.000+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-08T17:27:52.014+0000] {taskinstance.py:1350} INFO - Executing <Task(BranchPythonOperator): debug_api_response> on 2023-01-01 00:00:00+00:00
+[2025-11-08T17:27:52.024+0000] {standard_task_runner.py:57} INFO - Started process 11344 to run task
+[2025-11-08T17:27:52.028+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'debug_api_response', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '701', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmpxmiwib9w']
+[2025-11-08T17:27:52.031+0000] {standard_task_runner.py:85} INFO - Job 701: Subtask debug_api_response
+[2025-11-08T17:27:52.354+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.debug_api_response scheduled__2023-01-01T00:00:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T17:27:52.427+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='debug_api_response' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-08T17:27:52.428+0000] {logging_mixin.py:149} INFO - 🔍 Probando conexión con la API...
+[2025-11-08T17:27:54.166+0000] {logging_mixin.py:149} INFO - ✅ Estado HTTP: 200
+[2025-11-08T17:27:54.166+0000] {logging_mixin.py:149} INFO - 🧾 Cabecera Content-Type: application/json
+[2025-11-08T17:27:54.175+0000] {logging_mixin.py:149} INFO - 📏 Tamaño del cuerpo: 15332427 bytes
+[2025-11-08T17:27:54.175+0000] {logging_mixin.py:149} INFO - 📦 Primeros 500 caracteres del cuerpo:
+[2025-11-08T17:27:54.184+0000] {logging_mixin.py:149} INFO - [{"A1Cresult":NaN,"acarbose":"No","acetohexamide":"No","admission_source_id":1,"admission_type_id":3,"age":"[70-80)","change":"No","chlorpropamide":"No","citoglipton":"No","diabetesMed":"No","diag_1":"564","diag_2":"562","diag_3":"250","discharge_disposition_id":1,"encounter_id":224320470,"examide":"No","gender":"Female","glimepiride":"No","glimepiride-pioglitazone":"No","glipizide":"No","glipizide-metformin":"No","glyburide":"No","glyburide-metformin":"No","insulin":"No","max_glu_serum":NaN,"me
+[2025-11-08T17:27:54.184+0000] {logging_mixin.py:149} INFO - 
+--------------------------------------------------------------------------------
+[2025-11-08T17:27:54.187+0000] {logging_mixin.py:149} INFO - ❌ Error al parsear JSON: Expecting value: line 1 column 15 (char 14)
+[2025-11-08T17:27:54.188+0000] {python.py:183} INFO - Done. Returned value was: None
+[2025-11-08T17:27:54.189+0000] {python.py:216} INFO - Branch callable return None
+[2025-11-08T17:27:54.189+0000] {skipmixin.py:161} INFO - Following branch None
+[2025-11-08T17:27:54.190+0000] {skipmixin.py:221} INFO - Skipping tasks ['delete_table_raw']
+[2025-11-08T17:27:54.246+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=debug_api_response, execution_date=20230101T000000, start_date=20251108T172751, end_date=20251108T172754
+[2025-11-08T17:27:54.290+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-11-08T17:27:54.547+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-08T17:33:55.225+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.debug_api_response scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T17:33:55.236+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.debug_api_response scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T17:33:55.236+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-08T17:33:55.250+0000] {taskinstance.py:1350} INFO - Executing <Task(BranchPythonOperator): debug_api_response> on 2023-01-01 00:00:00+00:00
+[2025-11-08T17:33:55.258+0000] {standard_task_runner.py:57} INFO - Started process 11451 to run task
+[2025-11-08T17:33:55.270+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'debug_api_response', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '706', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmps72nmkc8']
+[2025-11-08T17:33:55.274+0000] {standard_task_runner.py:85} INFO - Job 706: Subtask debug_api_response
+[2025-11-08T17:33:55.609+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.debug_api_response scheduled__2023-01-01T00:00:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T17:33:55.718+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='debug_api_response' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-08T17:33:55.719+0000] {logging_mixin.py:149} INFO - 🔍 Probando conexión con la API...
+[2025-11-08T17:33:57.378+0000] {logging_mixin.py:149} INFO - ✅ Estado HTTP: 200
+[2025-11-08T17:33:57.378+0000] {logging_mixin.py:149} INFO - 🧾 Cabecera Content-Type: application/json
+[2025-11-08T17:33:57.387+0000] {logging_mixin.py:149} INFO - 📏 Tamaño del cuerpo: 15441216 bytes
+[2025-11-08T17:33:57.387+0000] {logging_mixin.py:149} INFO - 📦 Primeros 500 caracteres del cuerpo:
+[2025-11-08T17:33:57.397+0000] {logging_mixin.py:149} INFO - [{"A1Cresult":NaN,"acarbose":"No","acetohexamide":"No","admission_source_id":6,"admission_type_id":1,"age":"[40-50)","change":"No","chlorpropamide":"No","citoglipton":"No","diabetesMed":"No","diag_1":"821","diag_2":"824","diag_3":"250","discharge_disposition_id":1,"encounter_id":97468710,"examide":"No","gender":"Male","glimepiride":"No","glimepiride-pioglitazone":"No","glipizide":"No","glipizide-metformin":"No","glyburide":"No","glyburide-metformin":"No","insulin":"No","max_glu_serum":NaN,"medic
+[2025-11-08T17:33:57.397+0000] {logging_mixin.py:149} INFO - 
+--------------------------------------------------------------------------------
+[2025-11-08T17:33:57.400+0000] {logging_mixin.py:149} INFO - ❌ Error al parsear JSON: Expecting value: line 1 column 15 (char 14)
+[2025-11-08T17:33:57.401+0000] {python.py:183} INFO - Done. Returned value was: None
+[2025-11-08T17:33:57.401+0000] {python.py:216} INFO - Branch callable return None
+[2025-11-08T17:33:57.402+0000] {skipmixin.py:161} INFO - Following branch None
+[2025-11-08T17:33:57.402+0000] {skipmixin.py:221} INFO - Skipping tasks ['delete_table_raw']
+[2025-11-08T17:33:57.447+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=debug_api_response, execution_date=20230101T000000, start_date=20251108T173355, end_date=20251108T173357
+[2025-11-08T17:33:57.489+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-11-08T17:33:57.765+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,770 @@
+[2025-11-08T03:57:00.320+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T03:57:00.333+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T03:57:00.333+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-08T03:57:00.347+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): insert_raw_data> on 2023-01-01 00:00:00+00:00
+[2025-11-08T03:57:00.356+0000] {standard_task_runner.py:57} INFO - Started process 136 to run task
+[2025-11-08T03:57:00.363+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'insert_raw_data', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '628', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmphc7eca5e']
+[2025-11-08T03:57:00.366+0000] {standard_task_runner.py:85} INFO - Job 628: Subtask insert_raw_data
+[2025-11-08T03:57:00.679+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T03:57:00.763+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='insert_raw_data' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-08T03:57:02.613+0000] {logging_mixin.py:149} INFO - Error al conectar con la API: Expecting value: line 1 column 15 (char 14)
+[2025-11-08T03:57:02.615+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 165, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5745, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5753, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'A1Cresult'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/scripts/funciones.py", line 122, in insert_data
+    df['A1Cresult'] = df['A1Cresult'].fillna('0')
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 3804, in get_loc
+    raise KeyError(key) from err
+KeyError: 'A1Cresult'
+[2025-11-08T03:57:02.633+0000] {taskinstance.py:1368} INFO - Marking task as UP_FOR_RETRY. dag_id=orquestador, task_id=insert_raw_data, execution_date=20230101T000000, start_date=20251108T035700, end_date=20251108T035702
+[2025-11-08T03:57:02.646+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 628 for task insert_raw_data ('A1Cresult'; 136)
+[2025-11-08T03:57:02.665+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2025-11-08T03:57:02.892+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-08T04:12:49.974+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T04:12:49.993+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T04:12:49.994+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-08T04:12:50.006+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): insert_raw_data> on 2023-01-01 00:00:00+00:00
+[2025-11-08T04:12:50.015+0000] {standard_task_runner.py:57} INFO - Started process 423 to run task
+[2025-11-08T04:12:50.020+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'insert_raw_data', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '642', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmp06cw765j']
+[2025-11-08T04:12:50.023+0000] {standard_task_runner.py:85} INFO - Job 642: Subtask insert_raw_data
+[2025-11-08T04:12:50.332+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T04:12:50.425+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='insert_raw_data' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-08T04:12:52.239+0000] {logging_mixin.py:149} INFO - Error al conectar con la API: Expecting value: line 1 column 15 (char 14)
+[2025-11-08T04:12:52.242+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 165, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5745, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5753, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'A1Cresult'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/scripts/funciones.py", line 122, in insert_data
+    df['A1Cresult'] = df['A1Cresult'].fillna('0')
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 3804, in get_loc
+    raise KeyError(key) from err
+KeyError: 'A1Cresult'
+[2025-11-08T04:12:52.262+0000] {taskinstance.py:1368} INFO - Marking task as UP_FOR_RETRY. dag_id=orquestador, task_id=insert_raw_data, execution_date=20230101T000000, start_date=20251108T041249, end_date=20251108T041252
+[2025-11-08T04:12:52.285+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 642 for task insert_raw_data ('A1Cresult'; 423)
+[2025-11-08T04:12:52.327+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2025-11-08T04:12:52.576+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-08T04:27:56.445+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T04:27:56.460+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T04:27:56.460+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-08T04:27:56.477+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): insert_raw_data> on 2023-01-01 00:00:00+00:00
+[2025-11-08T04:27:56.490+0000] {standard_task_runner.py:57} INFO - Started process 711 to run task
+[2025-11-08T04:27:56.498+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'insert_raw_data', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '656', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmpqdz_elef']
+[2025-11-08T04:27:56.502+0000] {standard_task_runner.py:85} INFO - Job 656: Subtask insert_raw_data
+[2025-11-08T04:27:56.938+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T04:27:57.042+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='insert_raw_data' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-08T04:27:58.815+0000] {logging_mixin.py:149} INFO - Error al conectar con la API: Expecting value: line 1 column 15 (char 14)
+[2025-11-08T04:27:58.821+0000] {logging_mixin.py:149} INFO - 📋 Columnas antes de fillna: []
+[2025-11-08T04:27:58.822+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 165, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5745, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5753, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'A1Cresult'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/scripts/funciones.py", line 123, in insert_data
+    df['A1Cresult'] = df['A1Cresult'].fillna('0')
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 3804, in get_loc
+    raise KeyError(key) from err
+KeyError: 'A1Cresult'
+[2025-11-08T04:27:58.843+0000] {taskinstance.py:1368} INFO - Marking task as UP_FOR_RETRY. dag_id=orquestador, task_id=insert_raw_data, execution_date=20230101T000000, start_date=20251108T042756, end_date=20251108T042758
+[2025-11-08T04:27:58.866+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 656 for task insert_raw_data ('A1Cresult'; 711)
+[2025-11-08T04:27:58.922+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2025-11-08T04:27:59.275+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-08T04:36:10.152+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T04:36:10.167+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T04:36:10.168+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-08T04:36:10.191+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): insert_raw_data> on 2023-01-01 00:00:00+00:00
+[2025-11-08T04:36:10.215+0000] {standard_task_runner.py:57} INFO - Started process 903 to run task
+[2025-11-08T04:36:10.223+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'insert_raw_data', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '670', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmpmq72ndg0']
+[2025-11-08T04:36:10.230+0000] {standard_task_runner.py:85} INFO - Job 670: Subtask insert_raw_data
+[2025-11-08T04:36:10.680+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T04:36:10.806+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='insert_raw_data' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-08T04:36:12.569+0000] {logging_mixin.py:149} INFO - Error al conectar con la API: Expecting value: line 1 column 15 (char 14)
+[2025-11-08T04:36:12.574+0000] {logging_mixin.py:149} INFO - 📋 Columnas antes de fillna: []
+[2025-11-08T04:36:12.575+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 165, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5745, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5753, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'A1Cresult'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/scripts/funciones.py", line 123, in insert_data
+    df['A1Cresult'] = df['A1Cresult'].fillna('0')
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 3804, in get_loc
+    raise KeyError(key) from err
+KeyError: 'A1Cresult'
+[2025-11-08T04:36:12.600+0000] {taskinstance.py:1368} INFO - Marking task as UP_FOR_RETRY. dag_id=orquestador, task_id=insert_raw_data, execution_date=20230101T000000, start_date=20251108T043610, end_date=20251108T043612
+[2025-11-08T04:36:12.624+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 670 for task insert_raw_data ('A1Cresult'; 903)
+[2025-11-08T04:36:12.653+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2025-11-08T04:36:12.982+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-08T04:39:56.200+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T04:39:56.213+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T04:39:56.213+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-08T04:39:56.225+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): insert_raw_data> on 2023-01-01 00:00:00+00:00
+[2025-11-08T04:39:56.235+0000] {standard_task_runner.py:57} INFO - Started process 1025 to run task
+[2025-11-08T04:39:56.244+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'insert_raw_data', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '682', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmpofv8twmz']
+[2025-11-08T04:39:56.248+0000] {standard_task_runner.py:85} INFO - Job 682: Subtask insert_raw_data
+[2025-11-08T04:39:56.582+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T04:39:56.670+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='insert_raw_data' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-08T04:39:58.415+0000] {logging_mixin.py:149} INFO - Error al conectar con la API: Expecting value: line 1 column 15 (char 14)
+[2025-11-08T04:39:58.418+0000] {logging_mixin.py:149} INFO - (0, 0)
+[2025-11-08T04:39:58.418+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 165, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5745, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5753, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'A1Cresult'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/scripts/funciones.py", line 124, in insert_data
+    df['A1Cresult'] = df['A1Cresult'].fillna('0')
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 3804, in get_loc
+    raise KeyError(key) from err
+KeyError: 'A1Cresult'
+[2025-11-08T04:39:58.430+0000] {taskinstance.py:1368} INFO - Marking task as UP_FOR_RETRY. dag_id=orquestador, task_id=insert_raw_data, execution_date=20230101T000000, start_date=20251108T043956, end_date=20251108T043958
+[2025-11-08T04:39:58.442+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 682 for task insert_raw_data ('A1Cresult'; 1025)
+[2025-11-08T04:39:58.465+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2025-11-08T04:39:58.694+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-08T17:11:10.433+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T17:11:10.445+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T17:11:10.446+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-08T17:11:10.458+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): insert_raw_data> on 2023-01-01 00:00:00+00:00
+[2025-11-08T17:11:10.468+0000] {standard_task_runner.py:57} INFO - Started process 11064 to run task
+[2025-11-08T17:11:10.477+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'insert_raw_data', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '696', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmplzrxha8n']
+[2025-11-08T17:11:10.481+0000] {standard_task_runner.py:85} INFO - Job 696: Subtask insert_raw_data
+[2025-11-08T17:11:10.799+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T17:11:10.893+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='insert_raw_data' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-08T17:11:12.741+0000] {logging_mixin.py:149} INFO - Error al conectar con la API: Expecting value: line 1 column 15 (char 14)
+[2025-11-08T17:11:12.745+0000] {logging_mixin.py:149} INFO - (0, 0)
+[2025-11-08T17:11:12.746+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 165, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5745, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5753, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'A1Cresult'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/scripts/funciones.py", line 124, in insert_data
+    df['A1Cresult'] = df['A1Cresult'].fillna('0')
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/core/frame.py", line 3807, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/airflow/.local/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 3804, in get_loc
+    raise KeyError(key) from err
+KeyError: 'A1Cresult'
+[2025-11-08T17:11:12.767+0000] {taskinstance.py:1368} INFO - Marking task as UP_FOR_RETRY. dag_id=orquestador, task_id=insert_raw_data, execution_date=20230101T000000, start_date=20251108T171110, end_date=20251108T171112
+[2025-11-08T17:11:12.786+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 696 for task insert_raw_data ('A1Cresult'; 11064)
+[2025-11-08T17:11:12.818+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2025-11-08T17:11:13.192+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-08T17:36:26.809+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T17:36:26.820+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T17:36:26.821+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-08T17:36:26.834+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): insert_raw_data> on 2023-01-01 00:00:00+00:00
+[2025-11-08T17:36:26.844+0000] {standard_task_runner.py:57} INFO - Started process 11561 to run task
+[2025-11-08T17:36:26.849+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'insert_raw_data', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '718', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmpclwixrke']
+[2025-11-08T17:36:26.852+0000] {standard_task_runner.py:85} INFO - Job 718: Subtask insert_raw_data
+[2025-11-08T17:36:27.158+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T17:36:27.227+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='insert_raw_data' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-08T17:36:29.863+0000] {logging_mixin.py:149} INFO - Cargado chunk con 15000 filas.
+[2025-11-08T17:36:29.874+0000] {logging_mixin.py:149} INFO - (15000, 50)
+[2025-11-08T17:36:29.982+0000] {logging_mixin.py:149} INFO - DataFrame cargado con 15000 filas para insertar.
+[2025-11-08T17:36:30.049+0000] {logging_mixin.py:149} INFO - Insertando datos en la tabla diabetes_raw...
+[2025-11-08T17:36:30.096+0000] {logging_mixin.py:149} INFO -   A1Cresult acarbose acetohexamide  ...  tolbutamide  troglitazone weight
+0         0       No            No  ...           No            No      ?
+1         0       No            No  ...           No            No      ?
+2         0       No            No  ...           No            No      ?
+3         0       No            No  ...           No            No      ?
+4         0       No            No  ...           No            No      ?
+
+[5 rows x 50 columns]
+[2025-11-08T17:36:30.096+0000] {logging_mixin.py:149} INFO - columnas
+[2025-11-08T17:36:30.097+0000] {logging_mixin.py:149} INFO - Index(['A1Cresult', 'acarbose', 'acetohexamide', 'admission_source_id',
+       'admission_type_id', 'age', 'cambio', 'chlorpropamide', 'citoglipton',
+       'diabetesMed', 'diag_1', 'diag_2', 'diag_3', 'discharge_disposition_id',
+       'encounter_id', 'examide', 'gender', 'glimepiride',
+       'glimepiride_pioglitazone', 'glipizide', 'glipizide_metformin',
+       'glyburide', 'glyburide_metformin', 'insulin', 'max_glu_serum',
+       'medical_specialty', 'metformin', 'metformin_pioglitazone',
+       'metformin_rosiglitazone', 'miglitol', 'nateglinide',
+       'num_lab_procedures', 'num_medications', 'num_procedures',
+       'number_diagnoses', 'number_emergency', 'number_inpatient',
+       'number_outpatient', 'patient_nbr', 'payer_code', 'pioglitazone',
+       'race', 'readmitted', 'repaglinide', 'rosiglitazone',
+       'time_in_hospital', 'tolazamide', 'tolbutamide', 'troglitazone',
+       'weight'],
+      dtype='object')
+[2025-11-08T17:36:32.963+0000] {crypto.py:83} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-11-08T17:36:32.964+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-08T17:36:32.993+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/scripts/funciones.py", line 220, in insert_data
+    cursor.executemany(insert_sql, values)
+  File "/home/airflow/.local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 230, in executemany
+    return self._do_execute_many(
+  File "/home/airflow/.local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 261, in _do_execute_many
+    rows += self.execute(sql + postfix)
+  File "/home/airflow/.local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/home/airflow/.local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/home/airflow/.local/lib/python3.9/site-packages/MySQLdb/connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+MySQLdb.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'change, chlorpropamide, citoglipton,\n        diabetesMed, diag_1, diag_2, diag_3' at line 3")
+[2025-11-08T17:36:33.010+0000] {taskinstance.py:1368} INFO - Marking task as UP_FOR_RETRY. dag_id=orquestador, task_id=insert_raw_data, execution_date=20230101T000000, start_date=20251108T173626, end_date=20251108T173633
+[2025-11-08T17:36:33.025+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 718 for task insert_raw_data ((1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'change, chlorpropamide, citoglipton,\n        diabetesMed, diag_1, diag_2, diag_3' at line 3"); 11561)
+[2025-11-08T17:36:33.054+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2025-11-08T17:36:33.272+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-08T17:40:36.237+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T17:40:36.254+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T17:40:36.254+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-08T17:40:36.265+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): insert_raw_data> on 2023-01-01 00:00:00+00:00
+[2025-11-08T17:40:36.274+0000] {standard_task_runner.py:57} INFO - Started process 11685 to run task
+[2025-11-08T17:40:36.278+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'insert_raw_data', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '730', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmpv_2bq3d6']
+[2025-11-08T17:40:36.283+0000] {standard_task_runner.py:85} INFO - Job 730: Subtask insert_raw_data
+[2025-11-08T17:40:36.594+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T17:40:36.683+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='insert_raw_data' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-08T17:40:39.527+0000] {logging_mixin.py:149} INFO - Cargado chunk con 11766 filas.
+[2025-11-08T17:40:39.536+0000] {logging_mixin.py:149} INFO - (11766, 50)
+[2025-11-08T17:40:39.558+0000] {logging_mixin.py:149} INFO - DataFrame cargado con 11766 filas para insertar.
+[2025-11-08T17:40:39.622+0000] {logging_mixin.py:149} INFO - Insertando datos en la tabla diabetes_raw...
+[2025-11-08T17:40:39.679+0000] {logging_mixin.py:149} INFO -   A1Cresult acarbose acetohexamide  ...  tolbutamide  troglitazone     weight
+0         0       No            No  ...           No            No  [100-125)
+1         0       No            No  ...           No            No          ?
+2         0       No            No  ...           No            No          ?
+3         0       No            No  ...           No            No          ?
+4         0       No            No  ...           No            No          ?
+
+[5 rows x 50 columns]
+[2025-11-08T17:40:39.679+0000] {logging_mixin.py:149} INFO - columnas
+[2025-11-08T17:40:39.680+0000] {logging_mixin.py:149} INFO - Index(['A1Cresult', 'acarbose', 'acetohexamide', 'admission_source_id',
+       'admission_type_id', 'age', 'cambio', 'chlorpropamide', 'citoglipton',
+       'diabetesMed', 'diag_1', 'diag_2', 'diag_3', 'discharge_disposition_id',
+       'encounter_id', 'examide', 'gender', 'glimepiride',
+       'glimepiride_pioglitazone', 'glipizide', 'glipizide_metformin',
+       'glyburide', 'glyburide_metformin', 'insulin', 'max_glu_serum',
+       'medical_specialty', 'metformin', 'metformin_pioglitazone',
+       'metformin_rosiglitazone', 'miglitol', 'nateglinide',
+       'num_lab_procedures', 'num_medications', 'num_procedures',
+       'number_diagnoses', 'number_emergency', 'number_inpatient',
+       'number_outpatient', 'patient_nbr', 'payer_code', 'pioglitazone',
+       'race', 'readmitted', 'repaglinide', 'rosiglitazone',
+       'time_in_hospital', 'tolazamide', 'tolbutamide', 'troglitazone',
+       'weight'],
+      dtype='object')
+[2025-11-08T17:40:42.203+0000] {crypto.py:83} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-11-08T17:40:42.204+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-08T17:40:42.236+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/scripts/funciones.py", line 220, in insert_data
+    cursor.executemany(insert_sql, values)
+  File "/home/airflow/.local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 230, in executemany
+    return self._do_execute_many(
+  File "/home/airflow/.local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 261, in _do_execute_many
+    rows += self.execute(sql + postfix)
+  File "/home/airflow/.local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/home/airflow/.local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/home/airflow/.local/lib/python3.9/site-packages/MySQLdb/connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+MySQLdb.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-pioglitazone, glipizide, glipizide-metformin,\n        glyburide, glyburide-metf' at line 6")
+[2025-11-08T17:40:42.247+0000] {taskinstance.py:1368} INFO - Marking task as UP_FOR_RETRY. dag_id=orquestador, task_id=insert_raw_data, execution_date=20230101T000000, start_date=20251108T174036, end_date=20251108T174042
+[2025-11-08T17:40:42.268+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 730 for task insert_raw_data ((1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-pioglitazone, glipizide, glipizide-metformin,\n        glyburide, glyburide-metf' at line 6"); 11685)
+[2025-11-08T17:40:42.298+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2025-11-08T17:40:42.533+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-08T20:19:39.629+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T20:19:39.640+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T20:19:39.640+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-08T20:19:39.652+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): insert_raw_data> on 2023-01-01 00:00:00+00:00
+[2025-11-08T20:19:39.665+0000] {standard_task_runner.py:57} INFO - Started process 13868 to run task
+[2025-11-08T20:19:39.670+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'insert_raw_data', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '744', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmphz15fviq']
+[2025-11-08T20:19:39.674+0000] {standard_task_runner.py:85} INFO - Job 744: Subtask insert_raw_data
+[2025-11-08T20:19:39.982+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T20:19:40.093+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='insert_raw_data' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-08T20:19:42.869+0000] {logging_mixin.py:149} INFO - Cargado chunk con 15000 filas.
+[2025-11-08T20:19:42.880+0000] {logging_mixin.py:149} INFO - (15000, 50)
+[2025-11-08T20:19:42.913+0000] {logging_mixin.py:149} INFO - DataFrame cargado con 15000 filas para insertar.
+[2025-11-08T20:19:42.981+0000] {logging_mixin.py:149} INFO - Insertando datos en la tabla diabetes_raw...
+[2025-11-08T20:19:43.027+0000] {logging_mixin.py:149} INFO -   A1Cresult acarbose acetohexamide  ...  tolbutamide  troglitazone weight
+0         0       No            No  ...           No            No      ?
+1         0       No            No  ...           No            No      ?
+2         0       No            No  ...           No            No      ?
+3         0       No            No  ...           No            No      ?
+4         0       No            No  ...           No            No      ?
+
+[5 rows x 50 columns]
+[2025-11-08T20:19:43.027+0000] {logging_mixin.py:149} INFO - columnas
+[2025-11-08T20:19:43.028+0000] {logging_mixin.py:149} INFO - Index(['A1Cresult', 'acarbose', 'acetohexamide', 'admission_source_id',
+       'admission_type_id', 'age', 'cambio', 'chlorpropamide', 'citoglipton',
+       'diabetesMed', 'diag_1', 'diag_2', 'diag_3', 'discharge_disposition_id',
+       'encounter_id', 'examide', 'gender', 'glimepiride',
+       'glimepiride_pioglitazone', 'glipizide', 'glipizide_metformin',
+       'glyburide', 'glyburide_metformin', 'insulin', 'max_glu_serum',
+       'medical_specialty', 'metformin', 'metformin_pioglitazone',
+       'metformin_rosiglitazone', 'miglitol', 'nateglinide',
+       'num_lab_procedures', 'num_medications', 'num_procedures',
+       'number_diagnoses', 'number_emergency', 'number_inpatient',
+       'number_outpatient', 'patient_nbr', 'payer_code', 'pioglitazone',
+       'race', 'readmitted', 'repaglinide', 'rosiglitazone',
+       'time_in_hospital', 'tolazamide', 'tolbutamide', 'troglitazone',
+       'weight'],
+      dtype='object')
+[2025-11-08T20:19:45.924+0000] {crypto.py:83} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-11-08T20:19:45.924+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-08T20:19:45.955+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 181, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 198, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/scripts/funciones.py", line 221, in insert_data
+    cursor.executemany(insert_sql, values)
+  File "/home/airflow/.local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 230, in executemany
+    return self._do_execute_many(
+  File "/home/airflow/.local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 261, in _do_execute_many
+    rows += self.execute(sql + postfix)
+  File "/home/airflow/.local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/home/airflow/.local/lib/python3.9/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/home/airflow/.local/lib/python3.9/site-packages/MySQLdb/connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+MySQLdb.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'metformin, insulin, max_glu_serum,\n        medical_specialty, metformin, metform' at line 8")
+[2025-11-08T20:19:45.964+0000] {taskinstance.py:1368} INFO - Marking task as UP_FOR_RETRY. dag_id=orquestador, task_id=insert_raw_data, execution_date=20230101T000000, start_date=20251108T201939, end_date=20251108T201945
+[2025-11-08T20:19:45.980+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 744 for task insert_raw_data ((1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'metformin, insulin, max_glu_serum,\n        medical_specialty, metformin, metform' at line 8"); 13868)
+[2025-11-08T20:19:46.034+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2025-11-08T20:19:46.255+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-08T20:23:15.441+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T20:23:15.453+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T20:23:15.453+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-08T20:23:15.466+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): insert_raw_data> on 2023-01-01 00:00:00+00:00
+[2025-11-08T20:23:15.475+0000] {standard_task_runner.py:57} INFO - Started process 13993 to run task
+[2025-11-08T20:23:15.483+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'insert_raw_data', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '756', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmpt6l8qhiz']
+[2025-11-08T20:23:15.486+0000] {standard_task_runner.py:85} INFO - Job 756: Subtask insert_raw_data
+[2025-11-08T20:23:15.830+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T20:23:15.938+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='insert_raw_data' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-08T20:23:18.248+0000] {logging_mixin.py:149} INFO - Cargado chunk con 11766 filas.
+[2025-11-08T20:23:18.257+0000] {logging_mixin.py:149} INFO - (11766, 50)
+[2025-11-08T20:23:18.280+0000] {logging_mixin.py:149} INFO - DataFrame cargado con 11766 filas para insertar.
+[2025-11-08T20:23:18.334+0000] {logging_mixin.py:149} INFO - Insertando datos en la tabla diabetes_raw...
+[2025-11-08T20:23:18.375+0000] {logging_mixin.py:149} INFO -   A1Cresult acarbose acetohexamide  ...  tolbutamide  troglitazone     weight
+0         0       No            No  ...           No            No  [100-125)
+1         0       No            No  ...           No            No          ?
+2         0       No            No  ...           No            No          ?
+3         0       No            No  ...           No            No          ?
+4         0       No            No  ...           No            No          ?
+
+[5 rows x 50 columns]
+[2025-11-08T20:23:18.375+0000] {logging_mixin.py:149} INFO - columnas
+[2025-11-08T20:23:18.376+0000] {logging_mixin.py:149} INFO - Index(['A1Cresult', 'acarbose', 'acetohexamide', 'admission_source_id',
+       'admission_type_id', 'age', 'cambio', 'chlorpropamide', 'citoglipton',
+       'diabetesMed', 'diag_1', 'diag_2', 'diag_3', 'discharge_disposition_id',
+       'encounter_id', 'examide', 'gender', 'glimepiride',
+       'glimepiride_pioglitazone', 'glipizide', 'glipizide_metformin',
+       'glyburide', 'glyburide_metformin', 'insulin', 'max_glu_serum',
+       'medical_specialty', 'metformin', 'metformin_pioglitazone',
+       'metformin_rosiglitazone', 'miglitol', 'nateglinide',
+       'num_lab_procedures', 'num_medications', 'num_procedures',
+       'number_diagnoses', 'number_emergency', 'number_inpatient',
+       'number_outpatient', 'patient_nbr', 'payer_code', 'pioglitazone',
+       'race', 'readmitted', 'repaglinide', 'rosiglitazone',
+       'time_in_hospital', 'tolazamide', 'tolbutamide', 'troglitazone',
+       'weight'],
+      dtype='object')
+[2025-11-08T20:23:20.639+0000] {crypto.py:83} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-11-08T20:23:20.639+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-08T20:23:22.570+0000] {logging_mixin.py:149} INFO - 11766 registros insertados en diabetes_raw
+[2025-11-08T20:23:22.591+0000] {python.py:183} INFO - Done. Returned value was: None
+[2025-11-08T20:23:22.611+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=insert_raw_data, execution_date=20230101T000000, start_date=20251108T202315, end_date=20251108T202322
+[2025-11-08T20:23:22.665+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-11-08T20:23:23.024+0000] {taskinstance.py:2674} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-08T20:51:24.011+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T20:51:24.023+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T20:51:24.023+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-08T20:51:24.034+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): insert_raw_data> on 2023-01-01 00:00:00+00:00
+[2025-11-08T20:51:24.043+0000] {standard_task_runner.py:57} INFO - Started process 14554 to run task
+[2025-11-08T20:51:24.048+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'insert_raw_data', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '778', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmpz5lnun9t']
+[2025-11-08T20:51:24.052+0000] {standard_task_runner.py:85} INFO - Job 778: Subtask insert_raw_data
+[2025-11-08T20:51:24.344+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T20:51:24.453+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='insert_raw_data' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-08T20:51:27.198+0000] {logging_mixin.py:149} INFO - Cargado chunk con 15000 filas.
+[2025-11-08T20:51:27.209+0000] {logging_mixin.py:149} INFO - (15000, 50)
+[2025-11-08T20:51:27.239+0000] {logging_mixin.py:149} INFO - DataFrame cargado con 15000 filas para insertar.
+[2025-11-08T20:51:27.311+0000] {logging_mixin.py:149} INFO - Insertando datos en la tabla diabetes_raw...
+[2025-11-08T20:51:27.368+0000] {logging_mixin.py:149} INFO -   A1Cresult acarbose acetohexamide  ...  tolbutamide  troglitazone weight
+0         0       No            No  ...           No            No      ?
+1         0       No            No  ...           No            No      ?
+2         0       No            No  ...           No            No      ?
+3         0       No            No  ...           No            No      ?
+4         0       No            No  ...           No            No      ?
+
+[5 rows x 50 columns]
+[2025-11-08T20:51:27.368+0000] {logging_mixin.py:149} INFO - columnas
+[2025-11-08T20:51:27.369+0000] {logging_mixin.py:149} INFO - Index(['A1Cresult', 'acarbose', 'acetohexamide', 'admission_source_id',
+       'admission_type_id', 'age', 'cambio', 'chlorpropamide', 'citoglipton',
+       'diabetesMed', 'diag_1', 'diag_2', 'diag_3', 'discharge_disposition_id',
+       'encounter_id', 'examide', 'gender', 'glimepiride',
+       'glimepiride_pioglitazone', 'glipizide', 'glipizide_metformin',
+       'glyburide', 'glyburide_metformin', 'insulin', 'max_glu_serum',
+       'medical_specialty', 'metformin', 'metformin_pioglitazone',
+       'metformin_rosiglitazone', 'miglitol', 'nateglinide',
+       'num_lab_procedures', 'num_medications', 'num_procedures',
+       'number_diagnoses', 'number_emergency', 'number_inpatient',
+       'number_outpatient', 'patient_nbr', 'payer_code', 'pioglitazone',
+       'race', 'readmitted', 'repaglinide', 'rosiglitazone',
+       'time_in_hospital', 'tolazamide', 'tolbutamide', 'troglitazone',
+       'weight'],
+      dtype='object')
+[2025-11-08T20:51:30.202+0000] {crypto.py:83} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-11-08T20:51:30.203+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-08T20:51:32.662+0000] {logging_mixin.py:149} INFO - 15000 registros insertados en diabetes_raw
+[2025-11-08T20:51:32.679+0000] {python.py:183} INFO - Done. Returned value was: None
+[2025-11-08T20:51:32.690+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=insert_raw_data, execution_date=20230101T000000, start_date=20251108T205124, end_date=20251108T205132
+[2025-11-08T20:51:32.756+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-11-08T20:51:32.969+0000] {taskinstance.py:2674} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-08T23:03:55.600+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T23:03:55.612+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T23:03:55.612+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-08T23:03:55.627+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): insert_raw_data> on 2023-01-01 00:00:00+00:00
+[2025-11-08T23:03:55.636+0000] {standard_task_runner.py:57} INFO - Started process 16691 to run task
+[2025-11-08T23:03:55.647+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'insert_raw_data', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '823', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmpohnfwoak']
+[2025-11-08T23:03:55.651+0000] {standard_task_runner.py:85} INFO - Job 823: Subtask insert_raw_data
+[2025-11-08T23:03:55.948+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T23:03:56.027+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='insert_raw_data' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-08T23:03:58.626+0000] {logging_mixin.py:149} INFO - Cargado chunk con 15000 filas.
+[2025-11-08T23:03:58.636+0000] {logging_mixin.py:149} INFO - (15000, 50)
+[2025-11-08T23:03:58.665+0000] {logging_mixin.py:149} INFO - DataFrame cargado con 15000 filas para insertar.
+[2025-11-08T23:03:58.733+0000] {logging_mixin.py:149} INFO - Insertando datos en la tabla diabetes_raw...
+[2025-11-08T23:03:58.774+0000] {logging_mixin.py:149} INFO -   A1Cresult acarbose acetohexamide  ...  tolbutamide  troglitazone weight
+0         0       No            No  ...           No            No      ?
+1         0       No            No  ...           No            No      ?
+2         0       No            No  ...           No            No      ?
+3         0       No            No  ...           No            No      ?
+4        >8       No            No  ...           No            No      ?
+
+[5 rows x 50 columns]
+[2025-11-08T23:03:58.775+0000] {logging_mixin.py:149} INFO - columnas
+[2025-11-08T23:03:58.775+0000] {logging_mixin.py:149} INFO - Index(['A1Cresult', 'acarbose', 'acetohexamide', 'admission_source_id',
+       'admission_type_id', 'age', 'cambio', 'chlorpropamide', 'citoglipton',
+       'diabetesMed', 'diag_1', 'diag_2', 'diag_3', 'discharge_disposition_id',
+       'encounter_id', 'examide', 'gender', 'glimepiride',
+       'glimepiride_pioglitazone', 'glipizide', 'glipizide_metformin',
+       'glyburide', 'glyburide_metformin', 'insulin', 'max_glu_serum',
+       'medical_specialty', 'metformin', 'metformin_pioglitazone',
+       'metformin_rosiglitazone', 'miglitol', 'nateglinide',
+       'num_lab_procedures', 'num_medications', 'num_procedures',
+       'number_diagnoses', 'number_emergency', 'number_inpatient',
+       'number_outpatient', 'patient_nbr', 'payer_code', 'pioglitazone',
+       'race', 'readmitted', 'repaglinide', 'rosiglitazone',
+       'time_in_hospital', 'tolazamide', 'tolbutamide', 'troglitazone',
+       'weight'],
+      dtype='object')
+[2025-11-08T23:04:01.710+0000] {crypto.py:83} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-11-08T23:04:01.711+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-08T23:04:03.971+0000] {logging_mixin.py:149} INFO - 15000 registros insertados en diabetes_raw
+[2025-11-08T23:04:03.995+0000] {python.py:183} INFO - Done. Returned value was: None
+[2025-11-08T23:04:04.005+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=insert_raw_data, execution_date=20230101T000000, start_date=20251108T230355, end_date=20251108T230404
+[2025-11-08T23:04:04.057+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-11-08T23:04:04.277+0000] {taskinstance.py:2674} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-08T23:19:29.214+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T23:19:29.230+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T23:19:29.230+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-08T23:19:29.246+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): insert_raw_data> on 2023-01-01 00:00:00+00:00
+[2025-11-08T23:19:29.255+0000] {standard_task_runner.py:57} INFO - Started process 17109 to run task
+[2025-11-08T23:19:29.259+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'insert_raw_data', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '850', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmp_v_9ln19']
+[2025-11-08T23:19:29.262+0000] {standard_task_runner.py:85} INFO - Job 850: Subtask insert_raw_data
+[2025-11-08T23:19:29.629+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T23:19:29.718+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='insert_raw_data' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-08T23:19:32.476+0000] {logging_mixin.py:149} INFO - Cargado chunk con 15000 filas.
+[2025-11-08T23:19:32.493+0000] {logging_mixin.py:149} INFO - (15000, 50)
+[2025-11-08T23:19:32.535+0000] {logging_mixin.py:149} INFO - DataFrame cargado con 15000 filas para insertar.
+[2025-11-08T23:19:32.643+0000] {logging_mixin.py:149} INFO - Insertando datos en la tabla diabetes_raw...
+[2025-11-08T23:19:32.727+0000] {logging_mixin.py:149} INFO -   A1Cresult acarbose acetohexamide  ...  tolbutamide  troglitazone weight
+0         0       No            No  ...           No            No      ?
+1         0       No            No  ...           No            No      ?
+2         0       No            No  ...           No            No      ?
+3         0       No            No  ...           No            No      ?
+4        >8       No            No  ...           No            No      ?
+
+[5 rows x 50 columns]
+[2025-11-08T23:19:32.727+0000] {logging_mixin.py:149} INFO - columnas
+[2025-11-08T23:19:32.728+0000] {logging_mixin.py:149} INFO - Index(['A1Cresult', 'acarbose', 'acetohexamide', 'admission_source_id',
+       'admission_type_id', 'age', 'cambio', 'chlorpropamide', 'citoglipton',
+       'diabetesMed', 'diag_1', 'diag_2', 'diag_3', 'discharge_disposition_id',
+       'encounter_id', 'examide', 'gender', 'glimepiride',
+       'glimepiride_pioglitazone', 'glipizide', 'glipizide_metformin',
+       'glyburide', 'glyburide_metformin', 'insulin', 'max_glu_serum',
+       'medical_specialty', 'metformin', 'metformin_pioglitazone',
+       'metformin_rosiglitazone', 'miglitol', 'nateglinide',
+       'num_lab_procedures', 'num_medications', 'num_procedures',
+       'number_diagnoses', 'number_emergency', 'number_inpatient',
+       'number_outpatient', 'patient_nbr', 'payer_code', 'pioglitazone',
+       'race', 'readmitted', 'repaglinide', 'rosiglitazone',
+       'time_in_hospital', 'tolazamide', 'tolbutamide', 'troglitazone',
+       'weight'],
+      dtype='object')
+[2025-11-08T23:19:35.588+0000] {crypto.py:83} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-11-08T23:19:35.588+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-08T23:19:37.812+0000] {logging_mixin.py:149} INFO - 15000 registros insertados en diabetes_raw
+[2025-11-08T23:19:37.835+0000] {python.py:183} INFO - Done. Returned value was: None
+[2025-11-08T23:19:37.848+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=insert_raw_data, execution_date=20230101T000000, start_date=20251108T231929, end_date=20251108T231937
+[2025-11-08T23:19:37.894+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-11-08T23:19:38.150+0000] {taskinstance.py:2674} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-08T23:27:50.122+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T23:27:50.135+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T23:27:50.136+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-08T23:27:50.153+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): insert_raw_data> on 2023-01-01 00:00:00+00:00
+[2025-11-08T23:27:50.163+0000] {standard_task_runner.py:57} INFO - Started process 17373 to run task
+[2025-11-08T23:27:50.173+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'insert_raw_data', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '871', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmprdowobup']
+[2025-11-08T23:27:50.176+0000] {standard_task_runner.py:85} INFO - Job 871: Subtask insert_raw_data
+[2025-11-08T23:27:50.492+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T23:27:50.600+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='insert_raw_data' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-08T23:27:52.898+0000] {logging_mixin.py:149} INFO - Cargado chunk con 11766 filas.
+[2025-11-08T23:27:52.911+0000] {logging_mixin.py:149} INFO - (11766, 50)
+[2025-11-08T23:27:52.945+0000] {logging_mixin.py:149} INFO - DataFrame cargado con 11766 filas para insertar.
+[2025-11-08T23:27:53.026+0000] {logging_mixin.py:149} INFO - Insertando datos en la tabla diabetes_raw...
+[2025-11-08T23:27:53.074+0000] {logging_mixin.py:149} INFO -   A1Cresult acarbose acetohexamide  ...  tolbutamide  troglitazone     weight
+0         0       No            No  ...           No            No  [100-125)
+1         0       No            No  ...           No            No          ?
+2         0       No            No  ...           No            No          ?
+3         0       No            No  ...           No            No          ?
+4         0       No            No  ...           No            No          ?
+
+[5 rows x 50 columns]
+[2025-11-08T23:27:53.074+0000] {logging_mixin.py:149} INFO - columnas
+[2025-11-08T23:27:53.075+0000] {logging_mixin.py:149} INFO - Index(['A1Cresult', 'acarbose', 'acetohexamide', 'admission_source_id',
+       'admission_type_id', 'age', 'cambio', 'chlorpropamide', 'citoglipton',
+       'diabetesMed', 'diag_1', 'diag_2', 'diag_3', 'discharge_disposition_id',
+       'encounter_id', 'examide', 'gender', 'glimepiride',
+       'glimepiride_pioglitazone', 'glipizide', 'glipizide_metformin',
+       'glyburide', 'glyburide_metformin', 'insulin', 'max_glu_serum',
+       'medical_specialty', 'metformin', 'metformin_pioglitazone',
+       'metformin_rosiglitazone', 'miglitol', 'nateglinide',
+       'num_lab_procedures', 'num_medications', 'num_procedures',
+       'number_diagnoses', 'number_emergency', 'number_inpatient',
+       'number_outpatient', 'patient_nbr', 'payer_code', 'pioglitazone',
+       'race', 'readmitted', 'repaglinide', 'rosiglitazone',
+       'time_in_hospital', 'tolazamide', 'tolbutamide', 'troglitazone',
+       'weight'],
+      dtype='object')
+[2025-11-08T23:27:55.385+0000] {crypto.py:83} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-11-08T23:27:55.386+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-08T23:27:57.180+0000] {logging_mixin.py:149} INFO - 11766 registros insertados en diabetes_raw
+[2025-11-08T23:27:57.196+0000] {python.py:183} INFO - Done. Returned value was: None
+[2025-11-08T23:27:57.206+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=insert_raw_data, execution_date=20230101T000000, start_date=20251108T232750, end_date=20251108T232757
+[2025-11-08T23:27:57.263+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-11-08T23:27:57.304+0000] {taskinstance.py:2674} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-08T23:33:46.473+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T23:33:46.499+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-08T23:33:46.499+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-08T23:33:46.516+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): insert_raw_data> on 2023-01-01 00:00:00+00:00
+[2025-11-08T23:33:46.533+0000] {standard_task_runner.py:57} INFO - Started process 17576 to run task
+[2025-11-08T23:33:46.540+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'insert_raw_data', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '888', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmpkflrgi3h']
+[2025-11-08T23:33:46.545+0000] {standard_task_runner.py:85} INFO - Job 888: Subtask insert_raw_data
+[2025-11-08T23:33:46.963+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [running]> on host 068cff9bffb3
+[2025-11-08T23:33:47.083+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='insert_raw_data' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-08T23:33:49.699+0000] {logging_mixin.py:149} INFO - Cargado chunk con 15000 filas.
+[2025-11-08T23:33:49.709+0000] {logging_mixin.py:149} INFO - (15000, 50)
+[2025-11-08T23:33:49.738+0000] {logging_mixin.py:149} INFO - DataFrame cargado con 15000 filas para insertar.
+[2025-11-08T23:33:49.809+0000] {logging_mixin.py:149} INFO - Insertando datos en la tabla diabetes_raw...
+[2025-11-08T23:33:49.851+0000] {logging_mixin.py:149} INFO -   A1Cresult acarbose acetohexamide  ...  tolbutamide  troglitazone weight
+0         0       No            No  ...           No            No      ?
+1         0       No            No  ...           No            No      ?
+2        >8       No            No  ...           No            No      ?
+3         0       No            No  ...           No            No      ?
+4         0       No            No  ...           No            No      ?
+
+[5 rows x 50 columns]
+[2025-11-08T23:33:49.851+0000] {logging_mixin.py:149} INFO - columnas
+[2025-11-08T23:33:49.852+0000] {logging_mixin.py:149} INFO - Index(['A1Cresult', 'acarbose', 'acetohexamide', 'admission_source_id',
+       'admission_type_id', 'age', 'cambio', 'chlorpropamide', 'citoglipton',
+       'diabetesMed', 'diag_1', 'diag_2', 'diag_3', 'discharge_disposition_id',
+       'encounter_id', 'examide', 'gender', 'glimepiride',
+       'glimepiride_pioglitazone', 'glipizide', 'glipizide_metformin',
+       'glyburide', 'glyburide_metformin', 'insulin', 'max_glu_serum',
+       'medical_specialty', 'metformin', 'metformin_pioglitazone',
+       'metformin_rosiglitazone', 'miglitol', 'nateglinide',
+       'num_lab_procedures', 'num_medications', 'num_procedures',
+       'number_diagnoses', 'number_emergency', 'number_inpatient',
+       'number_outpatient', 'patient_nbr', 'payer_code', 'pioglitazone',
+       'race', 'readmitted', 'repaglinide', 'rosiglitazone',
+       'time_in_hospital', 'tolazamide', 'tolbutamide', 'troglitazone',
+       'weight'],
+      dtype='object')
+[2025-11-08T23:33:52.740+0000] {crypto.py:83} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-11-08T23:33:52.741+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-08T23:33:54.901+0000] {logging_mixin.py:149} INFO - 15000 registros insertados en diabetes_raw
+[2025-11-08T23:33:54.919+0000] {python.py:183} INFO - Done. Returned value was: None
+[2025-11-08T23:33:54.935+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=insert_raw_data, execution_date=20230101T000000, start_date=20251108T233346, end_date=20251108T233354
+[2025-11-08T23:33:54.972+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-11-08T23:33:55.017+0000] {taskinstance.py:2674} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-09T00:01:39.718+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-09T00:01:39.738+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-09T00:01:39.739+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-09T00:01:39.754+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): insert_raw_data> on 2023-01-01 00:00:00+00:00
+[2025-11-09T00:01:39.764+0000] {standard_task_runner.py:57} INFO - Started process 201 to run task
+[2025-11-09T00:01:39.768+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'insert_raw_data', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '14', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmp7lgzzizf']
+[2025-11-09T00:01:39.771+0000] {standard_task_runner.py:85} INFO - Job 14: Subtask insert_raw_data
+[2025-11-09T00:01:40.125+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [running]> on host abefff83dc87
+[2025-11-09T00:01:40.213+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='insert_raw_data' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-09T00:01:43.166+0000] {logging_mixin.py:149} INFO - Cargado chunk con 15000 filas.
+[2025-11-09T00:01:43.176+0000] {logging_mixin.py:149} INFO - (15000, 50)
+[2025-11-09T00:01:43.208+0000] {logging_mixin.py:149} INFO - DataFrame cargado con 15000 filas para insertar.
+[2025-11-09T00:01:43.285+0000] {logging_mixin.py:149} INFO - Insertando datos en la tabla diabetes_raw...
+[2025-11-09T00:01:43.330+0000] {logging_mixin.py:149} INFO -   A1Cresult acarbose acetohexamide  ...  tolbutamide  troglitazone weight
+0         0       No            No  ...           No            No      ?
+1         0       No            No  ...           No            No      ?
+2         0       No            No  ...           No            No      ?
+3         0       No            No  ...           No            No      ?
+4        >8       No            No  ...           No            No      ?
+
+[5 rows x 50 columns]
+[2025-11-09T00:01:43.331+0000] {logging_mixin.py:149} INFO - columnas
+[2025-11-09T00:01:43.331+0000] {logging_mixin.py:149} INFO - Index(['A1Cresult', 'acarbose', 'acetohexamide', 'admission_source_id',
+       'admission_type_id', 'age', 'cambio', 'chlorpropamide', 'citoglipton',
+       'diabetesMed', 'diag_1', 'diag_2', 'diag_3', 'discharge_disposition_id',
+       'encounter_id', 'examide', 'gender', 'glimepiride',
+       'glimepiride_pioglitazone', 'glipizide', 'glipizide_metformin',
+       'glyburide', 'glyburide_metformin', 'insulin', 'max_glu_serum',
+       'medical_specialty', 'metformin', 'metformin_pioglitazone',
+       'metformin_rosiglitazone', 'miglitol', 'nateglinide',
+       'num_lab_procedures', 'num_medications', 'num_procedures',
+       'number_diagnoses', 'number_emergency', 'number_inpatient',
+       'number_outpatient', 'patient_nbr', 'payer_code', 'pioglitazone',
+       'race', 'readmitted', 'repaglinide', 'rosiglitazone',
+       'time_in_hospital', 'tolazamide', 'tolbutamide', 'troglitazone',
+       'weight'],
+      dtype='object')
+[2025-11-09T00:01:46.297+0000] {crypto.py:83} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-11-09T00:01:46.298+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-09T00:01:48.564+0000] {logging_mixin.py:149} INFO - 15000 registros insertados en diabetes_raw
+[2025-11-09T00:01:48.591+0000] {python.py:183} INFO - Done. Returned value was: None
+[2025-11-09T00:01:48.601+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=insert_raw_data, execution_date=20230101T000000, start_date=20251109T000139, end_date=20251109T000148
+[2025-11-09T00:01:48.658+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-11-09T00:01:48.878+0000] {taskinstance.py:2674} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-09T00:18:16.541+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-09T00:18:16.554+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-09T00:18:16.555+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-09T00:18:16.567+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): insert_raw_data> on 2023-01-01 00:00:00+00:00
+[2025-11-09T00:18:16.576+0000] {standard_task_runner.py:57} INFO - Started process 654 to run task
+[2025-11-09T00:18:16.585+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'insert_raw_data', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '44', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmpnh5d2hv3']
+[2025-11-09T00:18:16.589+0000] {standard_task_runner.py:85} INFO - Job 44: Subtask insert_raw_data
+[2025-11-09T00:18:16.896+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.insert_raw_data scheduled__2023-01-01T00:00:00+00:00 [running]> on host abefff83dc87
+[2025-11-09T00:18:16.984+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='insert_raw_data' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-09T00:18:19.606+0000] {logging_mixin.py:149} INFO - Cargado chunk con 15000 filas.
+[2025-11-09T00:18:19.616+0000] {logging_mixin.py:149} INFO - (15000, 50)
+[2025-11-09T00:18:19.647+0000] {logging_mixin.py:149} INFO - DataFrame cargado con 15000 filas para insertar.
+[2025-11-09T00:18:19.720+0000] {logging_mixin.py:149} INFO - Insertando datos en la tabla diabetes_raw...
+[2025-11-09T00:18:19.763+0000] {logging_mixin.py:149} INFO -   A1Cresult acarbose acetohexamide  ...  tolbutamide  troglitazone weight
+0         0       No            No  ...           No            No      ?
+1         0       No            No  ...           No            No      ?
+2        >8       No            No  ...           No            No      ?
+3         0       No            No  ...           No            No      ?
+4         0       No            No  ...           No            No      ?
+
+[5 rows x 50 columns]
+[2025-11-09T00:18:19.764+0000] {logging_mixin.py:149} INFO - columnas
+[2025-11-09T00:18:19.764+0000] {logging_mixin.py:149} INFO - Index(['A1Cresult', 'acarbose', 'acetohexamide', 'admission_source_id',
+       'admission_type_id', 'age', 'cambio', 'chlorpropamide', 'citoglipton',
+       'diabetesMed', 'diag_1', 'diag_2', 'diag_3', 'discharge_disposition_id',
+       'encounter_id', 'examide', 'gender', 'glimepiride',
+       'glimepiride_pioglitazone', 'glipizide', 'glipizide_metformin',
+       'glyburide', 'glyburide_metformin', 'insulin', 'max_glu_serum',
+       'medical_specialty', 'metformin', 'metformin_pioglitazone',
+       'metformin_rosiglitazone', 'miglitol', 'nateglinide',
+       'num_lab_procedures', 'num_medications', 'num_procedures',
+       'number_diagnoses', 'number_emergency', 'number_inpatient',
+       'number_outpatient', 'patient_nbr', 'payer_code', 'pioglitazone',
+       'race', 'readmitted', 'repaglinide', 'rosiglitazone',
+       'time_in_hospital', 'tolazamide', 'tolbutamide', 'troglitazone',
+       'weight'],
+      dtype='object')
+[2025-11-09T00:18:22.796+0000] {crypto.py:83} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-11-09T00:18:22.796+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-09T00:18:25.059+0000] {logging_mixin.py:149} INFO - 15000 registros insertados en diabetes_raw
+[2025-11-09T00:18:25.093+0000] {python.py:183} INFO - Done. Returned value was: None
+[2025-11-09T00:18:25.108+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=insert_raw_data, execution_date=20230101T000000, start_date=20251109T001816, end_date=20251109T001825
+[2025-11-09T00:18:25.175+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-11-09T00:18:25.512+0000] {taskinstance.py:2674} INFO - 1 downstream tasks scheduled from follow-on schedule check
