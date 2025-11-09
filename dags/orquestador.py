@@ -18,6 +18,12 @@ from scripts.queries import DROP_TABLE_RAW, DROP_TABLE_CLEAN,DROP_TABLE_TRAIN,DR
 
 MODEL_PATH = "/opt/airflow/models/GradientBoosting.pkl"
 
+MYSQL_HOST = "172.17.0.1"
+MYSQL_PORT = 30306
+MYSQL_USER = "root"
+MYSQL_PASSWORD = "root123"
+MYSQL_DB = "MODELAME"
+
 # DAG configuration
 start_date = datetime(2023, 1, 1, 0, 0)
 interval = timedelta(minutes=5)

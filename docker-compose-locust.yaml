@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  locust:
+    image: locustio/locust:2.29.1
+    container_name: locust
+    ports:
+      - "8089:8089"  
+    environment:
+      - LOCUST_HOST=http://fastapi:8000  
+    volumes:
+      - ./locust:/mnt/locust             
+    command: >
+      -f /mnt/locust/locustfile.py
+      --web-host=0.0.0.0

@@ -372,3 +372,25 @@ DROP TABLE IF EXISTS diabetes_clean_test
 [2025-11-09T00:17:55.457+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=delete_table_test, execution_date=20230101T000000, start_date=20251109T001754, end_date=20251109T001755
 [2025-11-09T00:17:55.493+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
 [2025-11-09T00:17:55.741+0000] {taskinstance.py:2674} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-09T02:56:56.965+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.delete_table_test scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-09T02:56:56.984+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.delete_table_test scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-09T02:56:56.985+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-09T02:56:57.002+0000] {taskinstance.py:1350} INFO - Executing <Task(MySqlOperator): delete_table_test> on 2023-01-01 00:00:00+00:00
+[2025-11-09T02:56:57.015+0000] {standard_task_runner.py:57} INFO - Started process 122 to run task
+[2025-11-09T02:56:57.019+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'delete_table_test', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '83', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmpgsymanzp']
+[2025-11-09T02:56:57.306+0000] {standard_task_runner.py:85} INFO - Job 83: Subtask delete_table_test
+[2025-11-09T02:56:57.355+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.delete_table_test scheduled__2023-01-01T00:00:00+00:00 [running]> on host 94c887adfb7d
+[2025-11-09T02:56:57.445+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='delete_table_test' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-09T02:56:57.445+0000] {sql.py:262} INFO - Executing: 
+DROP TABLE IF EXISTS diabetes_clean_test
+
+[2025-11-09T02:56:57.446+0000] {crypto.py:83} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-11-09T02:56:57.446+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-09T02:56:57.528+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-09T02:56:57.597+0000] {sql.py:375} INFO - Running statement: 
+DROP TABLE IF EXISTS diabetes_clean_test
+, parameters: None
+[2025-11-09T02:56:57.603+0000] {sql.py:384} INFO - Rows affected: 0
+[2025-11-09T02:56:57.619+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=delete_table_test, execution_date=20230101T000000, start_date=20251109T025656, end_date=20251109T025657
+[2025-11-09T02:56:57.691+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-11-09T02:56:57.929+0000] {taskinstance.py:2674} INFO - 1 downstream tasks scheduled from follow-on schedule check

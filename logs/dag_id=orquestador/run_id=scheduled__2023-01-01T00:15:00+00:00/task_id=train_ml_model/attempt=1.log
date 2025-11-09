@@ -166,3 +166,121 @@ Example:
 [2025-11-09T00:43:18.362+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=train_ml_model, execution_date=20230101T001500, start_date=20251109T004122, end_date=20251109T004318
 [2025-11-09T00:43:18.445+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
 [2025-11-09T00:43:18.497+0000] {taskinstance.py:2674} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-09T03:22:57.384+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.train_ml_model scheduled__2023-01-01T00:15:00+00:00 [queued]>
+[2025-11-09T03:22:57.403+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.train_ml_model scheduled__2023-01-01T00:15:00+00:00 [queued]>
+[2025-11-09T03:22:57.404+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-09T03:22:57.433+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): train_ml_model> on 2023-01-01 00:15:00+00:00
+[2025-11-09T03:22:57.451+0000] {standard_task_runner.py:57} INFO - Started process 726 to run task
+[2025-11-09T03:22:57.461+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'train_ml_model', 'scheduled__2023-01-01T00:15:00+00:00', '--job-id', '114', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmproe9gufa']
+[2025-11-09T03:22:57.466+0000] {standard_task_runner.py:85} INFO - Job 114: Subtask train_ml_model
+[2025-11-09T03:22:57.924+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.train_ml_model scheduled__2023-01-01T00:15:00+00:00 [running]> on host 94c887adfb7d
+[2025-11-09T03:22:58.042+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='train_ml_model' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:15:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:15:00+00:00'
+[2025-11-09T03:22:58.044+0000] {crypto.py:83} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-11-09T03:22:58.044+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-09T03:22:58.090+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.9/site-packages/***/providers/common/sql/hooks/sql.py:201: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+  return psql.read_sql(sql, con=conn, params=parameters, **kwargs)
+
+[2025-11-09T03:23:04.919+0000] {logging_mixin.py:149} INFO - Columnas después del rename: ['discharge_disposition_id', 'admission_source_id', 'time_in_hospital', 'num_lab_procedures', 'num_procedures', 'num_medications', 'number_outpatient', 'number_emergency', 'number_inpatient', 'number_diagnoses', 'max_glu_serum', 'A1Cresult', 'readmitted', 'race_AfricanAmerican', 'race_Asian', 'race_Caucasian', 'race_Hispanic', 'race_Other', 'gender_Female', 'gender_Male', 'age_0_10', 'age_10_20', 'age_20_30', 'age_30_40', 'age_40_50', 'age_50_60', 'age_60_70', 'age_70_80', 'age_80_90', 'age_90_100', 'cambio_Ch', 'cambio_No', 'diabetesMed_No', 'diabetesMed_Yes', 'diag_1_Circulatory', 'diag_1_Diabetes', 'diag_1_Digestive', 'diag_1_Genitourinary', 'diag_1_Injury', 'diag_1_Musculoskeletal', 'diag_1_Neoplasms', 'diag_1_Other', 'diag_1_Respiratory', 'diag_2_Circulatory', 'diag_2_Diabetes', 'diag_2_Digestive', 'diag_2_Genitourinary', 'diag_2_Injury', 'diag_2_Musculoskeletal', 'diag_2_Neoplasms', 'diag_2_Other', 'diag_2_Respiratory', 'diag_3_Circulatory', 'diag_3_Diabetes', 'diag_3_Digestive', 'diag_3_Genitourinary', 'diag_3_Injury', 'diag_3_Musculoskeletal', 'diag_3_Neoplasms', 'diag_3_Other', 'diag_3_Respiratory']
+[2025-11-09T03:23:05.335+0000] {logging_mixin.py:149} INFO - ====================================================================================================
+[2025-11-09T03:23:05.335+0000] {logging_mixin.py:149} INFO - 
+🧩 Tipos de variables en X_train:
+[2025-11-09T03:23:05.336+0000] {logging_mixin.py:149} INFO -   discharge_disposition_id: int64
+[2025-11-09T03:23:05.336+0000] {logging_mixin.py:149} INFO -   admission_source_id: int64
+[2025-11-09T03:23:05.336+0000] {logging_mixin.py:149} INFO -   time_in_hospital: int64
+[2025-11-09T03:23:05.336+0000] {logging_mixin.py:149} INFO -   num_lab_procedures: int64
+[2025-11-09T03:23:05.336+0000] {logging_mixin.py:149} INFO -   num_procedures: int64
+[2025-11-09T03:23:05.336+0000] {logging_mixin.py:149} INFO -   num_medications: int64
+[2025-11-09T03:23:05.337+0000] {logging_mixin.py:149} INFO -   number_outpatient: int64
+[2025-11-09T03:23:05.337+0000] {logging_mixin.py:149} INFO -   number_emergency: int64
+[2025-11-09T03:23:05.337+0000] {logging_mixin.py:149} INFO -   number_inpatient: int64
+[2025-11-09T03:23:05.337+0000] {logging_mixin.py:149} INFO -   number_diagnoses: int64
+[2025-11-09T03:23:05.337+0000] {logging_mixin.py:149} INFO -   max_glu_serum: int64
+[2025-11-09T03:23:05.337+0000] {logging_mixin.py:149} INFO -   A1Cresult: int64
+[2025-11-09T03:23:05.337+0000] {logging_mixin.py:149} INFO -   race_AfricanAmerican: int64
+[2025-11-09T03:23:05.337+0000] {logging_mixin.py:149} INFO -   race_Asian: int64
+[2025-11-09T03:23:05.337+0000] {logging_mixin.py:149} INFO -   race_Caucasian: int64
+[2025-11-09T03:23:05.337+0000] {logging_mixin.py:149} INFO -   race_Hispanic: int64
+[2025-11-09T03:23:05.337+0000] {logging_mixin.py:149} INFO -   race_Other: int64
+[2025-11-09T03:23:05.337+0000] {logging_mixin.py:149} INFO -   gender_Female: int64
+[2025-11-09T03:23:05.338+0000] {logging_mixin.py:149} INFO -   gender_Male: int64
+[2025-11-09T03:23:05.338+0000] {logging_mixin.py:149} INFO -   age_0_10: int64
+[2025-11-09T03:23:05.338+0000] {logging_mixin.py:149} INFO -   age_10_20: int64
+[2025-11-09T03:23:05.338+0000] {logging_mixin.py:149} INFO -   age_20_30: int64
+[2025-11-09T03:23:05.338+0000] {logging_mixin.py:149} INFO -   age_30_40: int64
+[2025-11-09T03:23:05.338+0000] {logging_mixin.py:149} INFO -   age_40_50: int64
+[2025-11-09T03:23:05.338+0000] {logging_mixin.py:149} INFO -   age_50_60: int64
+[2025-11-09T03:23:05.338+0000] {logging_mixin.py:149} INFO -   age_60_70: int64
+[2025-11-09T03:23:05.338+0000] {logging_mixin.py:149} INFO -   age_70_80: int64
+[2025-11-09T03:23:05.338+0000] {logging_mixin.py:149} INFO -   age_80_90: int64
+[2025-11-09T03:23:05.338+0000] {logging_mixin.py:149} INFO -   age_90_100: int64
+[2025-11-09T03:23:05.338+0000] {logging_mixin.py:149} INFO -   cambio_Ch: int64
+[2025-11-09T03:23:05.339+0000] {logging_mixin.py:149} INFO -   cambio_No: int64
+[2025-11-09T03:23:05.339+0000] {logging_mixin.py:149} INFO -   diabetesMed_No: int64
+[2025-11-09T03:23:05.339+0000] {logging_mixin.py:149} INFO -   diabetesMed_Yes: int64
+[2025-11-09T03:23:05.339+0000] {logging_mixin.py:149} INFO -   diag_1_Circulatory: int64
+[2025-11-09T03:23:05.339+0000] {logging_mixin.py:149} INFO -   diag_1_Diabetes: int64
+[2025-11-09T03:23:05.339+0000] {logging_mixin.py:149} INFO -   diag_1_Digestive: int64
+[2025-11-09T03:23:05.339+0000] {logging_mixin.py:149} INFO -   diag_1_Genitourinary: int64
+[2025-11-09T03:23:05.339+0000] {logging_mixin.py:149} INFO -   diag_1_Injury: int64
+[2025-11-09T03:23:05.339+0000] {logging_mixin.py:149} INFO -   diag_1_Musculoskeletal: int64
+[2025-11-09T03:23:05.339+0000] {logging_mixin.py:149} INFO -   diag_1_Neoplasms: int64
+[2025-11-09T03:23:05.339+0000] {logging_mixin.py:149} INFO -   diag_1_Other: int64
+[2025-11-09T03:23:05.339+0000] {logging_mixin.py:149} INFO -   diag_1_Respiratory: int64
+[2025-11-09T03:23:05.340+0000] {logging_mixin.py:149} INFO -   diag_2_Circulatory: int64
+[2025-11-09T03:23:05.340+0000] {logging_mixin.py:149} INFO -   diag_2_Diabetes: int64
+[2025-11-09T03:23:05.340+0000] {logging_mixin.py:149} INFO -   diag_2_Digestive: int64
+[2025-11-09T03:23:05.340+0000] {logging_mixin.py:149} INFO -   diag_2_Genitourinary: int64
+[2025-11-09T03:23:05.340+0000] {logging_mixin.py:149} INFO -   diag_2_Injury: int64
+[2025-11-09T03:23:05.340+0000] {logging_mixin.py:149} INFO -   diag_2_Musculoskeletal: int64
+[2025-11-09T03:23:05.340+0000] {logging_mixin.py:149} INFO -   diag_2_Neoplasms: int64
+[2025-11-09T03:23:05.340+0000] {logging_mixin.py:149} INFO -   diag_2_Other: int64
+[2025-11-09T03:23:05.340+0000] {logging_mixin.py:149} INFO -   diag_2_Respiratory: int64
+[2025-11-09T03:23:05.340+0000] {logging_mixin.py:149} INFO -   diag_3_Circulatory: int64
+[2025-11-09T03:23:05.340+0000] {logging_mixin.py:149} INFO -   diag_3_Diabetes: int64
+[2025-11-09T03:23:05.340+0000] {logging_mixin.py:149} INFO -   diag_3_Digestive: int64
+[2025-11-09T03:23:05.341+0000] {logging_mixin.py:149} INFO -   diag_3_Genitourinary: int64
+[2025-11-09T03:23:05.341+0000] {logging_mixin.py:149} INFO -   diag_3_Injury: int64
+[2025-11-09T03:23:05.341+0000] {logging_mixin.py:149} INFO -   diag_3_Musculoskeletal: int64
+[2025-11-09T03:23:05.341+0000] {logging_mixin.py:149} INFO -   diag_3_Neoplasms: int64
+[2025-11-09T03:23:05.341+0000] {logging_mixin.py:149} INFO -   diag_3_Other: int64
+[2025-11-09T03:23:05.341+0000] {logging_mixin.py:149} INFO -   diag_3_Respiratory: int64
+[2025-11-09T03:23:05.341+0000] {logging_mixin.py:149} INFO - 
+🎯 Tipo de variable objetivo (y_train): object
+[2025-11-09T03:24:36.598+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-09T03:24:36.642+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.9/site-packages/***/providers/common/sql/hooks/sql.py:201: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+  return psql.read_sql(sql, con=conn, params=parameters, **kwargs)
+
+[2025-11-09T03:24:39.645+0000] {logging_mixin.py:149} INFO - Columnas después del rename: ['discharge_disposition_id', 'admission_source_id', 'time_in_hospital', 'num_lab_procedures', 'num_procedures', 'num_medications', 'number_outpatient', 'number_emergency', 'number_inpatient', 'number_diagnoses', 'max_glu_serum', 'A1Cresult', 'readmitted', 'race_AfricanAmerican', 'race_Asian', 'race_Caucasian', 'race_Hispanic', 'race_Other', 'gender_Female', 'gender_Male', 'age_0_10', 'age_10_20', 'age_20_30', 'age_30_40', 'age_40_50', 'age_50_60', 'age_60_70', 'age_70_80', 'age_80_90', 'age_90_100', 'cambio_Ch', 'cambio_No', 'diabetesMed_No', 'diabetesMed_Yes', 'diag_1_Circulatory', 'diag_1_Diabetes', 'diag_1_Digestive', 'diag_1_Genitourinary', 'diag_1_Injury', 'diag_1_Musculoskeletal', 'diag_1_Neoplasms', 'diag_1_Other', 'diag_1_Respiratory', 'diag_2_Circulatory', 'diag_2_Diabetes', 'diag_2_Digestive', 'diag_2_Genitourinary', 'diag_2_Injury', 'diag_2_Musculoskeletal', 'diag_2_Neoplasms', 'diag_2_Other', 'diag_2_Respiratory', 'diag_3_Circulatory', 'diag_3_Diabetes', 'diag_3_Digestive', 'diag_3_Genitourinary', 'diag_3_Injury', 'diag_3_Musculoskeletal', 'diag_3_Neoplasms', 'diag_3_Other', 'diag_3_Respiratory']
+[2025-11-09T03:24:39.720+0000] {logging_mixin.py:149} INFO - Columnas después del rename: ['discharge_disposition_id', 'admission_source_id', 'time_in_hospital', 'num_lab_procedures', 'num_procedures', 'num_medications', 'number_outpatient', 'number_emergency', 'number_inpatient', 'number_diagnoses', 'max_glu_serum', 'A1Cresult', 'race_AfricanAmerican', 'race_Asian', 'race_Caucasian', 'race_Hispanic', 'race_Other', 'gender_Female', 'gender_Male', 'age_0_10', 'age_10_20', 'age_20_30', 'age_30_40', 'age_40_50', 'age_50_60', 'age_60_70', 'age_70_80', 'age_80_90', 'age_90_100', 'cambio_Ch', 'cambio_No', 'diabetesMed_No', 'diabetesMed_Yes', 'diag_1_Circulatory', 'diag_1_Diabetes', 'diag_1_Digestive', 'diag_1_Genitourinary', 'diag_1_Injury', 'diag_1_Musculoskeletal', 'diag_1_Neoplasms', 'diag_1_Other', 'diag_1_Respiratory', 'diag_2_Circulatory', 'diag_2_Diabetes', 'diag_2_Digestive', 'diag_2_Genitourinary', 'diag_2_Injury', 'diag_2_Musculoskeletal', 'diag_2_Neoplasms', 'diag_2_Other', 'diag_2_Respiratory', 'diag_3_Circulatory', 'diag_3_Diabetes', 'diag_3_Digestive', 'diag_3_Genitourinary', 'diag_3_Injury', 'diag_3_Musculoskeletal', 'diag_3_Neoplasms', 'diag_3_Other', 'diag_3_Respiratory']
+[2025-11-09T03:24:40.498+0000] {logging_mixin.py:149} INFO - Accuracy: 0.7415488932253168
+[2025-11-09T03:24:40.541+0000] {logging_mixin.py:149} INFO - 🔗 Conectando a MLflow en http://10.43.100.98:8084
+[2025-11-09T03:24:40.721+0000] {logging_mixin.py:149} WARNING - 2025/11/09 03:24:40 WARNING mlflow.utils.git_utils: Failed to import Git (the Git executable is probably not on your PATH), so Git SHA is not available. Error: Failed to initialize: Bad git executable.
+The git executable must be specified in one of the following ways:
+    - be included in your $PATH
+    - be set via $GIT_PYTHON_GIT_EXECUTABLE
+    - explicitly set via git.refresh(<full-path-to-git-executable>)
+
+All git commands will error until this is rectified.
+
+This initial message can be silenced or aggravated in the future by setting the
+$GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+    - quiet|q|silence|s|silent|none|n|0: for no message or exception
+    - warn|w|warning|log|l|1: for a warning message (logging level CRITICAL, displayed by default)
+    - error|e|exception|raise|r|2: for a raised exception
+
+Example:
+    export GIT_PYTHON_REFRESH=quiet
+[2025-11-09T03:24:45.109+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.9/site-packages/_distutils_hack/__init__.py:33: UserWarning: Setuptools is replacing distutils.
+  warnings.warn("Setuptools is replacing distutils.")
+
+[2025-11-09T03:24:45.220+0000] {credentials.py:1123} INFO - Found credentials in environment variables.
+[2025-11-09T03:24:45.410+0000] {logging_mixin.py:149} INFO -  Run registrado en MLflow con nombre: GradientBoosting10
+[2025-11-09T03:24:45.503+0000] {logging_mixin.py:149} WARNING - Registered model 'GradientBoostingModel' already exists. Creating a new version of this model...
+[2025-11-09T03:24:45.542+0000] {logging_mixin.py:149} WARNING - 2025/11/09 03:24:45 INFO mlflow.tracking._model_registry.client: Waiting up to 300 seconds for model version to finish creation. Model name: GradientBoostingModel, version 10
+[2025-11-09T03:24:45.543+0000] {logging_mixin.py:149} WARNING - Created version '10' of model 'GradientBoostingModel'.
+[2025-11-09T03:24:45.543+0000] {logging_mixin.py:149} INFO - ✅ Modelo registrado con nombre='GradientBoostingModel' y versión=10
+[2025-11-09T03:24:45.581+0000] {logging_mixin.py:149} INFO - Modelo guardado localmente en: /opt/***/models/GradientBoosting.pkl
+[2025-11-09T03:24:45.604+0000] {python.py:183} INFO - Done. Returned value was: None
+[2025-11-09T03:24:45.617+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=train_ml_model, execution_date=20230101T001500, start_date=20251109T032257, end_date=20251109T032445
+[2025-11-09T03:24:45.690+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-11-09T03:24:45.736+0000] {taskinstance.py:2674} INFO - 1 downstream tasks scheduled from follow-on schedule check

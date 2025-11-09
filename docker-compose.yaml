@@ -67,7 +67,7 @@ x-airflow-common:
     AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
     AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
     AIRFLOW__API__AUTH_BACKENDS: 'airflow.api.auth.backend.basic_auth,airflow.api.auth.backend.session'
-    AIRFLOW_CONN_MYSQL_CONN: 'mysql://my_app_user:my_app_pass@mysql:3306/my_app_db'
+    AIRFLOW_CONN_MYSQL_CONN: 'mysql://root:root123@172.17.0.1:30306/MODELAME'
     # yamllint disable rule:line-length
     # Use simple http server on scheduler for health checks
     # See https://airflow.apache.org/docs/apache-airflow/stable/administration-and-deployment/logging-monitoring/check-health.html#scheduler-health-check-server
@@ -390,19 +390,19 @@ services:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
-  mysql:
-    image: mysql:8.0
-    container_name: mysql
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: root_pass
-      MYSQL_DATABASE: m 
-      MYSQL_USER: my_app_user
-      MYSQL_PASSWORD: my_app_pass
-    ports:
-      - "3306:3306"
-    volumes:
-      - mysql_data:/var/lib/mysql
+  # mysql:
+  #   image: mysql:8.0
+  #   container_name: mysql
+  #   restart: always
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: root_pass
+  #     MYSQL_DATABASE: m 
+  #     MYSQL_USER: my_app_user
+  #     MYSQL_PASSWORD: my_app_pass
+  #   ports:
+  #     - "3306:3306"
+  #   volumes:
+  #     - mysql_data:/var/lib/mysql
 
   fastapi:
     build: ./fastapi
@@ -435,6 +435,26 @@ services:
     depends_on:
       - fastapi
 
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+
+  grafana:
+      image: grafana/grafana:latest
+      container_name: grafana
+      ports:
+        - "3000:3000"
+      depends_on:
+        - prometheus
+      environment:
+        - GF_SECURITY_ADMIN_USER=admin
+        - GF_SECURITY_ADMIN_PASSWORD=admin
+      volumes:
+        - ./grafana/provisioning:/etc/grafana/provisioning
+      restart: unless-stopped
 
 volumes:
 #  minio-data:

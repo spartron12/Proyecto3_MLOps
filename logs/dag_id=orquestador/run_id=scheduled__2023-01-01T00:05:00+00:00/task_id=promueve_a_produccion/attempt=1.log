@@ -66,3 +66,20 @@
 [2025-11-09T00:26:03.648+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=promueve_a_produccion, execution_date=20230101T000500, start_date=20251109T002603, end_date=20251109T002603
 [2025-11-09T00:26:03.677+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
 [2025-11-09T00:26:03.899+0000] {taskinstance.py:2674} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-09T03:06:06.227+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.promueve_a_produccion scheduled__2023-01-01T00:05:00+00:00 [queued]>
+[2025-11-09T03:06:06.240+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.promueve_a_produccion scheduled__2023-01-01T00:05:00+00:00 [queued]>
+[2025-11-09T03:06:06.241+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-09T03:06:06.255+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): promueve_a_produccion> on 2023-01-01 00:05:00+00:00
+[2025-11-09T03:06:06.264+0000] {standard_task_runner.py:57} INFO - Started process 393 to run task
+[2025-11-09T03:06:06.270+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'promueve_a_produccion', 'scheduled__2023-01-01T00:05:00+00:00', '--job-id', '101', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmpqf5e4xud']
+[2025-11-09T03:06:06.273+0000] {standard_task_runner.py:85} INFO - Job 101: Subtask promueve_a_produccion
+[2025-11-09T03:06:06.587+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.promueve_a_produccion scheduled__2023-01-01T00:05:00+00:00 [running]> on host 94c887adfb7d
+[2025-11-09T03:06:06.695+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='promueve_a_produccion' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:05:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:05:00+00:00'
+[2025-11-09T03:06:06.696+0000] {logging_mixin.py:149} INFO - 🚀 Promoviendo el mejor modelo a Production...
+[2025-11-09T03:06:06.882+0000] {logging_mixin.py:149} INFO - 🏆 Mejor modelo encontrado: versión 3 con accuracy=0.7717
+[2025-11-09T03:06:06.909+0000] {logging_mixin.py:149} INFO - ✅ Modelo GradientBoostingModel v3 promovido a Production con accuracy=0.7717
+[2025-11-09T03:06:06.909+0000] {logging_mixin.py:149} INFO - 🎯 ¡Proceso completado exitosamente!
+[2025-11-09T03:06:06.909+0000] {python.py:183} INFO - Done. Returned value was: None
+[2025-11-09T03:06:06.924+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=promueve_a_produccion, execution_date=20230101T000500, start_date=20251109T030606, end_date=20251109T030606
+[2025-11-09T03:06:06.961+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-11-09T03:06:07.199+0000] {taskinstance.py:2674} INFO - 1 downstream tasks scheduled from follow-on schedule check

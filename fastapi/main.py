@@ -1,4 +1,5 @@
-from fastapi import FastAPI, HTTPException
+# app_with_metrics.py
+from fastapi import FastAPI, HTTPException, Request
 from pydantic import BaseModel
 import pandas as pd
 import logging
@@ -6,6 +7,10 @@ import os
 import mlflow
 import time
 import asyncio
+
+# métricas Prometheus
+from prometheus_client import Counter, Histogram, generate_latest, CONTENT_TYPE_LATEST
+from fastapi.responses import Response
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -16,12 +21,19 @@ app = FastAPI(
     version="3.1.1"
 )
 
-# Variables globales
+# Definición de métricas
+REQUEST_COUNT = Counter(
+    'fastapi_request_count', 'Número total de requests recibidas', ['endpoint', 'method', 'http_status']
+)
+REQUEST_LATENCY = Histogram(
+    'fastapi_request_latency_seconds', 'Histograma del tiempo de latencia de requests', ['endpoint']
+)
+
+# Variables globales modelo
 model = None
 model_loaded_at = None
 
-
-# --- Definición de features ---
+# … aquí va tu clase PatientFeatures y demás código … (igual al tuyo) …
 class PatientFeatures(BaseModel):
     discharge_disposition_id: int
     admission_source_id: int
@@ -91,15 +103,13 @@ class PatientFeatures(BaseModel):
     diag_3_Other: int
     diag_3_Respiratory: int
 
-
+# funciones de carga de modelo, recarga automática igual al tuyo …
 def get_model_uri():
     MODEL_NAME = "GradientBoostingModel"
     MODEL_STAGE = "Production"
     return f"models:/{MODEL_NAME}/{MODEL_STAGE}"
 
-
 def load_model():
-    """Carga el modelo más reciente desde MLflow Production"""
     global model, model_loaded_at
     try:
         logger.info("Cargando modelo desde MLflow...")
@@ -119,9 +129,7 @@ def load_model():
         model_loaded_at = None
         raise e
 
-
 async def auto_reload_model(interval_sec=600):
-    """Recarga automática del modelo cada interval_sec segundos"""
     global model, model_loaded_at
     while True:
         try:
@@ -131,25 +139,35 @@ async def auto_reload_model(interval_sec=600):
             logger.error(f"Error recargando modelo automáticamente: {e}")
         await asyncio.sleep(interval_sec)
 
-
 @app.on_event("startup")
 async def startup_event():
     load_model()
-    asyncio.create_task(auto_reload_model(interval_sec=600))  # cada 10 min
+    asyncio.create_task(auto_reload_model(interval_sec=600))
 
+# Endpoint /metrics para Prometheus
+@app.get("/metrics")
+def metrics():
+    # Genera y retorna todas las métricas registradas
+    return Response(generate_latest(), media_type=CONTENT_TYPE_LATEST)
 
+# Endpoint predict con métricas
 @app.post("/predict")
-def predict(features: PatientFeatures):
+def predict(features: PatientFeatures, request: Request):
+    endpoint = "/predict"
+    method = request.method
+    start_time = time.time()
+
     if model is None:
+        REQUEST_COUNT.labels(endpoint=endpoint, method=method, http_status="503").inc()
         raise HTTPException(status_code=503, detail="Modelo no disponible")
 
     try:
         feature_df = pd.DataFrame([features.dict()])
-        # Aseguramos que todos los valores sean enteros
-        feature_df = feature_df.astype(float).astype(int)
+        feature_df = feature_df.astype(int)
 
         prediction = model.predict(feature_df)[0]
 
+        REQUEST_COUNT.labels(endpoint=endpoint, method=method, http_status="200").inc()
         return {
             "prediction": prediction,
             "message": "Predicción completada con éxito",
@@ -157,33 +175,55 @@ def predict(features: PatientFeatures):
         }
 
     except Exception as e:
-        logger.error(f"Error en predicción: {e}")
+        REQUEST_COUNT.labels(endpoint=endpoint, method=method, http_status="400").inc()
         raise HTTPException(status_code=400, detail=str(e))
 
+    finally:
+        latency = time.time() - start_time
+        REQUEST_LATENCY.labels(endpoint=endpoint).observe(latency)
 
 @app.post("/reload-model")
 def reload_model():
-    """Recarga manual del modelo"""
+    endpoint = "/reload-model"
+    method = "POST"
+    start_time = time.time()
+
     try:
         load_model()
+        REQUEST_COUNT.labels(endpoint=endpoint, method=method, http_status="200").inc()
         return {"status": "success", "model_loaded_at": model_loaded_at}
     except Exception as e:
+        REQUEST_COUNT.labels(endpoint=endpoint, method=method, http_status="500").inc()
         raise HTTPException(status_code=500, detail=f"Error recargando modelo: {str(e)}")
-
+    finally:
+        REQUEST_LATENCY.labels(endpoint=endpoint).observe(time.time() - start_time)
 
 @app.get("/health")
 def health():
+    endpoint = "/health"
+    method = "GET"
+    start_time = time.time()
+
+    REQUEST_COUNT.labels(endpoint=endpoint, method=method, http_status="200").inc()
+    REQUEST_LATENCY.labels(endpoint=endpoint).observe(time.time() - start_time)
     return {
         "status": "healthy",
         "model_loaded": model is not None,
         "model_loaded_at": model_loaded_at
     }
 
-
 @app.get("/model-info")
 def model_info():
+    endpoint = "/model-info"
+    method = "GET"
+    start_time = time.time()
+
     if model is None:
+        REQUEST_COUNT.labels(endpoint=endpoint, method=method, http_status="503").inc()
         raise HTTPException(status_code=503, detail="Modelo no disponible")
+
+    REQUEST_COUNT.labels(endpoint=endpoint, method=method, http_status="200").inc()
+    REQUEST_LATENCY.labels(endpoint=endpoint).observe(time.time() - start_time)
     return {
         "model_type": str(type(model).__name__),
         "model_loaded": True,
