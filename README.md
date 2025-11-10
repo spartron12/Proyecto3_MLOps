@@ -191,7 +191,7 @@ El conjunto de datos representa **10 años de atención clínica en 130 hospital
 
 ---
 
-## 📁 Estructura del Proyecto
+##  Estructura del Proyecto
 
 ```
 Proyecto3_MLOps/
