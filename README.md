@@ -2120,7 +2120,7 @@ El análisis de los resultados muestra un throughput estable de aproximadamente 
 
 El DAG implementado en Airflow orquesta el pipeline completo de datos desde la extracción hasta el entrenamiento del modelo. La ejecución del DAG "orquestador" programada para el 2023-01-01 muestra todas las tareas completadas exitosamente.
 
-![DAG de Airflow](images/airflow_dag.jpg)
+![DAG de Airflow](images/airflow.jpg)
 
 El workflow incluye verificaciones iniciales, eliminación de tablas existentes, creación de esquemas limpios para datos raw, clean, train, test y validation, seguido de la inserción de datos transformados, el entrenamiento del modelo ML y finalmente la promoción a producción. El Gantt chart evidencia tiempos de ejecución optimizados con la tarea más larga (create_table_clean_train) tomando aproximadamente 23 minutos. El estado "queued" en el momento de la captura indica que el sistema está preparado para ejecutar la siguiente iteración programada.
 
