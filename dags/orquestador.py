@@ -170,16 +170,6 @@ with DAG(
     )
 
 
-    # wait_for_model = FileSensor(
-    #     task_id="wait_for_model_file",
-    #     filepath=MODEL_PATH,
-    #     fs_conn_id="fs_default",
-    #     poke_interval=10,
-    #     timeout=300,
-    #     mode="poke",
-    # )
-
-
 
     # --- Espera de 5 minutos entre corridas ---
     wait_between_runs = PythonOperator(
