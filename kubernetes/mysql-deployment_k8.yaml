@@ -52,10 +52,10 @@ metadata:
   labels:
     app: mysql
 spec:
-  type: NodePort   # 👈 Esto hace que sea accesible desde fuera del clúster
+  type: NodePort   
   ports:
     - port: 3306
       targetPort: 3306
-      nodePort: 30306   # 👈 Este puerto lo usarás desde tu Airflow
+      nodePort: 30306 
   selector:
     app: mysql
