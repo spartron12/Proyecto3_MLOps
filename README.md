@@ -2096,7 +2096,7 @@ if st.button("Predecir reingreso"):
 
 La implementación del sistema en Kubernetes muestra un estado operacional completo con todos los componentes principales ejecutándose correctamente. El clúster mantiene 6 deployments activos (Deployments, Pods y Replica Sets con 6 instancias cada uno), garantizando alta disponibilidad y balanceo de carga.
 
-![Estado del Clúster Kubernetes](images/kubernetes_dashboard.png)
+![Estado del Clúster Kubernetes](images/kuberneteS.png)
 
 Los servicios desplegados incluyen MySQL para el backend de MLflow, Grafana para visualización de métricas, Prometheus para recolección de datos de monitoreo, Locust para pruebas de carga, la API de FastAPI para inferencias y Streamlit para la interfaz de usuario. Todos los pods mantienen un estado "Running" con 6 réplicas configuradas, lo que evidencia la estabilidad y escalabilidad del sistema.
 
@@ -2112,7 +2112,7 @@ El análisis de las métricas muestra un rate de peticiones estable entre 10-25 
 
 Las pruebas de rendimiento ejecutadas con Locust validaron la capacidad del sistema para manejar carga concurrente. La configuración de prueba simuló 10,000 usuarios concurrentes con un rate de 116.1 RPS.
 
-![Resultados de Locust](images/locust_results.png)
+![Resultados de Locust](images/locust.png)
 
 El análisis de los resultados muestra un throughput estable de aproximadamente 100 RPS durante la fase de carga sostenida. Los tiempos de respuesta se mantienen dentro de rangos aceptables, con la mediana en torno a 80,000 ms y el percentil 95 en aproximadamente 100,000 ms. El número de usuarios simulados alcanzó un plateau en 10,000 usuarios concurrentes, demostrando que el sistema puede soportar esta carga sin degradación significativa. La ausencia de errores durante toda la ejecución de las pruebas confirma la estabilidad del sistema bajo condiciones de alta demanda.
 
@@ -2128,11 +2128,11 @@ El workflow incluye verificaciones iniciales, eliminación de tablas existentes,
 
 El registro de experimentos en MLflow documenta 18 ejecuciones del modelo GradientBoostingModel, permitiendo trazabilidad completa del proceso de entrenamiento.
 
-![Experimentos en MLflow - Listado](images/mlflow_experiments.png)
+![Experimentos en MLflow - Listado](images/mlflow1.png)
 
 Cada run registra métricas de duración (entre 4.4s y 15.2s), la fuente del experimento (airflow) y el modelo asociado. La versión 18 del modelo mantiene el stage "Production" indicando el modelo actualmente desplegado, mientras que la versión 12 se encuentra en "Staging" para validación adicional.
 
-![Modelos Registrados en MLflow](images/mlflow_models.png)
+![Modelos Registrados en MLflow](images/mlflow2.png)
 
 El sistema de versionado permite rollback rápido en caso de degradación de performance y facilita A/B testing entre diferentes versiones del modelo.
 
@@ -2140,7 +2140,7 @@ El sistema de versionado permite rollback rápido en caso de degradación de per
 
 La configuración de port-forwarding establece los puntos de acceso a todos los servicios del sistema.
 
-![Port Forwarding de Servicios](images/kubectl_portforward.png)
+![Port Forwarding de Servicios](images/puertos_kubernetes.png)
 
 Los servicios expuestos incluyen Streamlit en el puerto 8551, Locust en 8000, Grafana en 3000, la API de FastAPI en 8080 y 8089. Esta configuración permite acceso independiente a cada componente para propósitos de debugging, monitoreo y uso por parte de los usuarios finales.
 
@@ -2148,11 +2148,11 @@ Los servicios expuestos incluyen Streamlit en el puerto 8551, Locust en 8000, Gr
 
 La aplicación Streamlit proporciona una interfaz intuitiva para realizar predicciones de reingreso hospitalario. El formulario captura información demográfica del paciente (edad, género, raza), datos hospitalarios (tiempo en hospital, número de procedimientos de laboratorio, procedimientos, medicamentos, consultas ambulatorias, visitas a emergencia y hospitalizaciones previas).
 
-![Interfaz de Streamlit - Formulario de Entrada](images/streamlit_input.png)
+![Interfaz de Streamlit - Formulario de Entrada](images/streamlit1.png)
 
 La sección de diagnósticos principales permite seleccionar hasta tres diagnósticos categorizados (Circulatory en este ejemplo), información de admisión y alta (tipo de disposición y fuente de admisión), medicación para diabetes y cambios en medicación. Una vez completado el formulario, el botón "Predecir reingreso" envía los datos a la API de FastAPI.
 
-![Interfaz de Streamlit - Resultado de Predicción](images/streamlit_prediction.png)
+![Interfaz de Streamlit - Resultado de Predicción](images/streamlit2.png)
 
 El sistema retorna una predicción clara ("No reingreso" en este caso) junto con un mensaje de confirmación indicando que la predicción se completó exitosamente. Esta interfaz simplifica el uso del modelo para personal médico sin conocimientos técnicos de ML.
 
