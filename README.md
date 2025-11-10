@@ -794,7 +794,7 @@ class DatabaseConnection:
 
 ---
 
-### 5. 🌊 Apache Airflow - Orquestador
+### 5.  Apache Airflow - Orquestador
 
 #### DAG Principal (orquestador.py)
 
@@ -1135,7 +1135,7 @@ def promote_to_production():
     best_result = max(results, key=lambda x: x['metrics']['val_accuracy'])
     best_run_id = best_result['run_id']
     
-    print(f"\n🏆 Mejor modelo: {best_result['model_name']}")
+    print(f"\n Mejor modelo: {best_result['model_name']}")
     print(f"   Val Accuracy: {best_result['metrics']['val_accuracy']:.4f}")
     print(f"   Run ID: {best_run_id}")
     
@@ -1171,7 +1171,7 @@ def promote_to_production():
 
 ---
 
-### 6. 🚀 FastAPI - API de Inferencia
+### 6.  FastAPI - API de Inferencia
 
 #### Código Principal (main.py)
 
