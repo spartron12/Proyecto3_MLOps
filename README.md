@@ -91,7 +91,7 @@ El conjunto de datos representa **10 años de atención clínica en 130 hospital
 │  │  │   • Batch size: 15,000 registros                          │  │       │
 │  │  │   • Update interval: 5 minutos                            │  │       │
 │  │  │   • Auto-restart: enabled                                 │  │       │
-│  │  └───────────────────────────────────────────────────────────┘ │        │
+│  │  └───────────────────────────────────────────────────────────┘  │       │
 │  └─────────────────────────────────────────────────────────────────┘       │
 │                                  │                                         │
 │                                  │ 11:55 PM                                │
@@ -110,9 +110,9 @@ El conjunto de datos representa **10 años de atención clínica en 130 hospital
 │                                                                            │
 │  ┌────────────────────────────────────────────────────────────────┐        │
 │  │                    Apache Airflow                              │        │
-│  │  ┌──────────────────────────────────────────────────────────┐  │        │
-│  │  │  DAG: orquestador.py (Ejecución periódica)               │  │        │
-│  │  │                                                          │  │        │
+│  │  ┌─────────────────────────────────────────────────────────┐   │        │
+│  │  │  DAG: orquestador.py (Ejecución periódica)              │   │        │
+│  │  │                                                         │   │        │
 │  │  │  1. ✓ Check EC2 Status                                  │   │        │
 │  │  │  2. ✓ Fetch Data from API (15k registros)               │   │        │
 │  │  │  3. ✓ Store in MySQL RAW_DATA                           │   │        │
