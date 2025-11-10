@@ -7,7 +7,7 @@ spec:
     app: streamlit
   ports:
     - protocol: TCP
-      port: 8501       # puerto interno
+      port: 8501      
       targetPort: 8501
-      nodePort: 30081  # puerto externo accesible desde la máquina host
+      nodePort: 30081 
   type: NodePort
