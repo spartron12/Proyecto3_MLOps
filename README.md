@@ -31,10 +31,6 @@ Este proyecto implementa un **sistema completo de MLOps desplegado en Kubernetes
 
  **Despliegue en Kubernetes**: Orquestación de los servicios principales (FastAPI, Streamlit, Prometheus, Grafana) en contenedores dentro de un clúster de Kubernetes, mientras que Airflow y MLflow corren fuera de Kubernetes pero se integran con el resto de los servicios.
 
-
-
-
-
 ##  Dataset: Diabetes 130-US Hospitals (1999-2008)
 
 ### Descripción
@@ -69,7 +65,6 @@ El conjunto de datos representa **10 años de atención clínica en 130 hospital
 ### Diagrama de Flujo Completo
 
 ```
-
 ┌────────────────────────────────────────────────────────────────────────────┐
 │                           AWS INFRASTRUCTURE                               │
 ├────────────────────────────────────────────────────────────────────────────┤
@@ -185,12 +180,10 @@ El conjunto de datos representa **10 años de atención clínica en 130 hospital
 │  └───────────────────────────────────────────────────────────────┘         │
 │                                                                            │
 └────────────────────────────────────────────────────────────────────────────┘
-
-
 ```
 
----
 
+---
 ##  Estructura del Proyecto
 
 ```
@@ -329,7 +322,7 @@ API Flask desplegada en EC2 que sirve datos de diabetes en bloques de 15,000 reg
 - **Puerto**: 5001
 - **Horario**: 9:00 AM - 11:55 PM (America/Lima)
 
-#### Código de la API (app.py)
+#### Código de la API (main.py)
 
 ```python
 
@@ -422,7 +415,6 @@ class PatientFeatures(BaseModel):
     diag_1_Neoplasms: int
     diag_1_Other: int
     diag_1_Respiratory: int
-
     diag_2_Circulatory: int
     diag_2_Diabetes: int
     diag_2_Digestive: int
@@ -432,7 +424,6 @@ class PatientFeatures(BaseModel):
     diag_2_Neoplasms: int
     diag_2_Other: int
     diag_2_Respiratory: int
-
     diag_3_Circulatory: int
     diag_3_Diabetes: int
     diag_3_Digestive: int
