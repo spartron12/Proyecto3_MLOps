@@ -317,7 +317,7 @@ Proyecto3_MLOps/
 
 ## 🔧 Componentes del Sistema
 
-### 1. 🌐 API de Datos en AWS EC2
+### 1.  API de Datos en AWS EC2
 
 #### Descripción
 API Flask desplegada en EC2 que sirve datos de diabetes en bloques de 15,000 registros, con actualización automática cada 5 minutos y control de encendido/apagado mediante Lambda Functions.
@@ -463,7 +463,7 @@ crontab -e
 
 ---
 
-### 2. ⚡ AWS Lambda Functions
+### 2.  AWS Lambda Functions
 
 #### StartEC2Instance
 
@@ -531,12 +531,12 @@ def lambda_handler(event, context):
 
 ---
 
-### 3. 📅 EventBridge Schedules
+### 3.  EventBridge Schedules
 
 | Schedule | Cron Expression | Target | Status | Hora (Lima) |
 |----------|----------------|--------|--------|-------------|
-| `StartEC2Instance` | `55 8 * * ? *` | StartEC2Instance Lambda | ✅ Enabled | 9:00 AM |
-| `StopEC2Instance` | `55 23 * * ? *` | StopEC2Instance Lambda | ✅ Enabled | 11:55 PM |
+| `StartEC2Instance` | `55 8 * * ? *` | StartEC2Instance Lambda |  Enabled | 9:00 AM |
+| `StopEC2Instance` | `55 23 * * ? *` | StopEC2Instance Lambda |  Enabled | 11:55 PM |
 
 - **Timezone**: America/Lima (UTC-05:00)
 - **Flexible time window**: OFF
@@ -544,7 +544,7 @@ def lambda_handler(event, context):
 
 ---
 
-### 4. 🗄️ MySQL - Bases de Datos
+### 4.  MySQL - Bases de Datos
 
 #### Esquema de Bases de Datos
 
