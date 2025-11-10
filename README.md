@@ -2118,7 +2118,7 @@ El análisis de los resultados muestra un throughput estable de aproximadamente 
 
 ### Orquestación de Workflows con Apache Airflow
 
-El DAG implementado en Airflow orquesta el pipeline completo de datos desde la extracción hasta el entrenamiento del modelo. La ejecución del DAG "orquestador" programada para el 2023-01-01 muestra todas las tareas completadas exitosamente.
+El DAG implementado en Airflow orquesta el pipeline completo de datos desde la extracción hasta el entrenamiento del modelo. La ejecución del DAG "orquestador" muestra todas las tareas completadas exitosamente.
 
 ![DAG de Airflow](images/airflow.jpg)
 
@@ -2126,7 +2126,7 @@ El workflow incluye verificaciones iniciales, eliminación de tablas existentes,
 
 ### Gestión de Experimentos con MLflow
 
-El registro de experimentos en MLflow documenta 18 ejecuciones del modelo GradientBoostingModel, permitiendo trazabilidad completa del proceso de entrenamiento.
+El registro de experimentos en MLflow documenta las diferentes ejecuciones del modelo GradientBoostingModel, permitiendo trazabilidad completa del proceso de entrenamiento.
 
 ![Experimentos en MLflow - Listado](images/mlflow1.jpg)
 
