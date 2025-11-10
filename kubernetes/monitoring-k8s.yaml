@@ -13,7 +13,7 @@ data:
     scrape_configs:
       - job_name: 'fastapi'
         static_configs:
-          - targets: ['fastapi-service:8000']  # tu FastAPI en Kubernetes
+          - targets: ['fastapi-service:8000']  
 
 ---
 ########################################
