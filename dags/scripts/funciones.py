@@ -72,27 +72,6 @@ MODEL_PATH = "/opt/airflow/models/GradientBoosting.pkl"
 TABLE_NAME = "diabetes_raw"
 CONN_ID = "mysql_conn"
 
-# def load_data():
-
-#     _data_root = './data/Diabetes'
-#     # Path to the raw training data
-#     _data_filepath = os.path.join(_data_root, 'Diabetes.csv')
-#     # Download data
-#     os.makedirs(_data_root, exist_ok=True)
-#     if not os.path.isfile(_data_filepath):
-#             url = 'https://docs.google.com/uc?export= \
-#             download&confirm={{VALUE}}&id=1k5-1caezQ3zWJbKaiMULTGq-3sz6uThC'
-#             r = requests.get(url, allow_redirects=True, stream=True)
-#             open(_data_filepath, 'wb').write(r.content)
-
-#     print(f'Data downloaded to {_data_filepath}')
-
-#     return pd.read_csv(_data_filepath)
-
-
-
-
-
 
 def load_data(api_url="http://54.172.84.220:5001/get_data"):
     try:
@@ -114,7 +93,7 @@ def load_data(api_url="http://54.172.84.220:5001/get_data"):
         return df
 
     except Exception as e:
-        print(f"❌ Error en load_data: {e}")
+        print(f" Error en load_data: {e}")
         return pd.DataFrame()
 
 
@@ -271,10 +250,8 @@ def insert_data_clean(df = None, table_name="diabetes_clean"):
     """Inserta datos en la tabla diabetes_clean"""
 
     df = df.replace({None: np.nan}).fillna(0)
-
     
     # Reemplazar todos los tipos de valores nulos posibles
-    
 
     hook = MySqlHook(mysql_conn_id=CONN_ID)
     TABLE_NAME = "diabetes_clean"
@@ -426,7 +403,6 @@ def read_data():
     print("\nProceso completo: Limpieza e inserción terminada")
     return cleaned_df
 
-
 def insert_train_test_split():
     """Realiza el split de los datos limpios en train y test e inserta en sus respectivas tablas"""
     hook = MySqlHook(mysql_conn_id=CONN_ID)
@@ -482,10 +458,10 @@ def train_model():
     X_train = df.drop(columns=['readmitted'])
     y_train = df['readmitted']
     print('='*100)
-    print("\n🧩 Tipos de variables en X_train:")
+    print("\n Tipos de variables en X_train:")
     for col, dtype in X_train.dtypes.items():
         print(f"  {col}: {dtype}")
-    print("\n🎯 Tipo de variable objetivo (y_train):", y_train.dtype)
+    print("\n Tipo de variable objetivo (y_train):", y_train.dtype)
 
 
     model = GradientBoostingClassifier(
@@ -529,7 +505,7 @@ def train_model():
     os.environ['AWS_SECRET_ACCESS_KEY'] = 'supersecret'
     mlflow.set_tracking_uri("http://10.43.100.98:8084")
     mlflow.set_experiment(experiment_name)
-    print(f"🔗 Conectando a MLflow en http://10.43.100.98:8084")
+    print(f" Conectando a MLflow en http://10.43.100.98:8084")
 
     # Obtener ID del experimento
     experiment = mlflow.get_experiment_by_name(experiment_name)
@@ -551,7 +527,7 @@ def train_model():
         # Registrar modelo en el Model Registry
         model_uri = f"runs:/{run.info.run_id}/GradientBoostingModel"
         result = mlflow.register_model(model_uri=model_uri, name="GradientBoostingModel")
-        print(f"✅ Modelo registrado con nombre='GradientBoostingModel' y versión={result.version}")
+        print(f" Modelo registrado con nombre='GradientBoostingModel' y versión={result.version}")
 
     # Guardar modelo localmente también (opcional)
     os.makedirs('/opt/airflow/models', exist_ok=True)
@@ -561,9 +537,8 @@ def train_model():
 
 logger = logging.getLogger(__name__)
 
-
 def promote_best_model():
-    print("🚀 Promoviendo el mejor modelo a Production...")
+    print(" Promoviendo el mejor modelo a Production...")
 
     # Configuración MLflow (igual que en train_model)
     os.environ['MLFLOW_S3_ENDPOINT_URL'] = "http://minio:9000"
@@ -579,7 +554,7 @@ def promote_best_model():
         versions = client.search_model_versions(f"name='{model_name}'")
 
         if not versions:
-            print("❌ No hay versiones del modelo registradas.")
+            print(" No hay versiones del modelo registradas.")
             return
 
         # Buscar la versión con mejor accuracy (loggeada como metric)
@@ -595,7 +570,7 @@ def promote_best_model():
                 best_accuracy = acc
                 best_version = v.version
 
-        print(f"🏆 Mejor modelo encontrado: versión {best_version} con accuracy={best_accuracy:.4f}")
+        print(f" Mejor modelo encontrado: versión {best_version} con accuracy={best_accuracy:.4f}")
 
         # Promover a Production
         client.transition_model_version_stage(
@@ -605,15 +580,12 @@ def promote_best_model():
             archive_existing_versions=True
         )
 
-        print(f"✅ Modelo {model_name} v{best_version} promovido a Production con accuracy={best_accuracy:.4f}")
+        print(f" Modelo {model_name} v{best_version} promovido a Production con accuracy={best_accuracy:.4f}")
 
     except Exception as e:
-        print(f"⚠️ Error al promover modelo: {e}")
+        print(f" Error al promover modelo: {e}")
 
-    print("🎯 ¡Proceso completado exitosamente!")
-
-
-
+    print(" ¡Proceso completado exitosamente!")
 
     
 def check_table_exists(**kwargs):
