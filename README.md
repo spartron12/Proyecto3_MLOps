@@ -1913,146 +1913,177 @@ if __name__ == "__main__":
 
 ---
 
-### 7. 🎨 Streamlit - Interfaz de Usuario
+### 7.  Streamlit - Interfaz de Usuario
 
 #### Aplicación Principal (app.py)
 
 ```python
+
 import streamlit as st
 import requests
-import pandas as pd
-import json
-import plotly.graph_objects as go
-import plotly.express as px
+import os
 
-# Configuración de la página
-st.set_page_config(
-    page_title="Diabetes Readmission Predictor",
-    page_icon="🏥",
-    layout="wide"
+# -------------------------------
+# Configuración de la API
+API_URL = os.getenv("API_URL", "http://fastapi-service:8000") + "/predict"
+# -------------------------------
+
+# Función de codificación interna
+def encode_features(input_dict):
+    # Edad -> one-hot
+    age_ranges = ['0-10', '10-20', '20-30', '30-40', '40-50', '50-60', '60-70', '70-80', '80-90', '90-100']
+    age_encoded = {f"age_{r.replace('-', '_')}": 0 for r in age_ranges}
+    for r in age_ranges:
+        low, high = map(int, r.split('-'))
+        if low <= input_dict['age'] < high:
+            age_encoded[f"age_{r.replace('-', '_')}"] = 1
+            break
+
+    # Género -> one-hot
+    gender_encoded = {"gender_Female": 0, "gender_Male": 0}
+    gender_encoded[f"gender_{input_dict['gender']}"] = 1
+
+    # Raza -> one-hot
+    race_encoded = {f"race_{r}": 0 for r in ["AfricanAmerican", "Asian", "Caucasian", "Hispanic", "Other"]}
+    race_encoded[f"race_{input_dict['race']}"] = 1
+
+    # Diagnósticos -> one-hot
+    diag_categories = ["Circulatory", "Diabetes", "Digestive", "Genitourinary", "Injury",
+                       "Musculoskeletal", "Neoplasms", "Other", "Respiratory"]
+    diag_encoded = {}
+    for i in [1, 2, 3]:
+        for cat in diag_categories:
+            key = f"diag_{i}_{cat}"
+            diag_encoded[key] = 1 if input_dict[f"diag_{i}"] == cat else 0
+
+    # Cambios y medicación -> one-hot
+    cambio_encoded = {"cambio_Ch": 0, "cambio_No": 0}
+    cambio_encoded[f"cambio_{input_dict['cambio']}"] = 1
+
+    med_encoded = {"diabetesMed_No": 0, "diabetesMed_Yes": 0}
+    med_encoded[f"diabetesMed_{input_dict['diabetesMed']}"] = 1
+
+    # Combinar todo
+    features_encoded = {
+        **age_encoded,
+        **gender_encoded,
+        **race_encoded,
+        **diag_encoded,
+        **cambio_encoded,
+        **med_encoded
+    }
+
+    # Agregar features numéricas
+    num_features = [
+        'time_in_hospital', 'num_lab_procedures', 'num_procedures', 'num_medications',
+        'number_outpatient', 'number_emergency', 'number_inpatient', 'number_diagnoses',
+        'max_glu_serum', 'A1Cresult'
+    ]
+    for f in num_features:
+        features_encoded[f] = input_dict[f]
+
+    # Agregar los nuevos campos obligatorios
+    features_encoded["discharge_disposition_id"] = input_dict["discharge_disposition_id"]
+    features_encoded["admission_source_id"] = input_dict["admission_source_id"]
+
+    return features_encoded
+# -------------------------------
+
+# Interfaz Streamlit
+st.title("Predicción de Reingreso Hospitalario en Pacientes Diabéticos")
+
+st.header("Ingrese la información del paciente:")
+
+# Campos amigables
+age = st.number_input("Edad", min_value=0, max_value=120, value=50)
+gender = st.selectbox("Género", ["Female", "Male"])
+race = st.selectbox("Raza", ["AfricanAmerican", "Asian", "Caucasian", "Hispanic", "Other"])
+
+st.subheader("Datos hospitalarios")
+time_in_hospital = st.number_input("Tiempo en hospital (días)", min_value=0, value=5)
+num_lab_procedures = st.number_input("Número de procedimientos de laboratorio", min_value=0, value=45)
+num_procedures = st.number_input("Número de procedimientos", min_value=0, value=0)
+num_medications = st.number_input("Número de medicamentos", min_value=0, value=13)
+number_outpatient = st.number_input("Número de consultas ambulatorias", min_value=0, value=0)
+number_emergency = st.number_input("Número de visitas a emergencia", min_value=0, value=0)
+number_inpatient = st.number_input("Número de hospitalizaciones previas", min_value=0, value=0)
+number_diagnoses = st.number_input("Número de diagnósticos", min_value=0, value=8)
+max_glu_serum = st.number_input("Máximo glucosa sérica", min_value=0, value=0)
+A1Cresult = st.number_input("Resultado A1C", min_value=0, value=0)
+
+st.subheader("Tratamiento y medicación")
+cambio = st.selectbox("Cambio de medicación", ["Ch", "No"])
+diabetesMed = st.selectbox("Medicación para diabetes", ["Yes", "No"])
+
+st.subheader("Diagnósticos principales")
+diag_1 = st.selectbox("Diagnóstico principal 1", ["Circulatory", "Diabetes", "Digestive", "Genitourinary",
+                                                  "Injury", "Musculoskeletal", "Neoplasms", "Other", "Respiratory"])
+diag_2 = st.selectbox("Diagnóstico principal 2", ["Circulatory", "Diabetes", "Digestive", "Genitourinary",
+                                                  "Injury", "Musculoskeletal", "Neoplasms", "Other", "Respiratory"])
+diag_3 = st.selectbox("Diagnóstico principal 3", ["Circulatory", "Diabetes", "Digestive", "Genitourinary",
+                                                  "Injury", "Musculoskeletal", "Neoplasms", "Other", "Respiratory"])
+
+st.subheader("Información de admisión y alta")
+discharge_disposition_id = st.selectbox(
+    "Tipo de disposición al alta",
+    [1, 2, 3, 4, 5],
+    format_func=lambda x: {
+        1: "Alta a casa",
+        2: "Transferido a otro hospital",
+        3: "Alta a cuidado domiciliario",
+        4: "Fallecido",
+        5: "Otra"
+    }[x]
 )
 
-# URL de la API
-API_URL = "http://fastapi:8000"
+admission_source_id = st.selectbox(
+    "Fuente de admisión",
+    [1, 7, 8],
+    format_func=lambda x: {
+        1: "Referencia médica",
+        7: "Emergencia",
+        8: "Transferido desde otro hospital"
+    }[x]
+)
 
-# Título
-st.title("🏥 Predictor de Readmisión de Pacientes Diabéticos")
-st.markdown("### Sistema de Machine Learning en Producción")
+# Botón de predicción
+if st.button("Predecir reingreso"):
+    input_dict = {
+        "age": age,
+        "gender": gender,
+        "race": race,
+        "time_in_hospital": time_in_hospital,
+        "num_lab_procedures": num_lab_procedures,
+        "num_procedures": num_procedures,
+        "num_medications": num_medications,
+        "number_outpatient": number_outpatient,
+        "number_emergency": number_emergency,
+        "number_inpatient": number_inpatient,
+        "number_diagnoses": number_diagnoses,
+        "max_glu_serum": max_glu_serum,
+        "A1Cresult": A1Cresult,
+        "cambio": cambio,
+        "diabetesMed": diabetesMed,
+        "diag_1": diag_1,
+        "diag_2": diag_2,
+        "diag_3": diag_3,
+        "discharge_disposition_id": discharge_disposition_id,
+        "admission_source_id": admission_source_id
+    }
 
-# Sidebar con información
-with st.sidebar:
-    st.header("ℹ️ Información del Sistema")
-    
-    # Verificar estado de la API
+    # Codificar a formato que espera el modelo
+    features_encoded = encode_features(input_dict)
+
+    # Enviar a FastAPI
     try:
-        health_response = requests.get(f"{API_URL}/health", timeout=5)
-        if health_response.status_code == 200:
-            health_data = health_response.json()
-            st.success("✅ API Conectada")
-            st.info(f"**Modelo:** {health_data.get('model_version', 'N/A')}")
+        response = requests.post(API_URL, json=features_encoded)
+        if response.status_code == 200:
+            result = response.json()
+            st.success(f"Predicción: {'Sí reingreso' if result['prediction'] == 1 else 'No reingreso'}")
+            st.info(f"Mensaje: {result['message']}")
         else:
-            st.error("❌ API No Disponible")
-    except:
-        st.error("❌ Error de Conexión")
-    
-    st.markdown("---")
-    st.markdown("""
-    **Proyecto:** MLOps Nivel 3  
-    **Autores:** Sebastián Rodríguez, David Córdova  
-    **Universidad:** Pontificia Universidad Javeriana
-    """)
+            st.error(f"Error en la API: {response.text}")
+    except Exception as e:
+        st.error(f"Error de conexión: {e}")
 
-# Tabs principales
-tab1, tab2, tab3 = st.tabs(["🔮 Predicción Individual", 
-                             "📊 Predicción por Lotes", 
-                             "📈 Estadísticas"])
-
-# Tab 1: Predicción Individual
-with tab1:
-    st.header("Ingresar Datos del Paciente")
-    
-    col1, col2, col3 = st.columns(3)
-    
-    with col1:
-        st.subheader("Datos Demográficos")
-        age_numeric = st.slider("Edad", 0, 100, 50)
-        gender_encoded = st.selectbox("Género", 
-                                     options=[0, 1], 
-                                     format_func=lambda x: "Femenino" if x == 0 else "Masculino")
-        race_encoded = st.selectbox("Raza (Codificada)", options=list(range(6)))
-    
-    with col2:
-        st.subheader("Datos de Hospitalización")
-        time_in_hospital = st.number_input("Días en Hospital", 1, 14, 3)
-        admission_type = st.selectbox("Tipo de Admisión", options=list(range(8)))
-        num_lab_procedures = st.number_input("Procedimientos de Laboratorio", 0, 100, 40)
-        num_procedures = st.number_input("Procedimientos", 0, 10, 0)
-        num_medications = st.number_input("Medicamentos", 0, 50, 15)
-    
-    with col3:
-        st.subheader("Historial Médico")
-        number_outpatient = st.number_input("Visitas Ambulatorias", 0, 20, 0)
-        number_emergency = st.number_input("Visitas de Emergencia", 0, 20, 0)
-        number_inpatient = st.number_input("Hospitalizaciones Previas", 0, 20, 0)
-        number_diagnoses = st.number_input("Número de Diagnósticos", 1, 16, 7)
-    
-    st.subheader("Medicamentos")
-    col4, col5, col6 = st.columns(3)
-    with col4:
-        metformin_yes = st.checkbox("Metformina")
-    with col5:
-        insulin_yes = st.checkbox("Insulina")
-    with col6:
-        diabetesMed_yes = st.checkbox("Medicamento para Diabetes")
-    
-    # Botón de predicción
-    if st.button("🔮 Realizar Predicción", type="primary"):
-        # Preparar datos
-        payload = {
-            "age_numeric": age_numeric,
-            "time_in_hospital": time_in_hospital,
-            "num_lab_procedures": num_lab_procedures,
-            "num_procedures": num_procedures,
-            "num_medications": num_medications,
-            "number_outpatient": number_outpatient,
-            "number_emergency": number_emergency,
-            "number_inpatient": number_inpatient,
-            "number_diagnoses": number_diagnoses,
-            "gender_encoded": gender_encoded,
-            "race_encoded": race_encoded,
-            "admission_type": admission_type,
-            "metformin_yes": int(metformin_yes),
-            "insulin_yes": int(insulin_yes),
-            "diabetesMed_yes": int(diabetesMed_yes)
-        }
-        
-        # Hacer predicción
-        try:
-            with st.spinner("Realizando predicción..."):
-                response = requests.post(f"{API_URL}/predict", json=payload)
-                
-                if response.status_code == 200:
-                    result = response.json()
-                    
-                    # Mostrar resultados
-                    st.success("✅ Predicción Completada")
-                    
-                    col_res1, col_res2, col_res3 = st.columns(3)
-                    
-                    with col_res1:
-                        prediction_text = "SÍ" if result['prediction'] == 1 else "NO"
-                        color = "red" if result['prediction'] == 1 else "green"
-                        st.markdown(f"""
-                        <div style='text-align: center; padding: 20px; 
-                                    background-color: {color}; 
-                                    border-radius: 10px;'>
-                            <h2 style='color: white;'>Readmisión: {prediction_text}</h2>
-                        </div>
-                        """, unsafe_allow_html=True)
-                    
-                    with col_res2:
-                        probability_pct = result['probability'] * 100
-                        st.metric("Probabilidad", f"{probability_pct:.2f}%")
-                    
-                    with col_res3:
-                        st.metric("
+```
