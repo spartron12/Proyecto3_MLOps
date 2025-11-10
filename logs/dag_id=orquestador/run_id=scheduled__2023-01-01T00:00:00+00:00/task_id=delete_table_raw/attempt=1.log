@@ -403,3 +403,185 @@ DROP TABLE IF EXISTS diabetes_raw
 [2025-11-09T02:56:47.818+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=delete_table_raw, execution_date=20230101T000000, start_date=20251109T025646, end_date=20251109T025647
 [2025-11-09T02:56:47.856+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
 [2025-11-09T02:56:48.147+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-10T01:36:35.221+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.delete_table_raw scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-10T01:36:35.242+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.delete_table_raw scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-10T01:36:35.243+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-10T01:36:35.257+0000] {taskinstance.py:1350} INFO - Executing <Task(MySqlOperator): delete_table_raw> on 2023-01-01 00:00:00+00:00
+[2025-11-10T01:36:35.268+0000] {standard_task_runner.py:57} INFO - Started process 5583 to run task
+[2025-11-10T01:36:35.273+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'delete_table_raw', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '129', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmp_sumihl9']
+[2025-11-10T01:36:35.277+0000] {standard_task_runner.py:85} INFO - Job 129: Subtask delete_table_raw
+[2025-11-10T01:36:35.582+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.delete_table_raw scheduled__2023-01-01T00:00:00+00:00 [running]> on host 94c887adfb7d
+[2025-11-10T01:36:35.665+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='delete_table_raw' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-10T01:36:35.665+0000] {sql.py:262} INFO - Executing: 
+DROP TABLE IF EXISTS diabetes_raw
+
+[2025-11-10T01:36:35.666+0000] {crypto.py:83} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-11-10T01:36:35.666+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-10T01:36:35.819+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-10T01:36:35.826+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/common/sql/operators/sql.py", line 268, in execute
+    output = hook.run(
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/common/sql/hooks/sql.py", line 342, in run
+    with closing(self.get_conn()) as conn:
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/mysql/hooks/mysql.py", line 188, in get_conn
+    return MySQLdb.connect(**conn_config)
+  File "/home/airflow/.local/lib/python3.9/site-packages/MySQLdb/__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (2003, "Can't connect to MySQL server on '172.17.0.1:30306' (111)")
+[2025-11-10T01:36:35.877+0000] {taskinstance.py:1368} INFO - Marking task as UP_FOR_RETRY. dag_id=orquestador, task_id=delete_table_raw, execution_date=20230101T000000, start_date=20251110T013635, end_date=20251110T013635
+[2025-11-10T01:36:35.890+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 129 for task delete_table_raw ((2003, "Can't connect to MySQL server on '172.17.0.1:30306' (111)"); 5583)
+[2025-11-10T01:36:35.930+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2025-11-10T01:36:36.173+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-10T01:43:58.807+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.delete_table_raw scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-10T01:43:58.822+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.delete_table_raw scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-10T01:43:58.823+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-10T01:43:58.836+0000] {taskinstance.py:1350} INFO - Executing <Task(MySqlOperator): delete_table_raw> on 2023-01-01 00:00:00+00:00
+[2025-11-10T01:43:58.852+0000] {standard_task_runner.py:57} INFO - Started process 5700 to run task
+[2025-11-10T01:43:58.857+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'delete_table_raw', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '132', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmp57xtng82']
+[2025-11-10T01:43:59.130+0000] {standard_task_runner.py:85} INFO - Job 132: Subtask delete_table_raw
+[2025-11-10T01:43:59.188+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.delete_table_raw scheduled__2023-01-01T00:00:00+00:00 [running]> on host 94c887adfb7d
+[2025-11-10T01:43:59.280+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='delete_table_raw' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-10T01:43:59.280+0000] {sql.py:262} INFO - Executing: 
+DROP TABLE IF EXISTS diabetes_raw
+
+[2025-11-10T01:43:59.281+0000] {crypto.py:83} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-11-10T01:43:59.281+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-10T01:43:59.347+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-10T01:43:59.471+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/common/sql/operators/sql.py", line 268, in execute
+    output = hook.run(
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/common/sql/hooks/sql.py", line 342, in run
+    with closing(self.get_conn()) as conn:
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/mysql/hooks/mysql.py", line 188, in get_conn
+    return MySQLdb.connect(**conn_config)
+  File "/home/airflow/.local/lib/python3.9/site-packages/MySQLdb/__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (1049, "Unknown database 'MODELAME'")
+[2025-11-10T01:43:59.481+0000] {taskinstance.py:1368} INFO - Marking task as UP_FOR_RETRY. dag_id=orquestador, task_id=delete_table_raw, execution_date=20230101T000000, start_date=20251110T014358, end_date=20251110T014359
+[2025-11-10T01:43:59.493+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 132 for task delete_table_raw ((1049, "Unknown database 'MODELAME'"); 5700)
+[2025-11-10T01:43:59.517+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2025-11-10T01:43:59.771+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-10T01:53:00.007+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.delete_table_raw scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-10T01:53:00.024+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.delete_table_raw scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-10T01:53:00.025+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-10T01:53:00.043+0000] {taskinstance.py:1350} INFO - Executing <Task(MySqlOperator): delete_table_raw> on 2023-01-01 00:00:00+00:00
+[2025-11-10T01:53:00.060+0000] {standard_task_runner.py:57} INFO - Started process 5839 to run task
+[2025-11-10T01:53:00.065+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'delete_table_raw', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '135', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmp36w4ogyv']
+[2025-11-10T01:53:00.069+0000] {standard_task_runner.py:85} INFO - Job 135: Subtask delete_table_raw
+[2025-11-10T01:53:00.484+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.delete_table_raw scheduled__2023-01-01T00:00:00+00:00 [running]> on host 94c887adfb7d
+[2025-11-10T01:53:00.617+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='delete_table_raw' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-10T01:53:00.618+0000] {sql.py:262} INFO - Executing: 
+DROP TABLE IF EXISTS diabetes_raw
+
+[2025-11-10T01:53:00.620+0000] {crypto.py:83} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-11-10T01:53:00.621+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-10T01:53:00.697+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-10T01:53:00.748+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/common/sql/operators/sql.py", line 268, in execute
+    output = hook.run(
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/common/sql/hooks/sql.py", line 342, in run
+    with closing(self.get_conn()) as conn:
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/mysql/hooks/mysql.py", line 188, in get_conn
+    return MySQLdb.connect(**conn_config)
+  File "/home/airflow/.local/lib/python3.9/site-packages/MySQLdb/__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (1049, "Unknown database 'MODELAME'")
+[2025-11-10T01:53:00.768+0000] {taskinstance.py:1368} INFO - Marking task as UP_FOR_RETRY. dag_id=orquestador, task_id=delete_table_raw, execution_date=20230101T000000, start_date=20251110T015300, end_date=20251110T015300
+[2025-11-10T01:53:00.788+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 135 for task delete_table_raw ((1049, "Unknown database 'MODELAME'"); 5839)
+[2025-11-10T01:53:00.843+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2025-11-10T01:53:01.206+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-10T01:56:43.946+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.delete_table_raw scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-10T01:56:43.959+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.delete_table_raw scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-10T01:56:43.960+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-10T01:56:43.976+0000] {taskinstance.py:1350} INFO - Executing <Task(MySqlOperator): delete_table_raw> on 2023-01-01 00:00:00+00:00
+[2025-11-10T01:56:43.985+0000] {standard_task_runner.py:57} INFO - Started process 5901 to run task
+[2025-11-10T01:56:43.990+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'delete_table_raw', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '137', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmpuzirtdkk']
+[2025-11-10T01:56:44.229+0000] {standard_task_runner.py:85} INFO - Job 137: Subtask delete_table_raw
+[2025-11-10T01:56:44.288+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.delete_table_raw scheduled__2023-01-01T00:00:00+00:00 [running]> on host 94c887adfb7d
+[2025-11-10T01:56:44.383+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='delete_table_raw' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-10T01:56:44.383+0000] {sql.py:262} INFO - Executing: 
+DROP TABLE IF EXISTS diabetes_raw
+
+[2025-11-10T01:56:44.384+0000] {crypto.py:83} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-11-10T01:56:44.385+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-10T01:56:44.460+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-10T01:56:44.492+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/common/sql/operators/sql.py", line 268, in execute
+    output = hook.run(
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/common/sql/hooks/sql.py", line 342, in run
+    with closing(self.get_conn()) as conn:
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/mysql/hooks/mysql.py", line 188, in get_conn
+    return MySQLdb.connect(**conn_config)
+  File "/home/airflow/.local/lib/python3.9/site-packages/MySQLdb/__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (2013, "Lost connection to MySQL server at 'reading initial communication packet', system error: 0")
+[2025-11-10T01:56:44.507+0000] {taskinstance.py:1368} INFO - Marking task as UP_FOR_RETRY. dag_id=orquestador, task_id=delete_table_raw, execution_date=20230101T000000, start_date=20251110T015643, end_date=20251110T015644
+[2025-11-10T01:56:44.539+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 137 for task delete_table_raw ((2013, "Lost connection to MySQL server at 'reading initial communication packet', system error: 0"); 5901)
+[2025-11-10T01:56:44.563+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2025-11-10T01:56:44.814+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-10T02:06:59.382+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.delete_table_raw scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-10T02:06:59.397+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.delete_table_raw scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-10T02:06:59.398+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-10T02:06:59.412+0000] {taskinstance.py:1350} INFO - Executing <Task(MySqlOperator): delete_table_raw> on 2023-01-01 00:00:00+00:00
+[2025-11-10T02:06:59.421+0000] {standard_task_runner.py:57} INFO - Started process 6053 to run task
+[2025-11-10T02:06:59.428+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'delete_table_raw', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '140', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmpe5aa20q6']
+[2025-11-10T02:06:59.432+0000] {standard_task_runner.py:85} INFO - Job 140: Subtask delete_table_raw
+[2025-11-10T02:06:59.704+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.delete_table_raw scheduled__2023-01-01T00:00:00+00:00 [running]> on host 94c887adfb7d
+[2025-11-10T02:06:59.791+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='delete_table_raw' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-10T02:06:59.791+0000] {sql.py:262} INFO - Executing: 
+DROP TABLE IF EXISTS diabetes_raw
+
+[2025-11-10T02:06:59.792+0000] {crypto.py:83} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-11-10T02:06:59.793+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-10T02:06:59.861+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-10T02:06:59.897+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/common/sql/operators/sql.py", line 268, in execute
+    output = hook.run(
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/common/sql/hooks/sql.py", line 342, in run
+    with closing(self.get_conn()) as conn:
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/mysql/hooks/mysql.py", line 188, in get_conn
+    return MySQLdb.connect(**conn_config)
+  File "/home/airflow/.local/lib/python3.9/site-packages/MySQLdb/__init__.py", line 123, in Connect
+    return Connection(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/MySQLdb/connections.py", line 185, in __init__
+    super().__init__(*args, **kwargs2)
+MySQLdb.OperationalError: (1049, "Unknown database 'MODELAME'")
+[2025-11-10T02:06:59.906+0000] {taskinstance.py:1368} INFO - Marking task as UP_FOR_RETRY. dag_id=orquestador, task_id=delete_table_raw, execution_date=20230101T000000, start_date=20251110T020659, end_date=20251110T020659
+[2025-11-10T02:06:59.918+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 140 for task delete_table_raw ((1049, "Unknown database 'MODELAME'"); 6053)
+[2025-11-10T02:06:59.964+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2025-11-10T02:07:00.215+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-10T02:11:15.230+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.delete_table_raw scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-10T02:11:15.253+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.delete_table_raw scheduled__2023-01-01T00:00:00+00:00 [queued]>
+[2025-11-10T02:11:15.253+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-10T02:11:15.271+0000] {taskinstance.py:1350} INFO - Executing <Task(MySqlOperator): delete_table_raw> on 2023-01-01 00:00:00+00:00
+[2025-11-10T02:11:15.286+0000] {standard_task_runner.py:57} INFO - Started process 6123 to run task
+[2025-11-10T02:11:15.293+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'delete_table_raw', 'scheduled__2023-01-01T00:00:00+00:00', '--job-id', '142', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmp8a992ml6']
+[2025-11-10T02:11:15.300+0000] {standard_task_runner.py:85} INFO - Job 142: Subtask delete_table_raw
+[2025-11-10T02:11:15.763+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.delete_table_raw scheduled__2023-01-01T00:00:00+00:00 [running]> on host 94c887adfb7d
+[2025-11-10T02:11:15.885+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='delete_table_raw' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:00:00+00:00'
+[2025-11-10T02:11:15.886+0000] {sql.py:262} INFO - Executing: 
+DROP TABLE IF EXISTS diabetes_raw
+
+[2025-11-10T02:11:15.887+0000] {crypto.py:83} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-11-10T02:11:15.887+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-10T02:11:15.966+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-10T02:11:16.021+0000] {sql.py:375} INFO - Running statement: 
+DROP TABLE IF EXISTS diabetes_raw
+, parameters: None
+[2025-11-10T02:11:16.028+0000] {sql.py:384} INFO - Rows affected: 0
+[2025-11-10T02:11:16.046+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=delete_table_raw, execution_date=20230101T000000, start_date=20251110T021115, end_date=20251110T021116
+[2025-11-10T02:11:16.109+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-11-10T02:11:16.510+0000] {taskinstance.py:2674} INFO - 1 downstream tasks scheduled from follow-on schedule check

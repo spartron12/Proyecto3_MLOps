@@ -198,3 +198,28 @@
 [2025-11-09T03:05:35.318+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=inserta_en_todas_las_tablas, execution_date=20230101T000500, start_date=20251109T030455, end_date=20251109T030535
 [2025-11-09T03:05:35.396+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
 [2025-11-09T03:05:35.460+0000] {taskinstance.py:2674} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-10T02:19:22.800+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orquestador.inserta_en_todas_las_tablas scheduled__2023-01-01T00:05:00+00:00 [queued]>
+[2025-11-10T02:19:22.814+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orquestador.inserta_en_todas_las_tablas scheduled__2023-01-01T00:05:00+00:00 [queued]>
+[2025-11-10T02:19:22.815+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 2
+[2025-11-10T02:19:22.829+0000] {taskinstance.py:1350} INFO - Executing <Task(PythonOperator): inserta_en_todas_las_tablas> on 2023-01-01 00:05:00+00:00
+[2025-11-10T02:19:22.847+0000] {standard_task_runner.py:57} INFO - Started process 6368 to run task
+[2025-11-10T02:19:22.859+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orquestador', 'inserta_en_todas_las_tablas', 'scheduled__2023-01-01T00:05:00+00:00', '--job-id', '161', '--raw', '--subdir', 'DAGS_FOLDER/orquestador.py', '--cfg-path', '/tmp/tmprqyi5j2l']
+[2025-11-10T02:19:22.870+0000] {standard_task_runner.py:85} INFO - Job 161: Subtask inserta_en_todas_las_tablas
+[2025-11-10T02:19:23.170+0000] {task_command.py:410} INFO - Running <TaskInstance: orquestador.inserta_en_todas_las_tablas scheduled__2023-01-01T00:05:00+00:00 [running]> on host 94c887adfb7d
+[2025-11-10T02:19:23.260+0000] {taskinstance.py:1568} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orquestador' AIRFLOW_CTX_TASK_ID='inserta_en_todas_las_tablas' AIRFLOW_CTX_EXECUTION_DATE='2023-01-01T00:05:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-01-01T00:05:00+00:00'
+[2025-11-10T02:19:23.261+0000] {crypto.py:83} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-11-10T02:19:23.261+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-10T02:19:23.322+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.9/site-packages/***/providers/common/sql/hooks/sql.py:201: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+  return psql.read_sql(sql, con=conn, params=parameters, **kwargs)
+
+[2025-11-10T02:19:36.476+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-10T02:19:50.484+0000] {logging_mixin.py:149} INFO - 40852 registros insertados en diabetes_clean_train
+[2025-11-10T02:19:55.318+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-10T02:20:01.327+0000] {logging_mixin.py:149} INFO - 16289 registros insertados en diabetes_clean_val
+[2025-11-10T02:20:03.851+0000] {base.py:73} INFO - Using connection ID 'mysql_conn' for task execution.
+[2025-11-10T02:20:06.859+0000] {logging_mixin.py:149} INFO - 8475 registros insertados en diabetes_clean_test
+[2025-11-10T02:20:06.865+0000] {logging_mixin.py:149} INFO - Datos de entrenamiento y prueba insertados correctamente.
+[2025-11-10T02:20:06.867+0000] {python.py:183} INFO - Done. Returned value was: None
+[2025-11-10T02:20:06.882+0000] {taskinstance.py:1368} INFO - Marking task as SUCCESS. dag_id=orquestador, task_id=inserta_en_todas_las_tablas, execution_date=20230101T000500, start_date=20251110T021922, end_date=20251110T022006
+[2025-11-10T02:20:06.929+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2025-11-10T02:20:06.970+0000] {taskinstance.py:2674} INFO - 1 downstream tasks scheduled from follow-on schedule check

@@ -7,9 +7,11 @@ import os
 import mlflow
 import time
 import asyncio
+import psutil
+
 
 # métricas Prometheus
-from prometheus_client import Counter, Histogram, generate_latest, CONTENT_TYPE_LATEST
+from prometheus_client import Counter, Histogram, generate_latest,Gauge, CONTENT_TYPE_LATEST
 from fastapi.responses import Response
 
 logging.basicConfig(level=logging.INFO)
@@ -28,6 +30,11 @@ REQUEST_COUNT = Counter(
 REQUEST_LATENCY = Histogram(
     'fastapi_request_latency_seconds', 'Histograma del tiempo de latencia de requests', ['endpoint']
 )
+
+CPU_USAGE = Gauge("infra_cpu_usage_percent", "Porcentaje de CPU utilizado")
+MEMORY_USAGE = Gauge("infra_memory_usage_percent", "Porcentaje de memoria utilizada")
+DISK_USAGE = Gauge("infra_disk_usage_percent", "Porcentaje de disco utilizado")
+RESPONSE_LATENCY = Histogram("infra_response_latency_seconds", "Latencia total de respuesta HTTP", ["endpoint"])
 
 # Variables globales modelo
 model = None

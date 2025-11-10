@@ -5,7 +5,7 @@ import os
 
 # -------------------------------
 # Configuración de la API
-API_URL = os.getenv("API_URL", "http://localhost:8000") + "/predict"
+API_URL = os.getenv("API_URL", "http://fastapi-service:8000") + "/predict"
 # -------------------------------
 
 # -------------------------------

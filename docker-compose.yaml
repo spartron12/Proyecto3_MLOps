@@ -390,71 +390,7 @@ services:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
-  # mysql:
-  #   image: mysql:8.0
-  #   container_name: mysql
-  #   restart: always
-  #   environment:
-  #     MYSQL_ROOT_PASSWORD: root_pass
-  #     MYSQL_DATABASE: m 
-  #     MYSQL_USER: my_app_user
-  #     MYSQL_PASSWORD: my_app_pass
-  #   ports:
-  #     - "3306:3306"
-  #   volumes:
-  #     - mysql_data:/var/lib/mysql
 
-  fastapi:
-    build: ./fastapi
-    container_name: fastapi
-    restart: always
-    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
-    volumes:
-      - ./fastapi:/app
-      - ./models:/opt/airflow/models
-    ports:
-      - "8000:8000"
-    depends_on:
-      - airflow-webserver
-    healthcheck:
-      test: ["CMD", "curl", "--fail", "http://localhost:8000/health"]
-      interval: 30s
-      retries: 5
-      start_period: 10s
-      timeout: 10s
-
-  streamlit:
-    build:
-      context: ./streamlit
-      dockerfile: Dockerfile
-    container_name: streamlit_app
-    ports:
-      - "8501:8501"
-    environment:
-      - API_URL=http://fastapi:8000
-    depends_on:
-      - fastapi
-
-  prometheus:
-    image: prom/prometheus:latest
-    volumes:
-      - ./prometheus.yml:/etc/prometheus/prometheus.yml
-    ports:
-      - "9090:9090"
-
-  grafana:
-      image: grafana/grafana:latest
-      container_name: grafana
-      ports:
-        - "3000:3000"
-      depends_on:
-        - prometheus
-      environment:
-        - GF_SECURITY_ADMIN_USER=admin
-        - GF_SECURITY_ADMIN_PASSWORD=admin
-      volumes:
-        - ./grafana/provisioning:/etc/grafana/provisioning
-      restart: unless-stopped
 
 volumes:
 #  minio-data:

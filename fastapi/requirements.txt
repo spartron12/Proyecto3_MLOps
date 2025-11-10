@@ -9,3 +9,4 @@ fastapi
 uvicorn
 numpy==1.25.2
 prometheus-client
+psutil>=5.9.0

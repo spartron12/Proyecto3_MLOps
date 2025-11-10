@@ -27,7 +27,7 @@ MYSQL_DB = "MODELAME"
 # DAG configuration
 start_date = datetime(2023, 1, 1, 0, 0)
 interval = timedelta(minutes=5)
-end_date = start_date + interval * 4  # 10 corridas en total
+end_date = start_date + interval * 7  # 10 corridas en total
 
 default_args = {
     'owner': 'airflow',
