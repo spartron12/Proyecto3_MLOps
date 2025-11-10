@@ -315,7 +315,7 @@ Proyecto3_MLOps/
 
 ---
 
-## 🔧 Componentes del Sistema
+##  Componentes del Sistema
 
 ### 1.  API de Datos en AWS EC2
 
