@@ -1,4 +1,3 @@
-# app_streamlit.py
 import streamlit as st
 import requests
 import os
@@ -8,7 +7,6 @@ import os
 API_URL = os.getenv("API_URL", "http://fastapi-service:8000") + "/predict"
 # -------------------------------
 
-# -------------------------------
 # Función de codificación interna
 def encode_features(input_dict):
     # Edad -> one-hot
@@ -70,7 +68,6 @@ def encode_features(input_dict):
     return features_encoded
 # -------------------------------
 
-# -------------------------------
 # Interfaz Streamlit
 st.title("Predicción de Reingreso Hospitalario en Pacientes Diabéticos")
 
