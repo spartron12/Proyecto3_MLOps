@@ -2104,7 +2104,7 @@ Los servicios desplegados incluyen MySQL para el backend de MLflow, Grafana para
 
 El dashboard de Grafana implementado proporciona visibilidad completa sobre el rendimiento del sistema en tiempo real. Las métricas recopiladas revelan información crítica sobre el comportamiento de la API de inferencia.
 
-![Dashboard de Grafana](images/grafana_dashboard.jpg)
+![Dashboard de Grafana](images/grafana.jpg)
 
 El análisis de las métricas muestra un rate de peticiones estable entre 10-25 requests por segundo distribuidas uniformemente entre los endpoints /health, /model-info y /predict. Los percentiles de latencia P50, P80 y P99 se mantienen consistentemente bajos (0.025, 0.02 y 0.005 segundos respectivamente), indicando tiempos de respuesta predecibles. El panel de errores no reporta incidencias durante el período de observación, confirmando la robustez del sistema. El crecimiento acumulado de requests muestra un incremento lineal sostenido, alcanzando aproximadamente 40,000 peticiones procesadas en el período analizado.
 
